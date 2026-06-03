@@ -1,0 +1,613 @@
+* {
+    --primary-color: #786A62;
+    /* 主色 */
+    --secondary-color: #BAA087;
+    /* 次要顏色 */
+    --bgColor: #F8F5EE;
+    /* 背景色 */
+    --accent: #FF9F9F;
+    /* 強調色 */
+    --semanticG: #D2E9E9;
+    /* 系統狀態色 */
+    --semanticY: #FFFAD7;
+    /* 系統狀態色 */
+    --neutral-100: #C6BAB1;
+    /* 區塊背景1 */
+    --neutral-200: #F2EAE0;
+    /* 區塊背景2 */
+    --neutral-300: #F4D6C9;
+    /* 區塊背景3 */
+    --secondary-txt: #aaa;
+    /* 次要文字 */
+    --padding: 8px;
+    --border-color: 1px solid var(--neutral-100);
+    font-size: 16px;
+    color: #666;
+    letter-spacing: 3px;
+
+}
+
+body {
+    width: 100%;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+nav,
+.kv-container {
+    display: flex;
+    background-color: var(--bgColor);
+    justify-content: space-between;
+    padding: 12px 36px;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+/* 導覽列CSS ---------------------------------*/
+
+nav {
+    .logo {
+        div {
+            width: 120px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .nav-a {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        ul {
+            display: flex;
+            gap: 20px;
+
+            a {
+                display: flex;
+                position: relative;
+
+                .txt-dark,
+                .txt-light {
+                    display: flex;
+                    gap: 8px;
+                    padding: 4px;
+
+                    div {
+                        width: 1.5em;
+                        height: 1.5em;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .txt-dark {
+                    opacity: 1;
+                    transition: .3s;
+
+                    span {
+                        color: var(--primary-color);
+                        font-weight: 500;
+                    }
+                }
+
+                .txt-light {
+                    transition: .3s;
+                    opacity: 0;
+                    position: absolute;
+
+                    span {
+                        color: var(--secondary-color);
+                        font-weight: 500;
+                        left: 0;
+                    }
+                }
+
+                .txt-dark:hover {
+                    opacity: 0;
+                }
+
+                .txt-light:hover {
+                    opacity: 1;
+                }
+            }
+
+            .notify {
+                div {
+                    width: 1.5em;
+                    height: 1.5em;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+/* KV 區CSS ---------------------------------*/
+.kv-container {
+    gap: 36px;
+
+    .kv-img {
+        width: 50%;
+        margin-top: 12px;
+        margin-right: -36px;
+        margin-bottom: -12px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.kv-info {
+    width: 50%;
+
+    .kv-btn {
+        width: 30%;
+        background-color: var(--secondary-color);
+        padding: 12px 12px;
+        border-radius: 32px;
+        margin-top: 28px;
+        transition: .4s;
+        border: 1px solid var(--primary-color);
+
+        div {
+            p,
+            span {
+                color: #fff;
+            }
+        }
+    }
+
+    .kv-btn:hover {
+        background-color: var(--neutral-200);
+        border: 1px solid var(--secondary-color);
+
+        p,
+        span {
+            color: var(--secondary-color);
+        }
+    }
+}
+
+.kv-txt {
+    .title {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 36px;
+
+
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        div {
+            width: 32px;
+            align-content: center;
+
+            img {
+                width: 100%;
+                background-color: rgba(255, 159, 159, 0.2);
+                border-radius: 50%;
+            }
+        }
+
+    }
+}
+
+
+/* 寵物狀態卡  CSS ---------------------------------*/
+.state-card,
+.card-info,
+.gender,
+.pet-state {
+    display: flex;
+}
+
+
+
+.state-card {
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+
+    .pet-card {
+        padding: 20px;
+        width: 40%;
+        justify-content: space-between;
+        position: relative;
+
+        h2 {
+            font-size: 20px;
+            padding: 4px;
+            font-weight: 500;
+            padding-inline: 24px;
+        }
+    }
+
+    .card-info::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 60%;
+        background-color: var(--neutral-100);
+        right: 0;
+        display: flex;
+        align-content: center;
+    }
+
+}
+
+.card-info {
+    padding: 12px;
+
+    .info-img {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 76px;
+        margin-right: 28px;
+        box-shadow: 2px 2px 9px #ccc;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.info-txt {
+    padding: 8px;
+    align-content: center;
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    >p {
+        margin-bottom: 8px;
+    }
+
+    p {
+        color: var(--secondary-txt);
+        font-size: 10px;
+    }
+
+    .gender {
+        gap: 8px;
+
+        div {
+            width: 1em;
+            height: 1em;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.pet-state {
+    width: 60%;
+
+    .mood {
+        height: 100%;
+        align-content: space-around;
+        width: 33.3333%;
+        text-align: center;
+        margin-inline: 20px;
+
+        div {
+            width: 50px;
+            height: 50px;
+            margin: 12px auto;
+            position: relative;
+
+            img {
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 100%;
+                z-index: 1;
+            }
+        }
+    }
+
+    div:nth-child(1)>div::after {
+        content: '';
+        position: absolute;
+        height: 42px;
+        width: 42px;
+        background-color: var(--semanticG);
+        top: 5px;
+        right: -1px;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    div:nth-child(2)>div::after {
+        content: '';
+        position: absolute;
+        height: 42px;
+        width: 42px;
+        background-color: var(--semanticY);
+        top: 5px;
+        right: -1px;
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    div:nth-child(3)>div::after {
+        content: '';
+        position: absolute;
+        height: 42px;
+        width: 42px;
+        background-color: var(--accent);
+        top: 5px;
+        right: -1px;
+        border-radius: 50%;
+        z-index: -1;
+    }
+}
+
+
+/* 健康趨勢  CSS ---------------------------------*/
+
+.healthy-chart {
+    width: 95%;
+    display: flex;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+
+    .chart {
+        width: 100%;
+        padding: 20px;
+
+        canvas {
+            padding: 20px;
+            background-color: rgba(242, 234, 224, .3);
+            margin: auto;
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+}
+
+/* 行事曆  CSS ---------------------------------*/
+.date-board {
+    display: flex;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    gap: 60px;
+    padding-block: 20px;
+}
+
+.calendar {
+    width: 33.3333%;
+    background: url(./images/BGimages.png) no-repeat;
+    background-size: 90% 90%;
+    background-position: center;
+    height: 350px;
+    padding: 20px;
+    align-content: center;
+    margin-left: 88px;
+
+}
+
+
+
+.header {
+    width: 50%;
+    margin: auto;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    button {
+
+        width: 25px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+
+    div {
+        padding: 10px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: .3s;
+    }
+
+    div:hover {
+        background-color: #C6BAB1;
+    }
+
+    .empty {
+        cursor: default;
+    }
+}
+
+.schedule {
+    margin-left: 40px;
+}
+
+.schedule-title {
+    margin-bottom: 20px;
+
+    h2 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+.schedule-txt {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    background-color: rgba(242, 234, 224, .3);
+    padding: 4px 16px;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    box-shadow: 2px 2px 15px rgb(204, 204, 204, .4);
+    margin-bottom: 32px;
+    transition: .3s;
+
+    h4 {
+        font-weight: 500;
+    }
+
+    p {
+        color: var(--secondary-txt);
+        font-size: 12px;
+    }
+}
+
+.txt-left::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent);
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.schedule-txt:hover {
+    cursor: pointer;
+    transform: translateX(2px);
+}
+
+.more {
+
+    button {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 4px;
+        color: var(--primary-color);
+        font-weight: 500;
+        div {
+            height: 1em;
+            width: 1em;
+            transition: .3s;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        div::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+            transition: .3s;
+        }
+
+
+    }
+
+    button:hover {
+
+        div {
+            margin-left: 4px;
+
+        }
+
+        div::after {
+            width: 75%;
+        }
+    }
+}
+
+/* 頁尾  CSS ---------------------------------*/
+footer {
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 20px;
+
+    .index-footer {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+
+        p,
+        span {
+            color: #fff;
+        }
+    }
+}

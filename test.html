@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+        }
+
+        .health-quick-menu {
+            position: relative;
+        }
+
+        /* .health-btn {
+            /* 你的快捷按鈕樣式 
+        } */
+
+        .health-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: flex;
+            gap: 20px;
+            padding: 16px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            /* 預設隱藏 */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        /* hover 時顯示 */
+        .health-quick-menu:hover .health-options {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .health-category {
+            text-align: center;
+        }
+
+        .health-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        form input{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- <div>
+        <div class="health-quick-menu">
+            <button class="health-btn">
+                <img src="健康狀態圖示" alt="健康狀態">
+            </button>
+
+            <div class="health-options">
+                <div class="health-category">
+                    <h4>精神</h4>
+                    <label class="health-option">
+                        <input type="radio" name="spirit" value="good">
+                        <div class="icon">😊</div>
+                        <span>良好</span>
+                    </label>
+                    <label class="health-option">
+                        <input type="radio" name="spirit" value="normal">
+                        <div class="icon">😐</div>
+                        <span>普通</span>
+                    </label>
+                    <label class="health-option">
+                        <input type="radio" name="spirit" value="bad">
+                        <div class="icon">😢</div>
+                        <span>不優</span>
+                    </label>
+                </div>
+                飲食、排泄同樣結構 
+            </div>
+        </div>
+    </div> -->
+
+<datalist></datalist>
+    <script>
+
+        let myChart = document.getElementById('myChart');
+
+        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40],
+            }]
+        };
+
+
+        let chart = new Chart(myChart, {
+            type: 'line', //圖表類型
+            data, //設定圖表資料
+            options: {
+                fill: true,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1,
+                borderJoinStyle: 'miter'
+            } //圖表的一些其他設定，像是hover時外匡加粗
+        })
+    </script>
+
+</body>
+
+</html>
