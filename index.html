@@ -100,7 +100,7 @@
 
 
     <!-- KV 區 --------------------------------------------------->
-    <section class="indexKV">
+    <section class="index-kv">
         <div class="kv-container">
             <div class="kv-info">
                 <div class="kv-txt">
@@ -115,11 +115,10 @@
                     </p>
                 </div>
                 <div class="kv-btn-info">
-                    <button class="kv-btn">
+                    <button id="kv-btn" value="open">
                         <div>
                             <p>
-                                快速紀錄
-                                <span>+</span>
+                                快速紀錄+
                             </p>
                         </div>
                     </button>
@@ -165,7 +164,7 @@
                                 <p>精神</p>
                                 <div>
                                     <label for="good">
-                                        <input type="radio" name="feel" id="good">
+                                        <input type="radio" name="feel" id="good" value="good">
                                         <div>
                                             <img src="./images/mood-smile.svg" alt="">
                                         </div>
@@ -174,7 +173,7 @@
                                 </div>
                                 <div>
                                     <label for="not-bad">
-                                        <input type="radio" name="feel" id="not-bad">
+                                        <input type="radio" name="feel" id="not-bad" value="not-bad">
                                         <div>
                                             <img src="./images/mood-empty.svg" alt="">
                                         </div>
@@ -183,7 +182,7 @@
                                 </div>
                                 <div>
                                     <label for="bad">
-                                        <input type="radio" name="feel" id="bad">
+                                        <input type="radio" name="feel" id="bad" value="bad">
                                         <div>
                                             <img src="./images/mood-sad.svg" alt="">
                                         </div>
@@ -191,13 +190,18 @@
                                     </label>
                                 </div>
                             </div>
+                            <div>
+                                <button type="submit">送出</button>
+                                <button type="reset">清除</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="kv-img">
-                <img src="./images/kvimg.svg" alt="">
-            </div>
+
+        </div>
+        <div class="kv-img">
+            <img src="./images/kvimg.svg" alt="">
         </div>
     </section>
 
@@ -353,7 +357,7 @@
         </div>
     </footer>
 
-
+    <!-- <div id="mask"></div> -->
 
     <script src="script.js"></script>
 </body>

@@ -83,8 +83,18 @@ document.getElementById('next-btn').addEventListener('click', () => {
 
 renderCalendar();
 
-// 導覽列icon顏色變化
 
-document.getElementsByClassName('a-img').addEventListener('mousover',(e)=>{
-    
-},false)
+
+//快速紀錄打開按鈕
+
+let KvBtn = document.getElementById('kv-btn');
+let BtnInfo = document.getElementsByClassName('btn-info');
+KvBtn.addEventListener('click',()=>{
+    if(KvBtn.value === 'open'){
+        KvBtn.value = 'close';
+        BtnInfo[0].classList.add('open');
+    }else{
+        KvBtn.value = 'open';
+        BtnInfo[0].classList.remove('open');
+    }
+},false);
