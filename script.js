@@ -53,6 +53,7 @@ function renderCalendar() {
 
     // 該月第一天是星期幾 (0-6)
     const firstDayIndex = new Date(year, month, 1).getDay();
+    
     // 該月總天數
     const totalDays = new Date(year, month + 1, 0).getDate();
 

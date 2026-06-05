@@ -278,17 +278,17 @@
             <div class="calendar">
                 <div class="header">
                     <div>
-                        <button id="prev-btn">
+                        <button id="back">
                             <img src="./images/arrow-left.svg" alt="">
                         </button>
-                        <h2 id="month-year"></h2>
-                        <button id="next-btn">
+                        <div id="month"></div>
+                        <button id="next">
                             <img src="./images/arrow-right.svg" alt="">
                         </button>
                     </div>
                 </div>
-                <div>
-                    <div class="weekdays">
+                <div class="container">
+                    <div class="week">
                         <div>日</div>
                         <div>一</div>
                         <div>二</div>
@@ -297,7 +297,12 @@
                         <div>五</div>
                         <div>六</div>
                     </div>
-                    <div class="days" id="days-container"></div>
+                    <div id="days"></div>
+                </div>
+                <div>
+                    <button id="back-today">
+                        回到今日
+                    </button>
                 </div>
             </div>
             <div class="schedule">
