@@ -5,122 +5,592 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        div {
-            width: 500px;
-            height: 500px;
+        * {
+            --primary-color: #786A62;
+            /* 主色 */
+            --secondary-color: #BAA087;
+            /* 次要顏色 */
+            --bgColor: #F8F5EE;
+            /* 背景色 */
+            --accent: #FF9F9F;
+            /* 強調色 */
+            --semanticG: #D2E9E9;
+            /* 系統狀態色 */
+            --semanticY: #FFFAD7;
+            /* 系統狀態色 */
+            --neutral-100: #C6BAB1;
+            /* 區塊背景1 */
+            --neutral-200: #F2EAE0;
+            /* 區塊背景2 */
+            --neutral-300: #F4D6C9;
+            /* 區塊背景3 */
+            --secondary-txt: #aaa;
+            /* 次要文字 */
+            --padding: 8px;
+            --border-color: 1px solid var(--neutral-100);
+            font-size: 16px;
+            color: #666;
+            font-family: 'MyCustomFont', 'Microsoft JhengHei', sans-serif;
+
         }
 
-        .health-quick-menu {
-            position: relative;
+        .open {
+            transform: scale(1);
+            opacity: 1;
         }
 
-        /* .health-btn {
-            /* 你的快捷按鈕樣式 
-        } */
+        @font-face {
+            /* 替您的字體取一個名稱，後續將以此名稱呼叫 */
+            font-family: 'MyCustomFont';
+            /* 指向您伺服器或專案中的字體檔案路徑 */
+            src: url('./fonts/jf-openhuninn-2.1.ttf') format('ttf');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
 
-        .health-options {
+        .btn-info {
             position: absolute;
-            top: 100%;
-            left: 0;
+            z-index: 2;
+            padding: 20px;
+            background-color: var(--bgColor);
+            border: 1px solid var(--neutral-100);
+            border-radius: 20px;
+            transform: scale(0);
+            opacity: 0;
+            transition: all .3s ease;
+
+        }
+
+        .open {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .schedule-txt {
+            border: 1px solid var(--neutral-300);
+            border-left: 4px solid var(--accent);
+            border-radius: 5px 0 0 5px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
+            transition: .3s;
+
+            h4,
+            p {
+                margin-bottom: 8px;
+            }
+        }
+
+        .schedule-txt:hover {
+            transform: translateX(2px) translateY(-2px);
+            cursor: pointer;
+            background-color: var(--bgColor);
+        }
+
+
+        .date-board {
+            width: 85%;
+            margin: auto;
             display: flex;
             gap: 20px;
-            padding: 16px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            border: 1px solid var(--neutral-100);
+            border-radius: 20px;
+            padding: 20px;
 
-            /* 預設隱藏 */
+            .calendar {
+                width: 70%;
+                border-right: 1px solid var(--neutral-100);
+                padding: 40px;
+                background: no-repeat url(./images/BGimages.png);
+                background-position: center;
+                background-size: 100% 100%;
+
+
+                >div:last-child {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    #back-today {
+                        border: none;
+                        background-color: transparent;
+                        padding: 4px;
+                        cursor: pointer;
+                        font-size: 12px;
+                        color: var(--secondary-txt);
+                        display: none;
+                    }
+                }
+
+
+                .header {
+                    width: 100%;
+                    margin-bottom: 8px;
+
+                    >div {
+                        display: flex;
+                        width: 70%;
+                        margin: auto;
+                        justify-content: space-between;
+                        align-content: center;
+                        gap: 12px;
+
+                        button {
+                            border: none;
+                            width: 1.5em;
+
+                            background-color: transparent;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        button:hover {
+                            cursor: pointer;
+                        }
+
+                        #month {
+                            text-align: center;
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                .container {
+                    .week {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(7, 1fr);
+                        text-align: center;
+                        padding-block: 12px;
+                        font-weight: 600;
+                        height: 100%;
+                    }
+
+
+                    #days {
+                        display: grid;
+                        flex: 1;
+                        grid-template-columns: repeat(7, 1fr);
+                        grid-template-rows: 1fr;
+                        text-align: center;
+                        gap: 4px;
+                        justify-content: space-between;
+                        height: 100%;
+
+
+                        >div {
+                            border-radius: 50%;
+                            text-align: center;
+                            padding-block: 8px;
+                            transition: .3s;
+                            aspect-ratio: 1 / 1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        div:hover {
+                            background-color: var(--neutral-100);
+                            cursor: pointer;
+                        }
+
+                        .dateBgc {
+                            background-color: var(--primary-color);
+                            color: #fff;
+                        }
+
+                        .dateBgc:hover {
+                            background: var(--secondary-color);
+                        }
+
+                        .empty {
+                            cursor: default;
+                        }
+
+                        .empty:hover {
+                            background: transparent;
+                        }
+                    }
+
+                }
+            }
+
+            .schedule {
+                width: 100%;
+                position: relative;
+
+                >div {
+                    width: 70%;
+                    padding: 12px;
+                    margin: auto;
+
+                    .schedule-title {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-block: 8px;
+
+                        h2 {
+                            font-weight: 500;
+                            font-style: 24px;
+                        }
+                    }
+
+                    #info {
+                        .schedule-txt {
+                            border: 1px solid var(--neutral-300);
+                            border-left: 4px solid var(--accent);
+                            border-radius: 5px 0 0 5px;
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%;
+                            margin-bottom: 20px;
+                            padding: 8px 8px 0;
+                            box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
+                            transition: .3s;
+
+                            h4,
+                            p {
+                                margin-bottom: 8px;
+                            }
+                        }
+
+                        .schedule-txt:hover {
+                            transform: translateX(2px) translateY(-2px);
+                            cursor: pointer;
+                            background-color: var(--bgColor);
+                        }
+                    }
+
+                    .more {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        #morebtn {
+                            display: flex;
+                            font-weight: 600;
+                            gap: 4px;
+                            color: var(--primary-color);
+                            align-items: center;
+                            justify-content: flex-end;
+                            position: relative;
+                            padding: 8px;
+
+                            p::after {
+                                content: '';
+                                position: absolute;
+                                width: 0;
+                                height: 2px;
+                                background-color: var(--primary-color);
+                                left: 0;
+                                bottom: 0;
+                                transition: .4s;
+                            }
+
+                            div:last-child {
+                                width: 1em;
+                                height: 1em;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+
+
+                        #morebtn:hover {
+                            p::after {
+                                width: 100%;
+                            }
+
+                        }
+
+                        .btn-info {
+                            width: 80%;
+                            background-color: #fff;
+                            left: -80px;
+                            top: 0;
+                            transform-origin: right bottom;
+
+                            .txt {
+                                .close {
+
+                                    .bar {
+                                        width: 80%;
+                                        height: 4px;
+                                        background-color: #d73232;
+                                        position: absolute;
+                                        left: 0;
+                                        right: 0;
+                                        margin: auto;
+
+                                    }
+
+                                    .bar:nth-child(1) {
+                                        top: 10px;
+                                        transition: top .3s .3s, rotate .3s;
+                                    }
+
+                                    .bar:nth-child(2) {
+                                        top: 18px;
+
+                                        transition: opacity .3s .1s;
+                                    }
+
+                                    .bar:nth-child(3) {
+                                        top: 26px;
+                                        transition: top .3s .3s, rotate .3s;
+                                    }
+                                }
+
+                                .schedule-txt {
+                                    width: 70%;
+                                    margin: auto auto 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .mask {
+            background: rgba(120, 106, 98, 0.12);
+            backdrop-filter: blur(4px);
+            position: fixed;
             opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
+            visibility: hidden;
+            transition: .3s;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
         }
 
-        /* hover 時顯示 */
-        .health-quick-menu:hover .health-options {
+        .show {
+            width: 100%;
+            height: 100%;
             opacity: 1;
-            pointer-events: auto;
-        }
-
-        .health-category {
-            text-align: center;
-        }
-
-        .health-option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        form input{
-            display: block;
+            visibility: visible;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
-    <!-- <div>
-        <div class="health-quick-menu">
-            <button class="health-btn">
-                <img src="健康狀態圖示" alt="健康狀態">
-            </button>
-
-            <div class="health-options">
-                <div class="health-category">
-                    <h4>精神</h4>
-                    <label class="health-option">
-                        <input type="radio" name="spirit" value="good">
-                        <div class="icon">😊</div>
-                        <span>良好</span>
-                    </label>
-                    <label class="health-option">
-                        <input type="radio" name="spirit" value="normal">
-                        <div class="icon">😐</div>
-                        <span>普通</span>
-                    </label>
-                    <label class="health-option">
-                        <input type="radio" name="spirit" value="bad">
-                        <div class="icon">😢</div>
-                        <span>不優</span>
-                    </label>
+    <section>
+        <div class="date-board">
+            <div class="calendar">
+                <div class="header">
+                    <div>
+                        <button id="back">
+                            <img src="./images/arrow-left.svg" alt="">
+                        </button>
+                        <div id="month"></div>
+                        <button id="next">
+                            <img src="./images/arrow-right.svg" alt="">
+                        </button>
+                    </div>
                 </div>
-                飲食、排泄同樣結構 
+                <div class="container">
+                    <div class="week">
+                        <div>日</div>
+                        <div>一</div>
+                        <div>二</div>
+                        <div>三</div>
+                        <div>四</div>
+                        <div>五</div>
+                        <div>六</div>
+                    </div>
+                    <div id="days"></div>
+                </div>
+                <div>
+                    <button id="back-today">
+                        回到今日
+                    </button>
+                </div>
+            </div>
+            <div class="schedule">
+                <div>
+                    <div class="schedule-title">
+                        <h2>近期行程</h2>
+                        <button class="">
+                            新增事件+
+                        </button>
+                    </div>
+                    <div id="info"></div>
+                    <div class="more">
+                        <button id="morebtn" value="open">
+                            <p>
+                                查看更多
+                            </p>
+                            <div>
+                                <img src="./images/arrow-right.svg" alt="">
+                            </div>
+                        </button>
+                        <div id="more-sch" class="btn-info"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
+    </section>
+    <div class="mask"></div>
 
-<datalist></datalist>
+    
     <script>
 
-        let myChart = document.getElementById('myChart');
+        // 顯示更多行程按鈕
 
-        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'My First Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40],
-            }]
-        };
+        let MoreBtn = document.getElementById('morebtn');
+        let ViewMore = document.getElementById('more-sch');
+        let ShowMask = document.getElementsByClassName('mask');
+        let totalSchedule = [
+            { schid: 1, schname: '施打疫苗', info: 'XXX寵物綜合醫院', date: '6/15', time: '上午 9:00' },
+            { schid: 2, schname: '寵物美容', info: 'XXX寵物美容旅館', date: '6/27', time: '下午 3:00' },
+            { schid: 3, schname: '健康檢查', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
+            { schid: 4, schname: '事件4', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
+            { schid: 5, schname: '事件5', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
+            { schid: 6, schname: '事件6', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
+        ];
+        const Close = `<div class = 'close'>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>`;
+        MoreBtn.addEventListener('click', () => {
+            if (MoreBtn.value === 'open') {
+                MoreBtn.value = 'close';
+                ViewMore.classList.add('open');
+                ShowMask[0].classList.add('show');
+
+            } else {
+                ViewMore.classList.remove('open');
+                MoreBtn.value = 'open';
+            }
+        }, false);
+        showScheduleInfo();
+        CloseMask();
+
+        function CloseMask() {
+            ShowMask[0].addEventListener('click', () => {
+                ShowMask[0].classList.remove('show');
+            }, false);
+        }
+
+        function showScheduleInfo() {
+            let schHtml = '';
+            let moreHtml = '';
+
+            for (let i = 0; i < totalSchedule.length; i++) {
+                let sch = totalSchedule[i];
+                let schInfo = `<div class="schedule-txt">
+                                    <div class="txt-left">
+                                        <h4>${sch.schname}</h4>
+                                        <p>${sch.info}</p>
+                                    </div>
+                                    <div class="txt-date">
+                                        <p>${sch.date}</p>
+                                        <p>${sch.time}</p>
+                                    </div>
+                                </div>`;
+                if (i < 3) {
+                    schHtml += schInfo;
+                } else {
+                    moreHtml += `<div class = 'txt'>
+                                    ${Close}
+                                    ${schInfo}
+                                </div>`;
+                }
+            }
+            document.getElementById('info').innerHTML = schHtml;
+            document.getElementById('more-sch').innerHTML = moreHtml;
+        }
 
 
-        let chart = new Chart(myChart, {
-            type: 'line', //圖表類型
-            data, //設定圖表資料
-            options: {
-                fill: true,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1,
-                borderJoinStyle: 'miter'
-            } //圖表的一些其他設定，像是hover時外匡加粗
+
+
+
+
+
+
+
+
+
+
+        let now = new Date();
+        const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const Year = now.getFullYear();
+        const NowMonth = now.getMonth();
+        const BackToday = document.getElementById('back-today');
+
+        // 點擊按鈕
+        document.getElementById('back').addEventListener('click', () => {
+            now.setMonth(now.getMonth() - 1);
+            history();
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            now.setMonth(now.getMonth() + 1);
+            if (now.getMonth() === 11) {
+                now.setFullYear(now.getFullYear() + 1);
+            }
+            history();
+        });
+
+        BackToday.addEventListener('click', () => {
+            now.setMonth(NowMonth);
+            history();
         })
-    </script>
+        history();
 
+
+        function history() {
+            const month = now.getMonth();
+            const date = now.getDay();
+            let days = document.getElementById('days');
+            //設定日曆月份
+            document.getElementById('month').textContent = `${Year}${Months[month]}`;
+            //設定日期
+            const FirstDay = new Date(Year, month, 1).getDay(); // 取得月份第一天是星期幾
+            const TotalDay = new Date(Year, month + 1, 0).getDate(); // 取得當月的總天數
+
+
+            let infoDay = [];
+            infoDay = days;
+            infoDay.innerHTML = '';
+
+
+            // 判斷當月第一天前面須補幾個空格
+            for (let i = 0; i < FirstDay; i++) {
+                infoDay.innerHTML += `<div class = 'empty'></div>`;
+            }
+
+            // for迴圈跑出當月日期
+            for (let i = 1; i <= TotalDay; i++) {
+                infoDay.innerHTML += `<div id='${i}'>${i}</div>`;
+                if (month === NowMonth && i === date) {
+                    document.getElementById(i).classList.add('dateBgc');
+                }
+            }
+
+            if (month !== NowMonth) {
+                BackToday.style.display = 'block';
+            } else {
+                BackToday.style.display = 'none';
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
