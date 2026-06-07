@@ -1,0 +1,528 @@
+.index-kv {
+    width: 100%;
+    background-color: var(--bgColor);
+    display: flex;
+    padding: 40px;
+
+    .kv-container {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .kv-info {
+            width: 40%;
+            margin: auto;
+
+            .kv-txt {
+                .title {
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                    margin-bottom: 24px;
+
+                    h1 {
+                        font-size: 36px;
+                        font-weight: 600;
+                    }
+
+                    div {
+                        width: 2em;
+                        height: 2em;
+                        background-color: var(--neutral-300);
+                        border-radius: 50%;
+                        padding: 4px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                p {
+                    margin-bottom: 24px;
+                }
+            }
+
+            .kv-btn-info {
+                position: relative;
+
+                #kv-btn {
+                    background-color: var(--primary-color);
+                    padding: 12px;
+                    border-radius: 20px;
+                    border: 1px solid var(--primary-color);
+                    transition: .3s;
+
+                    p {
+                        color: #fff;
+                    }
+                }
+
+                #kv-btn:hover {
+                    background-color: var(--neutral-200);
+                    padding: 12px;
+                    border-radius: 20px;
+                    border: 1px solid var(--secondary-color);
+
+                    p {
+                        color: var(--secondary-color);
+                    }
+                }
+
+
+                .btn-info {
+                    right: 0;
+                    left: 60px;
+                    margin-top: 20px;
+                    transform-origin: left top;
+
+                    form {
+                        >div {
+                            padding: 8px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .kv-img {
+        width: 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/* 寵物狀態卡  CSS ---------------------------------*/
+.state-card,
+.card-info,
+.gender,
+.pet-state {
+    display: flex;
+}
+
+
+
+.state-card {
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+
+    .pet-card {
+        padding: 20px;
+        width: 40%;
+        justify-content: space-between;
+        position: relative;
+
+        h2 {
+            font-size: 20px;
+            padding: 4px;
+            font-weight: 600;
+            padding-inline: 24px;
+        }
+    }
+
+    .card-info::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 60%;
+        background-color: var(--neutral-100);
+        right: 0;
+        display: flex;
+        align-content: center;
+    }
+
+}
+
+.card-info {
+    padding: 12px;
+
+    .info-img {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 76px;
+        margin-right: 28px;
+        box-shadow: 2px 2px 9px #ccc;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.info-txt {
+    padding: 8px;
+    align-content: center;
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    >p {
+        margin-bottom: 8px;
+    }
+
+    p {
+        color: var(--secondary-txt);
+        font-size: 10px;
+    }
+
+    .gender {
+        gap: 8px;
+
+        div {
+            width: 1em;
+            height: 1em;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.pet-state {
+    width: 60%;
+
+    .mood {
+        height: 100%;
+        align-content: space-around;
+        width: 33.3333%;
+        text-align: center;
+        margin-inline: 20px;
+
+        div {
+            width: 50px;
+            height: 50px;
+            margin: 12px auto;
+            position: relative;
+
+            img {
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 100%;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+
+/* 健康趨勢  CSS ---------------------------------*/
+
+.healthy-chart {
+    width: 90%;
+    display: flex;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .chart {
+        width: 48%;
+        padding: 20px;
+        background-color: rgba(242, 234, 224, .3);
+        margin: auto;
+        border-radius: 20px;
+
+    }
+}
+
+/* 行事曆  CSS ---------------------------------*/
+.schedule-txt {
+    border: 1px solid var(--neutral-300);
+    border-left: 4px solid var(--accent);
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 8px 8px 0;
+    box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
+    transition: .3s;
+
+    h4,
+    p {
+        margin-bottom: 8px;
+    }
+}
+
+.schedule-txt:hover {
+    transform: translateX(2px) translateY(-2px);
+    cursor: pointer;
+    background-color: var(--bgColor);
+}
+
+
+.date-board {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    border: 1px solid var(--neutral-100);
+    border-radius: 20px;
+    padding: 20px;
+
+    .calendar {
+        width: 70%;
+        border-right: 1px solid var(--neutral-100);
+        padding: 40px;
+        background: no-repeat url(./images/BGimages.png);
+        background-position: center;
+        background-size: 100% 100%;
+
+
+        >div:last-child {
+            display: flex;
+            justify-content: flex-end;
+
+            #back-today {
+                border: none;
+                background-color: transparent;
+                padding: 4px;
+                cursor: pointer;
+                font-size: 12px;
+                color: var(--secondary-txt);
+                display: none;
+            }
+        }
+
+
+        .header {
+            width: 100%;
+            margin-bottom: 8px;
+
+            >div {
+                display: flex;
+                width: 70%;
+                margin: auto;
+                justify-content: space-between;
+                align-content: center;
+                gap: 12px;
+
+                button {
+                    border: none;
+                    width: 1.5em;
+
+                    background-color: transparent;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                button:hover {
+                    cursor: pointer;
+                }
+
+                #month {
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .container {
+            .week {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                text-align: center;
+                padding-block: 12px;
+                font-weight: 600;
+                height: 100%;
+            }
+
+
+            #days {
+                display: grid;
+                flex: 1;
+                grid-template-columns: repeat(7, 1fr);
+                grid-template-rows: 1fr;
+                text-align: center;
+                gap: 4px;
+                justify-content: space-between;
+                height: 100%;
+
+
+                >div {
+                    border-radius: 50%;
+                    text-align: center;
+                    padding-block: 8px;
+                    transition: .3s;
+                    aspect-ratio: 1 / 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                div:hover {
+                    background-color: var(--neutral-100);
+                    cursor: pointer;
+                }
+
+                .dateBgc {
+                    background-color: var(--primary-color);
+                    color: #fff;
+                }
+
+                .dateBgc:hover {
+                    background: var(--secondary-color);
+                }
+
+                .empty {
+                    cursor: default;
+                }
+
+                .empty:hover {
+                    background: transparent;
+                }
+            }
+
+        }
+    }
+
+    .schedule {
+        width: 100%;
+        position: relative;
+
+        >div {
+            width: 70%;
+            padding: 12px;
+            margin: auto;
+
+            .schedule-title {
+                display: flex;
+                justify-content: space-between;
+                padding-block: 8px;
+
+                h2 {
+                    font-weight: 500;
+                    font-style: 24px;
+                }
+            }
+
+            #info {
+                .schedule-txt {
+                    border: 1px solid var(--neutral-300);
+                    border-left: 4px solid var(--accent);
+                    border-radius: 5px 0 0 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    padding: 8px 8px 0;
+                    box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
+                    transition: .3s;
+
+                    h4,
+                    p {
+                        margin-bottom: 8px;
+                    }
+                }
+
+                .schedule-txt:hover {
+                    transform: translateX(2px) translateY(-2px);
+                    cursor: pointer;
+                    background-color: var(--bgColor);
+                }
+            }
+
+            .more {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                #morebtn {
+                    display: flex;
+                    font-weight: 600;
+                    gap: 4px;
+                    color: var(--primary-color);
+                    align-items: center;
+                    justify-content: flex-end;
+                    position: relative;
+                    padding: 8px;
+
+                    p::after {
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 2px;
+                        background-color: var(--primary-color);
+                        left: 0;
+                        bottom: 0;
+                        transition: .4s;
+                    }
+
+                    div:last-child {
+                        width: 1em;
+                        height: 1em;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+
+                #morebtn:hover {
+                    p::after {
+                        width: 100%;
+                    }
+
+                }
+
+                .btn-info {
+                    width: 80%;
+                    background-color: #fff;
+                    left: -80px;
+                    top: 0;
+                    transform-origin: right bottom;
+
+
+                    #close {
+                        width: 100%;
+                        display: flex;
+                        height: 100%;
+                        justify-content: flex-end;
+                        margin-bottom: 12px;
+
+                        >div {
+                            width: 1.5em;
+                            padding: 4px;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+                        >div:hover {
+                            cursor: pointer;
+                        }
+
+                    }
+
+                    .schedule-txt {
+                        width: 70%;
+                        margin: auto auto 20px;
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mofli | 登入</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            position: relative;
+            background-color: var(--bgColor);
+            overflow: hidden;
+        }
+
+        section {
+            height: 100vh;
+            padding: 40px;
+        }
+
+        .bottomimg {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            z-index: -1;
+            bottom: 0;
+
+            img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <section>
+        <div class="login">
+            <div class="login-title">
+                <div class="title-icon">
+                    <h1>歡迎回來</h1>
+                    <img src="./images/footprints.svg" alt="">
+                </div>
+                <p>登入帳號繼續使用服務</p>
+            </div>
+            <div class="login-form">
+                <form action="" autocomplete="off">
+                    <div>
+                        <label for="">Email</label>
+                        <div class="input-style">
+                            <input type="email" name="email" placeholder="請輸入帳號" id="user-email">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="">Password</label>
+                        <div class="input-style">
+                            <input type="password" name="psw" placeholder="請輸入密碼" id="user-psw">
+                            <span>
+                                <img src="images/closepsw.svg" alt="" title="false" id="openpsw">
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="check-style">
+                        <label for="remember">
+                            <div>
+                                <img src="./images/checkbox-false.svg" alt="" title="false" id="checkbox-img">
+                            </div>
+                            <input type="checkbox" id="remember">記住我
+                        </label>
+                        <div class="a-hover-style">
+                            <a href="#">忘記密碼?</a>
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="登入" id="submit">
+                    </div>
+                </form>
+                <div class="or">
+                    <p>或</p>
+                </div>
+                <div class="icon-link">
+                    <a href="#">
+                        <img src="./images/google.svg" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="./images/facebook.svg" alt="">
+                    </a>
+                </div>
+                <div>
+                    <p>
+                        還沒有帳號?
+                    </p>
+                    <a href="#" class="a-hover-style">立即註冊</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="bottomimg">
+        <img src="./images/loginimg.svg" alt="">
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>

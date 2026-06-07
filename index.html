@@ -7,6 +7,7 @@
     <title>Mofli | 首頁</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -105,13 +106,13 @@
             <div class="kv-info">
                 <div class="kv-txt">
                     <div class="title">
-                        <h1>Mofli陪伴每一天，記錄每一刻</h1>
+                        <h1>守護毛孩健康的每一天</h1>
                         <div>
                             <img src="./images/sun.svg" alt="">
                         </div>
                     </div>
                     <p>
-                        從日常飲食到健康變化，讓每個成長瞬間都被好好收藏。
+                        整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。
                     </p>
                 </div>
                 <div class="kv-btn-info">
@@ -122,7 +123,7 @@
                             </p>
                         </div>
                     </button>
-                    <div class="btn-info">
+                    <!-- <div class="btn-info">
                         <form action="" method="get">
                             <div>
                                 <label for="">
@@ -195,14 +196,14 @@
                                 <button type="reset">清除</button>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-
-        </div>
-        <div class="kv-img">
+            <div class="kv-img">
             <img src="./images/kvimg.svg" alt="">
         </div>
+        </div>
+        
     </section>
 
 
@@ -309,44 +310,22 @@
                 <div>
                     <div class="schedule-title">
                         <h2>近期行程</h2>
+                        <button class="">
+                            新增事件+
+                        </button>
                     </div>
-                    <div class="schedule-txt">
-                        <div class="txt-left">
-                            <h4>施打疫苗</h4>
-                            <p>XXX綜合寵物醫院</p>
-                        </div>
-                        <div class="txt-right">
-                            <p>6/5</p>
-                            <p> 上午10:00</p>
-                        </div>
-                    </div>
-                    <div class="schedule-txt">
-                        <div class="txt-left">
-                            <h4>施打疫苗</h4>
-                            <p>XXX綜合寵物醫院</p>
-                        </div>
-                        <div class="txt-right">
-                            <p>6/5</p>
-                            <p> 上午10:00</p>
-                        </div>
-                    </div>
-                    <div class="schedule-txt">
-                        <div class="txt-left">
-                            <h4>施打疫苗</h4>
-                            <p>XXX綜合寵物醫院</p>
-                        </div>
-                        <div class="txt-right">
-                            <p>6/5</p>
-                            <p> 上午10:00</p>
-                        </div>
-                    </div>
+                    <div id="info"></div>
                     <div class="more">
-                        <button>
-                            查看更多
+                        <button id="morebtn" value="open">
+                            <p>
+                                查看更多
+                            </p>
                             <div>
                                 <img src="./images/arrow-right.svg" alt="">
                             </div>
                         </button>
+                        <div id="more-sch" class="btn-info">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -362,9 +341,9 @@
         </div>
     </footer>
 
-    <!-- <div id="mask"></div> -->
+    <div class="mask"></div>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
