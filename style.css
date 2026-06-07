@@ -114,6 +114,58 @@ nav {
             display: flex;
             gap: 20px;
 
+            li {
+                position: relative;
+
+
+            }
+
+            li:hover {
+                .sub-project {
+                    opacity: 1;
+                    visibility: visible;
+
+                }
+            }
+
+            .sub-project {
+                position: absolute;
+                display: block;
+                border-radius: 5px;
+                background-color: #fff;
+                width: 100%;
+                visibility: hidden;
+                opacity: 0;
+                transition: .3s;
+                padding-inline: 4px;
+
+                a {
+                    display: inline-block;
+                    padding: 4px;
+                    width: 100%;
+                    text-align-last: justify;
+                    transition: .3s;
+                    border-radius: 5px;
+                    margin-block: 4px;
+                }
+                li{
+                    margin-block: 4px;
+                }
+                a:hover{
+                    background-color: var(--neutral-100);
+                    color: #fff;
+                    border-radius: 5px;
+                }
+                li:first-child,
+                li+li {
+                    border-bottom: 1px solid #666;
+                }
+
+                li:last-child {
+                    border: none;
+                }
+            }
+
             a {
                 display: flex;
                 position: relative;
@@ -175,6 +227,8 @@ nav {
                     }
                 }
             }
+
+
         }
     }
 

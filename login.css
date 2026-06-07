@@ -1,3 +1,50 @@
+body {
+    position: relative;
+    background-color: var(--bgColor);
+    overflow: hidden;
+    background-image:
+        url('./images/cloud02.svg'),
+        url('./images/cloud01.svg'),
+        url('./images/cloud01.svg'),
+        url('./images/cloud02.svg');
+    background-position:
+        10% 10%,
+        85% 15%,
+        20% 25%,
+        75% 30%;
+    background-repeat: no-repeat, no-repeat, no-repeat no-repeat;
+    background-size: 80px, 60px, 70px;
+
+    >img {
+        position: fixed;
+        bottom: 72px;
+        right: 280px;
+        width: 250px;
+        z-index: 10;
+    }
+}
+
+section {
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+
+
+}
+
+.bottomimg {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+    bottom: 0;
+
+    img {
+        width: 100%;
+    }
+}
+
+
 /* 登入畫面CSS ---------------------------------*/
 .login {
     margin: auto;
@@ -29,8 +76,6 @@
     .a-hover-style:hover::after {
         width: 100%;
     }
-
-
 
     .login-title {
         text-align: center;
@@ -236,7 +281,7 @@
 
 .login::after {
     z-index: -2;
-    transform: rotate(8deg);
+    transform: rotate(6deg);
     border: 1px solid var(--primary-color);
 }
 
