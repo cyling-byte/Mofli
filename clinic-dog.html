@@ -7,10 +7,10 @@
     <title>Mofli | 診療室</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="clinic.css">
+    <link rel="stylesheet" href="clinic-animal.css">
 </head>
 
-<body>
+<body class="dog">
     <nav>
         <div class="logo">
             <a href="./index.html">
@@ -112,46 +112,85 @@
     </nav>
     <section>
         <div class="wrapper">
-            <div class="title">今天想詢問甚麼呢?</div>
-            <div class="content">
-                <div class="card">
-                    <div class="card-title">
-                        <p>狗</p>
-                        <p>Dog</p>
+            <div class="left-info">
+                <div>
+                    <div class="left-txt">
+                        <div class="info-title">
+                            <h1>狗狗診療室</h1>
+                            <div class="title-img">
+                                <img src="./images/pen.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="info-txt">
+                            <p>點選身體部位快速了解常見症狀<br>讓我們一起守護毛孩健康!</p>
+                        </div>
                     </div>
-                    <div class="img-container">
-                        <button class="card-btn" data-target="./clinic-dog.html">
-                            <img src="./images/card-dog.svg" alt="">
-                        </button>
+                    <div class="se-hotspot">
+                        <button class="hp-btn"></button>
+                        <button class="hp-btn"></button>
+                        <button class="hp-btn"></button>
+                        <button class="hp-btn"></button>
+                        <button class="hp-btn" data-part="abdomen"></button>
+                        <button class="hp-btn"></button>
+                        <button class="breathing-light"></button>
+                        <button class="breathing-light"></button>
+                        <button class="breathing-light"></button>
+                        <button class="breathing-light"></button>
+                        <button class="breathing-light"></button>
+                        <button class="breathing-light"></button>
+                        <div>
+                            <img src="./images/dog.svg" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">
-                        <p>貓</p>
-                        <p>Cat</p>
-                    </div>
-                    <div class="img-container">
-                        <button class="card-btn" data-target="./clinic-cat.html">
-                            <img src="./images/card-cat.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">
-                        <p>倉鼠</p>
-                        <p>Hamster</p>
-                    </div>
-                    <div class="img-container">
-                        <button class="card-btn" data-target="./clinic-hamster.html">
-                            <img src="./images/card-hamster.svg" alt="">
-                        </button>
+                    <div class="prompt-txt">
+                        <div>
+                            <img src="./images/light-bulb.svg" alt="">
+                        </div>
+                        <p>點擊上方紅色圓點選擇想詢問的部分</p>
                     </div>
                 </div>
             </div>
-            <div class="more">
-                <button id="morebtn">
-                    <p>其他</p>
-                </button>
+            <div>
+                <div class="right-info">
+                    <div class="qa-content">
+
+                        <div class="qa show-animation">
+                            <div class="txt">
+                                <p>請問今天想詢問的內容是?</p>
+                            </div>
+                        </div>
+                        <div class="qa ans" id="abdomen">
+                            <div class="txt user">
+                                <p>我想詢問狗狗的腹部</p>
+                            </div>
+                        </div>
+                        <div class="qa">
+                            <div class="txt ">
+                                <p>請問詳細症狀是?</p>
+                            </div>
+                        </div>
+                        <div class="qa ans">
+                            <div class="txt user">
+                                <p>最近一直嘔吐</p>
+                            </div>
+                        </div>
+                        <div class="qa">
+                            <div class="txt ">
+                                <p>需要盡快就醫</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid-txt">
+                        <div>
+                            <p>請選擇最接近症狀</p>
+                        </div>
+                    </div>
+                    <div class="sx">
+                        <button class="sx-btn" data-symptom="Vomit">嘔吐</button>
+                        <button class="sx-btn">腹瀉</button>
+                        <button class="sx-btn">腹部腫脹</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -163,13 +202,31 @@
         </div>
     </footer>
     <script>
-        // 卡片按鈕跳轉頁面
-        document.querySelectorAll('.card-btn').forEach(btn => {
+        let hpBtns = document.querySelectorAll('.hp-btn');
+        let sxBtns = document.querySelectorAll('.sx-btn');
+        let Qa = document.querySelectorAll('.qa');
+        hpBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
-                window.location.href = btn.dataset.target;
-            }, false);
-        });
+                const part = btn.dataset.part;
+                document.getElementById(part).classList.add('show-animation');
+                setTimeout(() => {
+                    Qa[2].classList.add('show-animation');
+                }, 2000)
+            }, false)
+        })
+
+        sxBtns.forEach((sxbtn) => {
+            sxbtn.addEventListener('click', () => {
+                const symptom = sxbtn.dataset.symptom;
+                Qa[3].classList.add('show-animation');
+                console.log('yes');
+                setTimeout(() => {
+                    Qa[4].classList.add('show-animation');
+                }, 2000)
+            }, false)
+        })
     </script>
+
 </body>
 
 </html>
