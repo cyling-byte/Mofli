@@ -83,7 +83,7 @@ history();
 
 function history() {
     const month = now.getMonth();
-    const date = now.getDay();
+    const date = now.getDate();
     let days = document.getElementById('days');
     //設定日曆月份
     document.getElementById('month').textContent = `${Year} ${Months[month]}`;
