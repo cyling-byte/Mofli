@@ -4,35 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日曆</title>
-    <style>
-        .history {
-            .week {
-                display: flex;
-                gap: 20px;
-            }
-        }
-    </style>
+    <title>Mofli | 診療室</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="clinic.css">
 </head>
 
 <body>
-    <div>
-        <div class="month">
-            <p>&nbsp;</p>
+    <nav>
+        <div class="logo">
+            <a href="./index.html">
+                <div>
+                    <img src="./images/logo.svg" alt="">
+                </div>
+            </a>
         </div>
-        <div class="week">
-            <p>&nbsp;</p>
+        <div class="nav-a">
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <div class="txt-dark">
+                            <div>
+                                <img src="./images/home.svg" alt="">
+                            </div>
+                            <span>陪伴日常</span>
+                        </div>
+                        <div class="txt-light">
+                            <div>
+                                <img src="./images/home02.svg" alt="">
+                            </div>
+                            <span>陪伴日常</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="txt-dark">
+                            <div>
+                                <img src="./images/log.svg" alt="">
+                            </div>
+                            <span>成長紀錄</span>
+                        </div>
+                        <div class="txt-light">
+                            <div>
+                                <img src="./images/log02.svg" alt="">
+                            </div>
+                            <span>成長紀錄</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="txt-dark">
+                            <div>
+                                <img src="./images/clinic-medical.svg" alt="">
+                            </div>
+                            <span>照護小屋</span>
+                        </div>
+                        <div class="txt-light">
+                            <div>
+                                <img src="./images/clinic-medical02.svg" alt="">
+                            </div>
+                            <span>照護小屋</span>
+                        </div>
+                    </a>
+                    <ul class="sub-project">
+                        <li>
+                            <a href="#">新手指南</a>
+                        </li>
+                        <li>
+                            <a href="clinic.html">診療室</a>
+                        </li>
+                        <li>
+                            <a href="#">找個醫生</a>
+                        </li>
+                        <li>
+                            <a href="#">交流所</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="txt-dark">
+                            <div>
+                                <img src="./images/user.svg" alt="">
+                            </div>
+                            <span>我的帳戶</span>
+                        </div>
+                        <div class="txt-light">
+                            <div>
+                                <img src="./images/user02.svg" alt="">
+                            </div>
+                            <span>我的帳戶</span>
+                        </div>
+                    </a>
+                    <ul class="sub-project">
+                        <li><a href="login.html">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="notify">
+                <div>
+                    <img src="./images/bell.svg" alt="">
+                </div>
+            </button>
         </div>
-        <div class="date">
-            <p>&nbsp;</p>
+    </nav>
+    <section>
+        <div class="wrapper">
+            <div class="title">今天想詢問甚麼呢?</div>
+            <div class="content">
+                <div class="card">
+                    <div class="card-title">
+                        <p>狗</p>
+                        <p>Dog</p>
+                    </div>
+                    <div class="img-container">
+                        <button class="card-btn" data-target="./clinic-dog.html">
+                            <img src="./images/card-dog.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <p>貓</p>
+                        <p>Cat</p>
+                    </div>
+                    <div class="img-container">
+                        <button class="card-btn" data-target="./clinic-cat.html">
+                            <img src="./images/card-cat.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <p>倉鼠</p>
+                        <p>Hamster</p>
+                    </div>
+                    <div class="img-container">
+                        <button class="card-btn" data-target="./clinic-hamster.html">
+                            <img src="./images/card-hamster.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="more">
+                <button id="morebtn">
+                    <p>其他</p>
+                </button>
+            </div>
         </div>
-    </div>
-    <script>
-        let now = new Date();
-        function getDate(){
-            let month = 
-        }
-    </script>
+    </section>
+
+    <footer>
+        <div class="index-footer">
+            <p>電子信箱 : <span>example@gmail.com</span></p>
+            <p>電話 : <span>0900-000-000</span></p>
+        </div>
+    </footer>
+    <script></script>
 </body>
 
 </html>

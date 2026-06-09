@@ -6,590 +6,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            --primary-color: #786A62;
-            /* 主色 */
-            --secondary-color: #BAA087;
-            /* 次要顏色 */
-            --bgColor: #F8F5EE;
-            /* 背景色 */
-            --accent: #FF9F9F;
-            /* 強調色 */
-            --semanticG: #D2E9E9;
-            /* 系統狀態色 */
-            --semanticY: #FFFAD7;
-            /* 系統狀態色 */
-            --neutral-100: #C6BAB1;
-            /* 區塊背景1 */
-            --neutral-200: #F2EAE0;
-            /* 區塊背景2 */
-            --neutral-300: #F4D6C9;
-            /* 區塊背景3 */
-            --secondary-txt: #aaa;
-            /* 次要文字 */
-            --padding: 8px;
-            --border-color: 1px solid var(--neutral-100);
-            font-size: 16px;
-            color: #666;
-            font-family: 'MyCustomFont', 'Microsoft JhengHei', sans-serif;
-
+        .qa-panel {
+            width: 50%;
+            overflow-y: auto;
+            /* ✅ 超過高度可以滾動 */
+            max-height: 500px;
         }
 
-        .open {
-            transform: scale(1);
-            opacity: 1;
+        .qa-block {
+            padding: 12px;
+            margin-bottom: 16px;
+            animation: fadeIn .3s ease;
+            /* ✅ 淡入效果 */
         }
 
-        @font-face {
-            /* 替您的字體取一個名稱，後續將以此名稱呼叫 */
-            font-family: 'MyCustomFont';
-            /* 指向您伺服器或專案中的字體檔案路徑 */
-            src: url('./fonts/jf-openhuninn-2.1.ttf') format('ttf');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+        .question {
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
-        .btn-info {
-            position: absolute;
-            z-index: 2;
-            padding: 20px;
-            background-color: var(--bgColor);
-            border: 1px solid var(--neutral-100);
-            border-radius: 20px;
-            transform: scale(0);
-            opacity: 0;
-            transition: all .3s ease;
-
-        }
-
-        .open {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .schedule-txt {
-            border: 1px solid var(--neutral-300);
-            border-left: 4px solid var(--accent);
-            border-radius: 5px 0 0 5px;
+        .options {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-bottom: 20px;
-            padding: 8px 8px 0;
-            box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
-            transition: .3s;
-
-            h4,
-            p {
-                margin-bottom: 8px;
-            }
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .schedule-txt:hover {
-            transform: translateX(2px) translateY(-2px);
+        .option {
+            border: 1px solid var(--neutral-100);
+            border-radius: 8px;
+            padding: 8px 12px;
+            text-align: left;
             cursor: pointer;
-            background-color: var(--bgColor);
-        }
-
-
-        .date-board {
-            width: 85%;
-            margin: auto;
-            display: flex;
-            gap: 20px;
-            border: 1px solid var(--neutral-100);
-            border-radius: 20px;
-            padding: 20px;
-
-            .calendar {
-                width: 70%;
-                border-right: 1px solid var(--neutral-100);
-                padding: 40px;
-                background: no-repeat url(./images/BGimages.png);
-                background-position: center;
-                background-size: 100% 100%;
-
-
-                >div:last-child {
-                    display: flex;
-                    justify-content: flex-end;
-
-                    #back-today {
-                        border: none;
-                        background-color: transparent;
-                        padding: 4px;
-                        cursor: pointer;
-                        font-size: 12px;
-                        color: var(--secondary-txt);
-                        display: none;
-                    }
-                }
-
-
-                .header {
-                    width: 100%;
-                    margin-bottom: 8px;
-
-                    >div {
-                        display: flex;
-                        width: 70%;
-                        margin: auto;
-                        justify-content: space-between;
-                        align-content: center;
-                        gap: 12px;
-
-                        button {
-                            border: none;
-                            width: 1.5em;
-
-                            background-color: transparent;
-
-                            img {
-                                width: 100%;
-                                height: 100%;
-                            }
-                        }
-
-                        button:hover {
-                            cursor: pointer;
-                        }
-
-                        #month {
-                            text-align: center;
-                            font-size: 16px;
-                            font-weight: 600;
-                        }
-                    }
-                }
-
-                .container {
-                    .week {
-                        width: 100%;
-                        display: grid;
-                        grid-template-columns: repeat(7, 1fr);
-                        text-align: center;
-                        padding-block: 12px;
-                        font-weight: 600;
-                        height: 100%;
-                    }
-
-
-                    #days {
-                        display: grid;
-                        flex: 1;
-                        grid-template-columns: repeat(7, 1fr);
-                        grid-template-rows: 1fr;
-                        text-align: center;
-                        gap: 4px;
-                        justify-content: space-between;
-                        height: 100%;
-
-
-                        >div {
-                            border-radius: 50%;
-                            text-align: center;
-                            padding-block: 8px;
-                            transition: .3s;
-                            aspect-ratio: 1 / 1;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-
-                        div:hover {
-                            background-color: var(--neutral-100);
-                            cursor: pointer;
-                        }
-
-                        .dateBgc {
-                            background-color: var(--primary-color);
-                            color: #fff;
-                        }
-
-                        .dateBgc:hover {
-                            background: var(--secondary-color);
-                        }
-
-                        .empty {
-                            cursor: default;
-                        }
-
-                        .empty:hover {
-                            background: transparent;
-                        }
-                    }
-
-                }
-            }
-
-            .schedule {
-                width: 100%;
-                position: relative;
-
-                >div {
-                    width: 70%;
-                    padding: 12px;
-                    margin: auto;
-
-                    .schedule-title {
-                        display: flex;
-                        justify-content: space-between;
-                        padding-block: 8px;
-
-                        h2 {
-                            font-weight: 500;
-                            font-style: 24px;
-                        }
-                    }
-
-                    #info {
-                        .schedule-txt {
-                            border: 1px solid var(--neutral-300);
-                            border-left: 4px solid var(--accent);
-                            border-radius: 5px 0 0 5px;
-                            display: flex;
-                            justify-content: space-between;
-                            width: 100%;
-                            margin-bottom: 20px;
-                            padding: 8px 8px 0;
-                            box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
-                            transition: .3s;
-
-                            h4,
-                            p {
-                                margin-bottom: 8px;
-                            }
-                        }
-
-                        .schedule-txt:hover {
-                            transform: translateX(2px) translateY(-2px);
-                            cursor: pointer;
-                            background-color: var(--bgColor);
-                        }
-                    }
-
-                    .more {
-                        width: 100%;
-                        display: flex;
-                        justify-content: flex-end;
-
-                        #morebtn {
-                            display: flex;
-                            font-weight: 600;
-                            gap: 4px;
-                            color: var(--primary-color);
-                            align-items: center;
-                            justify-content: flex-end;
-                            position: relative;
-                            padding: 8px;
-
-                            p::after {
-                                content: '';
-                                position: absolute;
-                                width: 0;
-                                height: 2px;
-                                background-color: var(--primary-color);
-                                left: 0;
-                                bottom: 0;
-                                transition: .4s;
-                            }
-
-                            div:last-child {
-                                width: 1em;
-                                height: 1em;
-
-                                img {
-                                    width: 100%;
-                                    height: 100%;
-                                }
-                            }
-                        }
-
-
-                        #morebtn:hover {
-                            p::after {
-                                width: 100%;
-                            }
-
-                        }
-
-                        .btn-info {
-                            width: 80%;
-                            background-color: #fff;
-                            left: -80px;
-                            top: 0;
-                            transform-origin: right bottom;
-
-                            .txt {
-                                .close {
-
-                                    .bar {
-                                        width: 80%;
-                                        height: 4px;
-                                        background-color: #d73232;
-                                        position: absolute;
-                                        left: 0;
-                                        right: 0;
-                                        margin: auto;
-
-                                    }
-
-                                    .bar:nth-child(1) {
-                                        top: 10px;
-                                        transition: top .3s .3s, rotate .3s;
-                                    }
-
-                                    .bar:nth-child(2) {
-                                        top: 18px;
-
-                                        transition: opacity .3s .1s;
-                                    }
-
-                                    .bar:nth-child(3) {
-                                        top: 26px;
-                                        transition: top .3s .3s, rotate .3s;
-                                    }
-                                }
-
-                                .schedule-txt {
-                                    width: 70%;
-                                    margin: auto auto 20px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .mask {
-            background: rgba(120, 106, 98, 0.12);
-            backdrop-filter: blur(4px);
-            position: fixed;
-            opacity: 0;
-            visibility: hidden;
             transition: .3s;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            top: 0;
-            left: 0;
         }
 
-        .show {
-            width: 100%;
-            height: 100%;
-            opacity: 1;
-            visibility: visible;
+        .option:hover:not(:disabled) {
+            background-color: var(--neutral-200);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
 <body>
-    <section>
-        <div class="date-board">
-            <div class="calendar">
-                <div class="header">
-                    <div>
-                        <button id="back">
-                            <img src="./images/arrow-left.svg" alt="">
-                        </button>
-                        <div id="month"></div>
-                        <button id="next">
-                            <img src="./images/arrow-right.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="week">
-                        <div>日</div>
-                        <div>一</div>
-                        <div>二</div>
-                        <div>三</div>
-                        <div>四</div>
-                        <div>五</div>
-                        <div>六</div>
-                    </div>
-                    <div id="days"></div>
-                </div>
-                <div>
-                    <button id="back-today">
-                        回到今日
-                    </button>
-                </div>
-            </div>
-            <div class="schedule">
-                <div>
-                    <div class="schedule-title">
-                        <h2>近期行程</h2>
-                        <button class="">
-                            新增事件+
-                        </button>
-                    </div>
-                    <div id="info"></div>
-                    <div class="more">
-                        <button id="morebtn" value="open">
-                            <p>
-                                查看更多
-                            </p>
-                            <div>
-                                <img src="./images/arrow-right.svg" alt="">
-                            </div>
-                        </button>
-                        <div id="more-sch" class="btn-info"></div>
-                    </div>
-                </div>
+    <div class="clinic-wrapper">
+        <!-- 左邊 -->
+        <div class="animal-view">
+            <img src="./images/dog.svg" alt="" class="animal-img">
+            <button class="hotspot" data-target="eye" style="top: 20%; left: 30%"></button>
+            <button class="hotspot" data-target="stomach" style="top: 50%; left: 50%"></button>
+            <button class="hotspot" data-target="leg" style="top: 70%; left: 40%"></button>
+        </div>
+
+        <!-- 右邊 -->
+        <div class="qa-panel">
+            <div class="qa-history" id="qa-history">
+                <!-- 問答內容動態加進來 -->
             </div>
         </div>
-    </section>
-    <div class="mask"></div>
-
-    
+    </div>
     <script>
-
-        // 顯示更多行程按鈕
-
-        let MoreBtn = document.getElementById('morebtn');
-        let ViewMore = document.getElementById('more-sch');
-        let ShowMask = document.getElementsByClassName('mask');
-        let totalSchedule = [
-            { schid: 1, schname: '施打疫苗', info: 'XXX寵物綜合醫院', date: '6/15', time: '上午 9:00' },
-            { schid: 2, schname: '寵物美容', info: 'XXX寵物美容旅館', date: '6/27', time: '下午 3:00' },
-            { schid: 3, schname: '健康檢查', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-            { schid: 4, schname: '事件4', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-            { schid: 5, schname: '事件5', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-            { schid: 6, schname: '事件6', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-        ];
-        const Close = `<div class = 'close'>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </div>`;
-        MoreBtn.addEventListener('click', () => {
-            if (MoreBtn.value === 'open') {
-                MoreBtn.value = 'close';
-                ViewMore.classList.add('open');
-                ShowMask[0].classList.add('show');
-
-            } else {
-                ViewMore.classList.remove('open');
-                MoreBtn.value = 'open';
-            }
-        }, false);
-        showScheduleInfo();
-        CloseMask();
-
-        function CloseMask() {
-            ShowMask[0].addEventListener('click', () => {
-                ShowMask[0].classList.remove('show');
-            }, false);
+        const qaData = {
+            'eye': {
+                question: '眼睛耳朵的症狀是？',
+                options: [
+                    { text: '眼睛有分泌物', next: 'eye-duration' },
+                    { text: '耳朵有異味', next: 'eye-duration' },
+                    { text: '一直甩頭', next: 'eye-duration' },
+                ]
+            },
+            'eye-duration': {
+                question: '症狀持續多久了？',
+                options: [
+                    { text: '1天以內', next: 'eye-mild' },
+                    { text: '2～3天', next: 'eye-moderate' },
+                    { text: '超過一週', next: 'eye-severe' },
+                ]
+            },
+            'eye-mild': {
+                question: '建議先觀察，保持眼睛清潔 😊',
+                options: []  // 沒有選項代表結束
+            },
         }
 
-        function showScheduleInfo() {
-            let schHtml = '';
-            let moreHtml = '';
-
-            for (let i = 0; i < totalSchedule.length; i++) {
-                let sch = totalSchedule[i];
-                let schInfo = `<div class="schedule-txt">
-                                    <div class="txt-left">
-                                        <h4>${sch.schname}</h4>
-                                        <p>${sch.info}</p>
-                                    </div>
-                                    <div class="txt-date">
-                                        <p>${sch.date}</p>
-                                        <p>${sch.time}</p>
-                                    </div>
-                                </div>`;
-                if (i < 3) {
-                    schHtml += schInfo;
-                } else {
-                    moreHtml += `<div class = 'txt'>
-                                    ${Close}
-                                    ${schInfo}
-                                </div>`;
-                }
-            }
-            document.getElementById('info').innerHTML = schHtml;
-            document.getElementById('more-sch').innerHTML = moreHtml;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        let now = new Date();
-        const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const Year = now.getFullYear();
-        const NowMonth = now.getMonth();
-        const BackToday = document.getElementById('back-today');
-
-        // 點擊按鈕
-        document.getElementById('back').addEventListener('click', () => {
-            now.setMonth(now.getMonth() - 1);
-            history();
+        // 熱點點擊，開始問答
+        document.querySelectorAll('.hotspot').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 清空歷史
+                document.getElementById('qa-history').innerHTML = '';
+                addBlock(btn.dataset.target);
+            });
         });
 
-        document.getElementById('next').addEventListener('click', () => {
-            now.setMonth(now.getMonth() + 1);
-            if (now.getMonth() === 11) {
-                now.setFullYear(now.getFullYear() + 1);
-            }
-            history();
-        });
+        // 新增問答區塊
+        function addBlock(id) {
+            const data = qaData[id];
+            if (!data) return;
 
-        BackToday.addEventListener('click', () => {
-            now.setMonth(NowMonth);
-            history();
-        })
-        history();
+            const history = document.getElementById('qa-history');
 
+            // 建立問題區塊
+            const block = document.createElement('div');
+            block.classList.add('qa-block');
+            block.innerHTML = `
+        <p class="question">${data.question}</p>
+        <div class="options">
+            ${data.options.map(opt => `
+                <button class="option" data-next="${opt.next}">${opt.text}</button>
+            `).join('')}
+        </div>
+    `;
 
-        function history() {
-            const month = now.getMonth();
-            const date = now.getDay();
-            let days = document.getElementById('days');
-            //設定日曆月份
-            document.getElementById('month').textContent = `${Year}${Months[month]}`;
-            //設定日期
-            const FirstDay = new Date(Year, month, 1).getDay(); // 取得月份第一天是星期幾
-            const TotalDay = new Date(Year, month + 1, 0).getDate(); // 取得當月的總天數
+            history.appendChild(block);
 
-
-            let infoDay = [];
-            infoDay = days;
-            infoDay.innerHTML = '';
-
-
-            // 判斷當月第一天前面須補幾個空格
-            for (let i = 0; i < FirstDay; i++) {
-                infoDay.innerHTML += `<div class = 'empty'></div>`;
-            }
-
-            // for迴圈跑出當月日期
-            for (let i = 1; i <= TotalDay; i++) {
-                infoDay.innerHTML += `<div id='${i}'>${i}</div>`;
-                if (month === NowMonth && i === date) {
-                    document.getElementById(i).classList.add('dateBgc');
-                }
-            }
-
-            if (month !== NowMonth) {
-                BackToday.style.display = 'block';
-            } else {
-                BackToday.style.display = 'none';
-            }
+            // 滾到最新問題
+            block.scrollIntoView({ behavior: 'smooth' });
         }
 
+        // 選項點擊
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('option')) {
+                // 讓選過的選項變灰，不能再點
+                e.target.closest('.options').querySelectorAll('.option').forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.opacity = '0.5';
+                });
+                e.target.style.opacity = '1';  // 選到的保持清楚
 
+                addBlock(e.target.dataset.next);
+            }
+        });
     </script>
 </body>
 

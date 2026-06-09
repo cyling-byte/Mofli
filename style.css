@@ -37,6 +37,12 @@
 
 body {
     width: 100%;
+    min-height: 100vh;
+    /* 確保 body 至少跟視窗一樣高 */
+    display: flex;
+    /* 啟用 Flex 佈局 */
+    flex-direction: column;
+    /* 讓內容由上至下排列 */
 }
 
 ul li {
@@ -54,6 +60,8 @@ img {
 section {
     width: 100%;
     margin: 0 auto 80px;
+    width: 100%;
+    flex: 1;
 }
 
 button {
@@ -85,6 +93,53 @@ button:hover {
     opacity: 1;
 }
 
+
+.more {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    #morebtn {
+        display: flex;
+        font-weight: 600;
+        gap: 4px;
+        color: var(--primary-color);
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+        padding: 8px;
+
+        p::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            left: 0;
+            bottom: 0;
+            transition: .4s;
+        }
+
+        div:last-child {
+            width: 1em;
+            height: 1em;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+
+    #morebtn:hover {
+        p::after {
+            width: 100%;
+        }
+
+    }
+}
+
 /* 導覽列CSS ---------------------------------*/
 
 nav {
@@ -109,6 +164,7 @@ nav {
         display: flex;
         gap: 20px;
         align-items: center;
+        z-index: 1;
 
         ul {
             display: flex;
@@ -116,15 +172,12 @@ nav {
 
             li {
                 position: relative;
-
-
             }
 
             li:hover {
                 .sub-project {
                     opacity: 1;
                     visibility: visible;
-
                 }
             }
 
@@ -137,32 +190,33 @@ nav {
                 visibility: hidden;
                 opacity: 0;
                 transition: .3s;
-                padding-inline: 4px;
+                padding-inline: 8px;
+                top: 100%;
 
-                a {
-                    display: inline-block;
-                    padding: 4px;
-                    width: 100%;
-                    text-align-last: justify;
-                    transition: .3s;
-                    border-radius: 5px;
-                    margin-block: 4px;
-                }
-                li{
-                    margin-block: 4px;
-                }
-                a:hover{
-                    background-color: var(--neutral-100);
-                    color: #fff;
-                    border-radius: 5px;
-                }
-                li:first-child,
-                li+li {
+
+                li {
                     border-bottom: 1px solid #666;
+
+                    a {
+                        display: inline-block;
+                        padding: 4px;
+                        width: 100%;
+                        text-align-last: justify;
+                        transition: .3s;
+                        border-radius: 5px;
+                        margin-block: 4px;
+                    }
+
+
+                    a:hover {
+                        background-color: var(--neutral-100);
+                        color: #fff;
+                        border-radius: 5px;
+                    }
                 }
 
-                li:last-child {
-                    border: none;
+                li:last-child  {
+                    border-bottom: none;
                 }
             }
 
@@ -227,22 +281,18 @@ nav {
                     }
                 }
             }
-
-
         }
     }
-
 }
-
-
 
 
 
 /* 頁尾  CSS ---------------------------------*/
 footer {
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--neutral-100);
     padding: 20px;
+    flex-shrink: 0;
 
     .index-footer {
         display: flex;
