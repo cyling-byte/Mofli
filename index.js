@@ -120,15 +120,15 @@ function history() {
 
 // 快速紀錄打開按鈕
 
-let KvBtn = document.getElementById('kv-btn');
-let BtnInfo = document.getElementsByClassName('btn-info');
-KvBtn.addEventListener('click', () => {
-    if (KvBtn.value === 'open') {
-        KvBtn.value = 'close';
-        BtnInfo[0].classList.add('open');
-        ShowMask[0].classList.add('show');
-    }
-}, false);
+// let KvBtn = document.getElementById('kv-btn');
+// let BtnInfo = document.getElementsByClassName('btn-info');
+// KvBtn.addEventListener('click', () => {
+//     if (KvBtn.value === 'open') {
+//         KvBtn.value = 'close';
+//         BtnInfo[0].classList.add('open');
+//         ShowMask[0].classList.add('show');
+//     }
+// }, false);
 
 
 // 顯示更多行程按鈕
