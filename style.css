@@ -30,10 +30,11 @@
     --padding: 8px;
     --border-color: 1px solid var(--neutral-100);
     font-size: 16px;
-    color: #666;
+
     letter-spacing: 3px;
     font-family: 'jf-openhuninn', 'Microsoft JhengHei', sans-serif;
 }
+
 
 body {
     width: 100%;
@@ -43,6 +44,7 @@ body {
     /* 啟用 Flex 佈局 */
     flex-direction: column;
     /* 讓內容由上至下排列 */
+    color: #666;
 }
 
 ul li {
@@ -51,6 +53,7 @@ ul li {
 
 a {
     text-decoration: none;
+    color: #666;
 }
 
 img {
@@ -166,6 +169,13 @@ nav {
         align-items: center;
         z-index: 1;
 
+        .icon-size {
+            width: 1.4em;
+            height: 1.4em;
+            color: var(--primary-color);
+            transition: .3s;
+        }
+
         ul {
             display: flex;
             gap: 20px;
@@ -215,73 +225,44 @@ nav {
                     }
                 }
 
-                li:last-child  {
+                li:last-child {
                     border-bottom: none;
                 }
             }
+
+
 
             a {
                 display: flex;
                 position: relative;
 
-                .txt-dark,
-                .txt-light {
+
+
+                .dark {
                     display: flex;
                     gap: 8px;
                     padding: 4px;
 
-                    div {
-                        width: 1.5em;
-                        height: 1.5em;
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-                }
-
-                .txt-dark {
-                    opacity: 1;
-                    transition: .3s;
-
                     span {
-                        color: var(--primary-color);
-                        font-weight: 500;
+                        transition: .3s;
                     }
+
+
                 }
 
-                .txt-light {
-                    transition: .3s;
-                    opacity: 0;
-                    position: absolute;
-
+                .dark:hover {
                     span {
                         color: var(--secondary-color);
-                        font-weight: 500;
-                        left: 0;
                     }
-                }
 
-                .txt-dark:hover {
-                    opacity: 0;
-                }
-
-                .txt-light:hover {
-                    opacity: 1;
-                }
-            }
-
-            .notify {
-                div {
-                    width: 1.5em;
-                    height: 1.5em;
-
-                    img {
-                        width: 100%;
+                    .icon-size {
+                        color: var(--secondary-color);
                     }
                 }
             }
         }
+
+
     }
 }
 
