@@ -19,12 +19,12 @@ let chartWeight = new Chart(myChart, {
         tension: 0.4,
         borderJoinStyle: 'miter',
         maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-        aspectRatio: 1.5, // 數字越小，圖表越高
+        // plugins: {
+        //     legend: {
+        //         display: false
+        //     }
+        // },
+        aspectRatio: 1, // 數字越小，圖表越高
     }
 });
 
@@ -47,12 +47,12 @@ let BooldSuger = new Chart(myChartBoold, {
         tension: 0.4,
         borderJoinStyle: 'miter',
         maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-        aspectRatio: 1.5, // 數字越小，圖表越高
+        // plugins: {
+        //     legend: {
+        //         display: false
+        //     }
+        // },
+        aspectRatio: 1, // 數字越小，圖表越高
     }
 });
 
