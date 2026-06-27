@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mofli | 首頁</title>
+    <link rel="icon" href="./images/logo.svg" type="image/svg">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/test.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://kit.fontawesome.com/865a269d64.js" crossorigin="anonymous"></script>
 </head>
 
@@ -19,7 +20,7 @@
         <div class="logo">
             <a href="./index.html">
                 <div>
-                    <img src="./images/logo.svg" alt="">
+                    <img src="./images/logotxt.svg" alt="">
                 </div>
             </a>
         </div>
@@ -81,181 +82,424 @@
         </div>
     </nav>
 
-
-
-
-    <!-- KV 區 --------------------------------------------------->
-    <section class="index-kv">
-        <div class="kv-container">
-            <div class="kv-info">
+    <!-- 首頁kv區 ------------------------------------------------->
+    <section class="main-kv">
+        <div class="--flex">
+            <div class="wrap">
                 <div class="kv-txt">
-                    <div class="title">
-                        <h1>守護毛孩健康的每一天</h1>
-                        <div>
+                    <p>Mofli</p>
+                    <div class="kv-title --flex">
+                        <h1>陪您一起守護毛孩健康的每一天</h1>
+                        <div class="kv-title-img">
                             <img src="./images/sun.svg" alt="">
                         </div>
                     </div>
-                    <p>
-                        整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。
-                    </p>
-                </div>
-                <div class="kv-btn-info">
-                    <button id="kv-btn" value="open">
-                        <div>
-                            <p>
-                                快速紀錄+
-                            </p>
-                        </div>
-                    </button>
-                    <!-- <div class="btn-info">
-                        <form action="" method="get">
-                            <div>
-                                <label for="">
-                                    姓名:
-                                    <select name="pet-name" id="">
-                                        <option value="Mofli">Mofli</option>
-                                        <option value="Cyling">Cyling</option>
-                                        <option value="Luna">Luna</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <div>
-                                <label for="">
-                                    體重:
-                                    <input type="number" value="weight">
-                                </label>
-                            </div>
-                            <div>
-                                <label for="">
-                                    是否測量血糖:
-                                    <input type="radio" name="bs-check" value="false" checked>否
-                                    <input type="radio" name="bs-check" value="true">是
-                                </label>
-                            </div>
-                            <div>
-                                <label for="">
-                                    時間:
-                                    <input type="datetime-local" name="bs-time">
-                                </label>
-                            </div>
-                            <div>
-                                <label for="">
-                                    輸入血糖:
-                                    <input type="number" name="blood-suger" id="" value="bloode-suger">
-                                </label>
-                            </div>
-                            <div>
-                                <p>今日狀態</p>
-                                <p>精神</p>
-                                <div>
-                                    <label for="good">
-                                        <input type="radio" name="feel" id="good" value="good">
-                                        <div>
-                                            <img src="./images/mood-smile.svg" alt="">
-                                        </div>
-                                        良好
-                                    </label>
-                                </div>
-                                <div>
-                                    <label for="not-bad">
-                                        <input type="radio" name="feel" id="not-bad" value="not-bad">
-                                        <div>
-                                            <img src="./images/mood-empty.svg" alt="">
-                                        </div>
-                                        還可以
-                                    </label>
-                                </div>
-                                <div>
-                                    <label for="bad">
-                                        <input type="radio" name="feel" id="bad" value="bad">
-                                        <div>
-                                            <img src="./images/mood-sad.svg" alt="">
-                                        </div>
-                                        不太ok
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <button type="submit">送出</button>
-                                <button type="reset">清除</button>
-                            </div>
-                        </form>
-                    </div> -->
+                    <p>整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
                 </div>
             </div>
             <div class="kv-img">
-                <img src="./images/kvimg.svg" alt="">
+                <img src="./images/Kvimg.svg" alt="">
             </div>
         </div>
-
     </section>
 
-
-    <!-- 寵物狀態卡----------------------------------------->
-    <section>
-        <div class="state-card">
-            <div class="pet-card">
-                <h2>Mofil 的今日狀況</h2>
-                <div class="card-info">
-                    <div class="info-img">
-                        <img src="./images/cat.jpg" alt="" width="250">
-                    </div>
-                    <div class="info-txt">
-                        <h3>Mofil</h3>
-                        <p>2歲3個月</p>
-                        <div class="gender">
-                            <p>布偶貓．公</p>
+    <!-- 寵物選擇區 ------------------------------------------------->
+    <section class="pet-select">
+        <div class="container">
+            <div class="header">
+                <h2>我的毛孩</h2>
+            </div>
+            <div class="content --flex">
+                <button class="actions _back">
+                    <i class="fa-solid fa-angle-left icon-style"></i>
+                </button>
+                <div class="pet-card-list --flex">
+                    <div class="item _click">
+                        <div class="pet-card-indi --flex">
+                            <img src="./images/footprint-dark.svg" alt="">
+                        </div>
+                        <div class="pet-card-img">
                             <div>
-                                <img src="./images/genderMen.svg" alt="">
+                                <img src="./images/cat.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="pet-card-info">
+                            <p>Mofil</p>
+                            <p>
+                                <span>布偶貓</span>
+                                <span>公</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pet-card-indi --flex">
+                            <img src="./images/fp-nofill.svg" alt="">
+                        </div>
+                        <div class="pet-card-img">
+                            <div>
+                                <img src="./images/dog1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="pet-card-info">
+                            <p>Mofil</p>
+                            <p>
+                                <span>柯基犬</span>
+                                <span>公</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pet-card-indi --flex">
+                            <img src="./images/fp-nofill.svg" alt="">
+                        </div>
+                        <div class="pet-card-img">
+                            <div>
+                                <img src="./images/cat2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="pet-card-info">
+                            <p>Mofil</p>
+                            <p>
+                                <span>英國短毛貓</span>
+                                <span>母</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="pet-card-indi --flex">
+                            <img src="./images/fp-nofill.svg" alt="">
+                        </div>
+                        <div class="pet-card-img">
+                            <div>
+                                <img src="./images/dog3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="pet-card-info">
+                            <p>Mofil</p>
+                            <p>
+                                <span>薩摩耶</span>
+                                <span>母</span>
+                            </p>
+                        </div>
+                    </div>
+                    <button class="item _addInfo">
+                        +
+                        <p>新增資料</p>
+                    </button>
+
+                </div>
+                <button class="actions _next">
+                    <i class="fa-solid fa-angle-right icon-style"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 健康資訊區 ------------------------------------------------->
+    <section class="pet-dashboard">
+        <div class="container --flex">
+
+            <!-- 毛孩身分證 ------------------------------------------>
+            <div class="dashboard-idcard">
+                <div class="header">
+                    <h2>毛孩身份證</h2>
+                </div>
+                <div class="idcard-content ">
+                    <div class="idcard-wrap --flex">
+                        <div class="idcard photo">
+                            <div class="photo-bg">
+                                <div class="icon-tape">
+                                    <img src="./images/adhesive-tape.svg" alt="">
+                                </div>
+                                <div class="photo-front">
+                                    <div class="headshot">
+                                        <img src="./images/cat.jpg" alt="">
+                                    </div>
+                                    <div class="icon-footprint icon--rotate">
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="idcard-info">
+                            <div class="txt">
+                                <p>基本資料</p>
+                                <p>Mofli</p>
+                                <p>性別:公</p>
+                                <p>生日:2024/05/26</p>
+                                <p>年齡:2歲3個月</p>
+                            </div>
+                            <button class="btn-actions">
+                                查看完整資料
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 今日任務區-------------------------------------------->
+            <div class="dashboard-schedule">
+                <div class="header --flex">
+                    <h2>今日任務</h2>
+                    <button>
+                        <i class="fa-solid fa-caret-down icon-panel"></i>
+                    </button>
+                </div>
+                <ul>
+                    <li class="list-style " data-check="false">
+                        <label for="">
+                            <input type="checkbox">
+                            <span class="todo-check">
+                                <i class="fa-solid fa-circle-check icon-style _checked"></i>
+                                <i class="fa-regular fa-circle icon-style"></i>
+                            </span>
+                        </label>
+                        <div class="event">
+                            <span>8:30</span>
+                            <span>餵藥</span>
+                            <span class="pet-name">Mofli</span>
+                        </div>
+                        <button>
+                            <span>
+                                <i class="fa-solid fa-ellipsis icon-style"></i>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="list-style" data-check="false">
+                        <label for="">
+                            <input type="checkbox">
+                            <span class="todo-check">
+                                <i class="fa-regular fa-circle icon-style"></i>
+                            </span>
+                        </label>
+                        <div class="event">
+                            <span>9:30</span>
+                            <span>散步</span>
+                            <span class="pet-name">all</span>
+                        </div>
+                        <button>
+                            <span>
+                                <i class="fa-solid fa-ellipsis icon-style"></i>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="list-style" data-check="false">
+                        <label for="">
+                            <input type="checkbox">
+                            <span class="todo-check">
+                                <i class="fa-regular fa-circle  icon-style"></i>
+                            </span>
+                        </label>
+                        <div class="event">
+                            <span>12:30</span>
+                            <span>吃飯</span>
+                            <span class="pet-name">all</span>
+                        </div>
+                        <button>
+                            <span>
+                                <i class="fa-solid fa-ellipsis icon-style"></i>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="list-style" data-check="false">
+                        <label for="">
+                            <input type="checkbox">
+                            <span class="todo-check">
+                                <i class="fa-regular fa-circle  icon-style"></i>
+                            </span>
+                        </label>
+                        <div class="event">
+                            <span>18:30</span>
+                            <span>測量血壓</span>
+                            <span class="pet-name">Nuna</span>
+                        </div>
+                        <button>
+                            <span>
+                                <i class="fa-solid fa-ellipsis icon-style"></i>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="schedule-footer">
+                    <button class="_back">
+                        <i class="fa-solid fa-angle-left icon-style"></i>
+                    </button>
+                    <span class="page">
+                        1/1
+                    </span>
+                    <button class="_next">
+                        <i class="fa-solid fa-angle-right icon-style"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 健康快覽 ----------------------------------------->
+            <div class="dashboard-healthCard">
+                <div class="header">
+                    <h2>健康快覽</h2>
+                </div>
+                <div class="healthCard-content --flex">
+                    <button class="actions _back">
+                        <i class="fa-solid fa-angle-left icon-style"></i>
+                    </button>
+                    <div class="healthCard --flex">
+                        <div class="healthCard-info">
+                            <div class="healthCard-title">
+                                <span class="icon">
+                                    <img src="./images/weight.svg" alt="">
+                                </span>
+                                <p>最新體重</p>
+                            </div>
+                            <div class="healthCard-txt">
+                                <p class="unit-newWeight">
+                                    11.3
+                                    <span>kg</span>
+                                </p>
+                                <p>與上週相比</p>
+                                <p class="unit-oldWeigth">
+                                    <span>
+                                        <i class="fa-solid fa-arrow-up icon-style"></i>
+                                    </span>
+                                    1kg
+                                </p>
+                            </div>
+                            <div class="healthCard-actions">
+                                <button class="btn-more">
+                                    <i class="fa-solid fa-angle-right icon-style"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="healthCard-info">
+                            <div class="healthCard-title">
+                                <span class="icon">
+                                    <img src="./images/blood-sugar.svg" alt="">
+                                </span>
+                                <p>血糖值</p>
+                            </div>
+                            <div class="healthCard-txt">
+                                <p class="unit-newWeight">
+                                    80.3
+                                    <span>mg/dL</span>
+                                </p>
+                                <p>
+                                    結果
+                                    <span class="icon-hint">
+                                        <i class="fa-solid fa-circle-info icon-style"></i>
+                                    </span>
+                                </p>
+                                <p class="unit-oldWeigth">
+                                    正常
+                                </p>
+                            </div>
+                            <div class="healthCard-actions">
+                                <button class="btn-more">
+                                    <i class="fa-solid fa-angle-right icon-style"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="healthCard-info">
+                            <div class="healthCard-title">
+                                <span class="icon">
+                                    <img src="./images/water.svg" alt="">
+                                </span>
+                                <p>飲水量</p>
+                            </div>
+                            <div class="healthCard-txt">
+                                <p class="-null">
+                                    今日尚未紀錄
+                                    <span></span>
+                                </p>
+                                <p>
+                                    結果
+                                    <span class="icon-hint">
+                                        <i class="fa-solid fa-circle-info icon-style"></i>
+                                    </span>
+                                </p>
+                                <p class="-null">
+                                    --
+                                </p>
+                            </div>
+                            <div class="healthCard-actions">
+                                <button class="btn-more">
+                                    <i class="fa-solid fa-angle-right icon-style"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
+                    <button class="actions _next">
+                        <i class="fa-solid fa-angle-right icon-style"></i>
+                    </button>
                 </div>
             </div>
-            <div class="pet-state">
-                <div class="mood">
-                    <h2>精神</h2>
-                    <div class="moodBgc">
-                        <div>
-                            <img src="./images/mood-smile.svg" alt="">
-                        </div>
+
+            <!-- 本周狀態 ----------------------------------------->
+            <div class="dashboard-state --flex">
+                <div class="state-container">
+                    <div class="header --flex">
+                        <h2>本周狀態</h2>
+                        <button class="btn-actions _next">
+                            查看更多
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
                     </div>
-                    <p>良好</p>
+                    <div class="state-table" id="stateTable"></div>
                 </div>
-                <div class="mood">
-                    <h2>飲食</h2>
-                    <div>
-                        <div>
-                            <img src="./images/mood-empty.svg" alt="">
+                <div class="state-summary">
+                    <div class="summary-count">
+                        <div class="header">
+                            <h2>本周摘要</h2>
+                        </div>
+                        <div class="summary-switcher">
+                            <button class="btn-actions _back">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+                            <span id="summaryName"></span>
+                            <button class="btn-actions _next">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+                        <div class="summary-chart">
+                            <div class="chart-row --flex">
+                                <p>良好</p>
+                                <p><span id="countGood">0</span>天</p>
+                                <div class="longBar">
+                                    <div class="longBar-nofill"></div>
+                                    <div class="longBar-fill colorGood" id="barGood"></div>
+                                </div>
+                            </div>
+                            <div class="chart-row --flex">
+                                <p>普通</p>
+                                <p><span id="countNeutral">0</span>天</p>
+                                <div class="longBar">
+                                    <div class="longBar-nofill"></div>
+                                    <div class="longBar-fill colorNeutral" id="barNeutral"></div>
+                                </div>
+                            </div>
+                            <div class="chart-row --flex">
+                                <p>不好</p>
+                                <p><span id="countBad">0</span>天</p>
+                                <div class="longBar">
+                                    <div class="longBar-nofill"></div>
+                                    <div class="longBar-fill colorBad" id="barBad"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <p>普通</p>
-                </div>
-                <div class="mood">
-                    <h2>排泄</h2>
-                    <div>
-                        <div>
-                            <img src="./images/mood-sad.svg" alt="">
+                    <div class="summary-remind">
+                        <div class="header --flex">
+                            <i class="fa-regular fa-lightbulb"></i>
+                            <p>小提醒</p>
+                        </div>
+                        <div class="remind-txt">
+                            <p>本周如廁異常次數較多，建議多觀察飲食與腸胃狀況喔!</p>
                         </div>
                     </div>
-                    <p>不好</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- 健康趨勢圖----------------------------------------->
-    <section>
-        <div class="healthy-chart">
-            <div class="chart">
-                <canvas id="myChart_Weight"></canvas>
-            </div>
-            <div class="chart">
-                <canvas id="myChart_BloodSugar"></canvas>
-            </div>
-        </div>
-    </section>
 
     <!-- 行事曆------------------------------------------>
     <section>
@@ -292,24 +536,132 @@
             </div>
             <div class="schedule">
                 <div>
-                    <div class="schedule-title">
-                        <h2>近期行程</h2>
+                    <div class="header --flex">
+                        <p>近期行程</p>
                         <button class="">
                             新增事件+
                         </button>
                     </div>
-                    <div id="info"></div>
-                    <div class="more">
-                        <button id="morebtn" value="open">
-                            <p>
-                                查看更多
-                            </p>
-                            <div>
-                                <img src="./images/arrow-right.svg" alt="">
-                            </div>
+                    <div class="schedule-info">
+                        <ul>
+                            <li class="schedule-list">
+                                <div class="schedule-date --flex">
+                                    <p>日期:6/15(ㄧ)</p>
+                                    <button>
+                                        3個行程
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                </div>
+                                <ul class="schedule-item">
+                                    <li class="list-style">
+                                        <span>9:00</span>
+                                        <span>施打疫苗</span>
+                                        <span>Mofli</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                    <li class="list-style">
+                                        <span>12:00</span>
+                                        <span>健康檢查</span>
+                                        <span>Nuna</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                    <li class="list-style">
+                                        <span>18:00</span>
+                                        <span>寵物美容</span>
+                                        <span>Candy</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="schedule-list">
+                                <div class="schedule-date --flex">
+                                    <p>日期:6/20(六)</p>
+                                    <button>
+                                        3個行程
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                </div>
+                                <ul class="schedule-item">
+                                    <li class="list-style">
+                                        <span>9:00</span>
+                                        <span>施打疫苗</span>
+                                        <span>Mofli</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                    <li class="list-style">
+                                        <span>12:00</span>
+                                        <span>健康檢查</span>
+                                        <span>Nuna</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                    <li class="list-style">
+                                        <span>18:00</span>
+                                        <span>寵物美容</span>
+                                        <span>Candy</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="schedule-list">
+                                <div class="schedule-date --flex">
+                                    <p>日期:6/28(日)</p>
+                                    <button>
+                                        3個行程
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                </div>
+                                <ul class="schedule-item">
+                                    <li class="list-style">
+                                        <span>9:00</span>
+                                        <span>施打疫苗</span>
+                                        <span>Mofli</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                    <li class="list-style">
+                                        <span>12:00</span>
+                                        <span>健康檢查</span>
+                                        <span>Nuna</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                    <li class="list-style">
+                                        <span>18:00</span>
+                                        <span>寵物美容</span>
+                                        <span>Candy</span>
+                                        <button>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="schedule-footer">
+                        <button class="_back">
+                            <i class="fa-solid fa-angle-left icon-style"></i>
                         </button>
-                        <div id="more-sch" class="btn-info">
-                        </div>
+                        <span class="page">
+                            1/1
+                        </span>
+                        <button class="_next">
+                            <i class="fa-solid fa-angle-right icon-style"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -317,17 +669,126 @@
     </section>
 
 
-    <!-- footer------------------------------------------>
+
+
+    <!-- main-footer ------------------------------------------>
     <footer>
-        <div class="index-footer">
-            <p>電子信箱 : <span>example@gmail.com</span></p>
-            <p>電話 : <span>0900-000-000</span></p>
+        <div>
+            <div class="svg-style">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 102" fill="none">
+                    <path
+                        d="M0 15.5353C180 102 360 -46.2252 540 15.5353C720 77.2958 900 -33.8731 1080 27.8874C1260 77.2958 1360 -21.521 1440 27.8874V102H0V15.5353Z"
+                        fill="#C6BAB1" />
+                </svg>
+            </div>
+            <div class="footer-inner">
+
+                <div class="footer-logo">
+                    <img src="./images/logoFooter.svg" alt="">
+                </div>
+                <div class="footer-info">
+
+                    <h1>Mofli</h1>
+                    <p>整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
+                    <ul class="--flex">
+                        <li class="footer-link">
+                            <a href="#">關於Mofli</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#">聯絡我們</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#">隱私權政策</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#">使用條款</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </footer>
 
 
     <div class="mask"></div>
     <script src="./js/index.js"></script>
+    <script src="./vendors/jquery-4.0.0.min.js"></script>
+    <script>
+
+        // 顯示更多行程按鈕
+
+        // let MoreBtn = document.getElementById('morebtn');
+        // let ViewMore = document.getElementById('more-sch');
+
+
+        // let totalSchedule = [
+        //     { schid: 1, schname: '施打疫苗', date: '6/15', time: '9:00' },
+        //     { schid: 2, schname: '寵物美容', date: '6/27', time: '15:00' },
+        //     { schid: 3, schname: '健康檢查', date: '7/1', time: '10:00' },
+        //     { schid: 4, schname: '事件4', date: '7/1', time: '10:00' },
+        //     { schid: 5, schname: '事件5', date: '7/1', time: '10:00' },
+        //     { schid: 6, schname: '事件6', date: '7/1', time: '10:00' },
+        // ];
+        // const Close = `<button id = 'close' value="open">
+        //             <div>
+        //                 <img src="./images/close.svg" alt="">
+        //             </div>
+        //         </button>`;
+
+        // MoreBtn.addEventListener('click', () => {
+        //     if (MoreBtn.value === 'open') {
+        //         MoreBtn.value = 'close';
+        //         ViewMore.classList.add('open');
+        //         // ShowMask[0].classList.add('show');
+        //     }
+        // }, false);
+
+
+        // function CloseMask(e) {
+        //     ShowMask[0].addEventListener('click', () => {
+        //         const OpenPanel = document.querySelector('.open');
+        //         const ClosePanel = document.querySelector('button[value="close"]')
+        //         if (OpenPanel) {
+        //             OpenPanel.classList.remove('open');
+        //             ShowMask[0].classList.remove('show');
+        //         }
+        //         if (ClosePanel) {
+        //             ClosePanel.value = 'open';
+        //         }
+        //     }, false);
+        // }
+
+        // function showScheduleInfo() {
+        //     let schHtml = '';
+        //     let moreHtml = '';
+
+        //     for (let i = 0; i < totalSchedule.length; i++) {
+        //         let sch = totalSchedule[i];
+        //         let schInfo = `<div class="schedule-txt">
+        //                             <div class="txt-left">
+        //                                 <h4>${sch.schname}</h4>
+        //                                 <p>${sch.info}</p>
+        //                             </div>
+        //                             <div class="txt-date">
+        //                                 <p>${sch.date}</p>
+        //                                 <p>${sch.time}</p>
+        //                             </div>
+        //                         </div>`;
+        //         if (i < 3) {
+        //             schHtml += schInfo;
+        //         } else {
+        //             moreHtml += schInfo;
+        //         }
+        //     }
+        //     document.getElementById('info').innerHTML = schHtml;
+        //     document.getElementById('more-sch').innerHTML = Close + moreHtml;
+        // }
+
+
+        // showScheduleInfo();
+        // CloseMask();
+    </script>
 </body>
 
 </html>

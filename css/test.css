@@ -399,6 +399,12 @@ button:hover {
             aspect-ratio: 1/1;
             color: #666;
 
+
+            .icon-panel {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }
@@ -440,7 +446,7 @@ button:hover {
     button:hover {
         color: #666;
     }
-    
+
 
 
 }
@@ -1058,3 +1064,6 @@ button:hover {
         color: #fff;
     }
 }
+
+
+

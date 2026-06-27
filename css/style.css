@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'jf-openhuninn';
-    src: url('./fonts/jf-openhuninn-2.1.ttf') format('ttf');
+    src: url('../fonts/jf-openhuninn-2.1.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -15,9 +15,10 @@
     /* 背景色 */
     --accent: #FF9F9F;
     /* 強調色 */
-    --semanticG: #D2E9E9;
+
+    --semanticG: #B7C8B5;
     /* 系統狀態色 */
-    --semanticY: #FFFAD7;
+    --semanticY: #EAD7A6;
     /* 系統狀態色 */
     --neutral-100: #C6BAB1;
     /* 區塊背景1 */
@@ -25,14 +26,12 @@
     /* 區塊背景2 */
     --neutral-300: #F4D6C9;
     /* 區塊背景3 */
+    --neutral-400: #D2E9E9;
+    /* 區塊背景4 */
     --secondary-txt: #aaa;
     /* 次要文字 */
     --padding: 8px;
     --border-color: 1px solid var(--neutral-100);
-    font-size: 16px;
-
-    letter-spacing: 3px;
-    font-family: 'jf-openhuninn', 'Microsoft JhengHei', sans-serif;
 }
 
 
@@ -45,7 +44,12 @@ body {
     flex-direction: column;
     /* 讓內容由上至下排列 */
     color: #666;
+    letter-spacing: 3px;
+    font-family: 'jf-openhuninn', 'Microsoft JhengHei', sans-serif;
+    font-size: 16px;
+    background-color: var(--bgColor);
 }
+
 
 ul li {
     list-style: none;
@@ -62,14 +66,15 @@ img {
 
 section {
     width: 100%;
-    margin: 0 auto 80px;
-    width: 100%;
+    margin: 0 auto 60px;
     flex: 1;
 }
 
 button {
     border: none;
     background-color: transparent;
+    color: var(--primary-color);
+    padding: 0;
 }
 
 button:hover {
@@ -149,7 +154,7 @@ nav {
     display: flex;
     background-color: var(--bgColor);
     justify-content: space-between;
-    padding: 12px 36px;
+    padding: 2rem;
     align-items: center;
     height: 100%;
 
@@ -270,23 +275,76 @@ nav {
 
 /* 頁尾  CSS ---------------------------------*/
 footer {
-    width: 100%;
-    background-color: var(--neutral-100);
-    padding: 20px;
-    flex-shrink: 0;
+    
 
-    .index-footer {
+    >div {
+        color: #fff;
+        width: 100%;
         display: flex;
-        gap: 20px;
-        justify-content: center;
+        flex-direction: column;
+        top: 0;
+        
 
-        p,
-        span {
-            color: #fff;
+        .svg-style {
+            svg {
+                display: block;
+            }
         }
+
+        .footer-inner {
+            background-color: var(--neutral-100);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+
+}
+
+.footer-logo {
+    padding-inline: 1.5rem;
+    border-right: 1px solid var(--bgColor);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    h1{
+        font-size: 2rem;
+    }
+    ul {
+        width: 100%;
+        gap: 1.5rem;
+        margin-bottom: -1rem;
+    }
+
+}
+
+.footer-link {
+    a {
+        color: #fff;
     }
 }
 
+
+/* .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}*/
+
+
+/*
+.footer-info span {
+    opacity: 1;
+} */
 
 /* 遮罩 ---------------------------------*/
 .mask {
