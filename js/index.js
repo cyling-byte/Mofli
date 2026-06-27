@@ -1,60 +1,185 @@
-let ShowMask = document.getElementsByClassName('mask');
 
-let myChart = document.getElementById('myChart_Weight');
-const label = ['6/1', '6/2', '6/3', '6/4', '6/5', '6/6'];
-const data = {
-    labels: label,
-    datasets: [{
-        label: '體重變化趨勢',
-        data: ['7', '8.3', '7.5', '9.4', '6.6', '10.3'],
-    }]
-};
+// == 取得日期標題 ==========================================================
+function getWeekDates() {
+    const WeekDates = [];
+    const dayNames = ['(日)', '(一)', '(二)', '(三)', '(四)', '(五)', '(六)'];
+    const today = new Date(); // 取得今天日期
+    const currentDay = today.getDay(); // 取得今天星期幾
+    const getSunday = new Date(today);
+    // console.log(getSunday);
+    getSunday.setDate(today.getDate() - currentDay); // 取得這周星期日的日期
+    for (let i = 0; i < 7; i++) {
+        const nextDay = new Date(getSunday);
+        nextDay.setDate(getSunday.getDate() + i); // 取得這周所有日期
+        // console.log(nextDay);
 
-let chartWeight = new Chart(myChart, {
-    type: 'line', //圖表類型
-    data, //設定圖表資料
-    options: {
-        fill: false,
-        borderColor: '#FF9F9F',
-        tension: 0.4,
-        borderJoinStyle: 'miter',
-        maintainAspectRatio: false,
-        // plugins: {
-        //     legend: {
-        //         display: false
-        //     }
-        // },
-        aspectRatio: 1, // 數字越小，圖表越高
+        WeekDates.push({
+            dateStr: `${nextDay.getMonth() + 1}/${nextDay.getDate()}`, // 取得日期
+            dayName: `${dayNames[i]}`
+        });
     }
+    // console.log(getSunday);
+    return WeekDates;
+}
+
+// console.log(getWeekDates());
+
+let stateTable = document.getElementById('stateTable');
+const stateName = ['精神', '食慾', '活動', '排便'];
+const summaryName = document.getElementById('summaryName');
+
+function renderTable() {
+    let weekDates = getWeekDates();
+    let htmlContent = '';
+    htmlContent += `<div></div>`;
+
+    // == 渲染日期標題 ====================================================================
+    weekDates.forEach(date => {
+        htmlContent += `<div class = "title-date">${date.dateStr}<br>${date.dayName}</div>`;
+    });
+
+    // == 選染狀態列 =================================================================
+    stateName.forEach(state => {
+        htmlContent += `<div class="state-txt">${state}</div>`;
+        for (let i = 0; i < 7; i++) {
+            const storageKey = `${state}-${i}`;
+            let saveImgSrc = localStorage.getItem(storageKey);
+            let nullImgSrc = './images/mood-plus.svg"';
+            if (saveImgSrc) {
+                nullImgSrc = saveImgSrc;
+            }
+            htmlContent += `
+                        <div class="state-input ">
+                                <button class="btn-state-cell" data-type = "${state}" data-day="${i}">
+                                    <span class"moodPlus">
+                                        <img src="${nullImgSrc}" alt="" >
+                                    </span>
+                                </button>
+                                <div class="state-panel" >
+                                    <img src="./images/mood-smile.svg" alt="" class="btn-mood">
+                                    <img src="./images/mood-empty.svg" alt="" class="btn-mood">
+                                    <img src="./images/mood-sad.svg" alt="" class="btn-mood">
+                                </div>
+                        </div>
+                    `;
+        }
+    });
+    stateTable.innerHTML = htmlContent;
+}
+
+renderTable();
+updateSummaryChart(); //  剛開網頁先統計並填滿長條圖
+
+// == 點擊按鈕出現狀態列 =======================================================
+let stateCellBtns = document.querySelectorAll('.btn-state-cell');
+// console.log(stateCellBtns);
+stateCellBtns.forEach(function (Btns) {
+    Btns.addEventListener('click', function (e) {
+        // console.log(this);
+        e.stopPropagation(); // 阻止事件冒泡
+        const onPanel = this.closest('.state-input').querySelector('.state-panel');
+
+        // == 移除非當前面板的 _on =========================================
+        document.querySelectorAll('.state-panel').forEach(panel => {
+            if (panel !== onPanel) {
+                panel.classList.remove('_onPanel');
+            }
+        });
+        this.closest('.state-input').querySelector('.state-panel').classList.toggle('_onPanel');
+    });
 });
 
-let myChartBoold = document.getElementById('myChart_BloodSugar');
-const BooldSuger_label = ['9:00', '12:00', '15:00', '18:00', '21:00', '24:00'];
-const BooldSuger_data = {
-    labels: BooldSuger_label,
-    datasets: [{
-        label: '血糖變化趨勢',
-        data: ['250', '180', '120', '110', '140', '190'],
-    }]
-};
-
-let BooldSuger = new Chart(myChartBoold, {
-    type: 'line', //圖表類型
-    data: BooldSuger_data, //設定圖表資料
-    options: {
-        fill: false,
-        borderColor: '#FF9F9F',
-        tension: 0.4,
-        borderJoinStyle: 'miter',
-        maintainAspectRatio: false,
-        // plugins: {
-        //     legend: {
-        //         display: false
-        //     }
-        // },
-        aspectRatio: 1, // 數字越小，圖表越高
-    }
+// // == 點擊空白處讓panel關閉 ==============================================
+document.addEventListener('click', function () {
+    document.querySelectorAll('.state-panel').forEach(item => {
+        item.classList.remove('_onPanel');
+    });
 });
+
+// == 渲染狀態 =============================================================
+let btnMoods = document.querySelectorAll('.btn-mood');
+
+btnMoods.forEach(function (mood) {
+    let moodPlus = document.getElementsByClassName('moodPlus');
+    // let btn = this.querySelector('.btn-state-cell');
+    mood.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const stateInput = this.closest('.state-input');
+        let target = stateInput.querySelector('.btn-state-cell img');
+        target.src = this.src;
+
+        // == 存入localstorage =========================================
+        let currentBtn = stateInput.querySelector('.btn-state-cell');
+        let type = currentBtn.getAttribute('data-type');
+        let day = currentBtn.getAttribute('data-day');
+
+        let stateKey = `${type}-${day}`;
+        localStorage.setItem(stateKey, mood.src);
+        // console.log(localStorage);
+        updateSummaryChart();
+    });
+});
+
+let currentCategoryIndex = 0;
+summaryName.innerText = stateName[currentCategoryIndex]; // 初始化名稱
+
+// 點擊左箭頭
+document.querySelector('.summary-switcher ._back').addEventListener('click', function () {
+    currentCategoryIndex = (currentCategoryIndex - 1 + stateName.length) % stateName.length;
+    summaryName.innerText = stateName[currentCategoryIndex];
+    updateSummaryChart(); //  切換了名稱，長條圖立刻重新計算
+});
+
+// 點擊右箭頭
+document.querySelector('.summary-switcher ._next').addEventListener('click', function () {
+    currentCategoryIndex = (currentCategoryIndex + 1) % stateName.length;
+    summaryName.innerText = stateName[currentCategoryIndex];
+    updateSummaryChart(); //  切換了名稱，長條圖立刻重新計算
+});
+
+function updateSummaryChart() {
+    // A. 取得當前大卡片顯示哪一個分類（例如："精神"）
+    const currentCategory = summaryName.innerText.trim();
+
+    // 準備三個計數器來算天數
+    let goodDays = 0;
+    let neutralDays = 0;
+    let badDays = 0;
+
+    // B. 跑 0~6 迴圈，撈出這 7 天在 localStorage 的資料
+    for (let i = 0; i < 7; i++) {
+        const storageKey = `${currentCategory}-${i}`;
+        const saveImgSrc = localStorage.getItem(storageKey);
+
+        if (saveImgSrc) {
+            // 💡 根據你儲存的圖片檔名，判斷使用者選了哪種表情
+            if (saveImgSrc.includes('mood-smile.svg')) {
+                goodDays++;
+            } else if (saveImgSrc.includes('mood-empty.svg')) {
+                neutralDays++;
+            } else if (saveImgSrc.includes('mood-sad.svg')) {
+                badDays++;
+            }
+        }
+    }
+
+    // C. 計算百分比（分母是 7 天）
+    const goodPercent = (goodDays / 7) * 100;
+    const neutralPercent = (neutralDays / 7) * 100;
+    const badPercent = (badDays / 7) * 100;
+
+    // D. 渲染天數文字到 HTML 畫面中
+    document.getElementById('countGood').innerText = goodDays;
+    document.getElementById('countNeutral').innerText = neutralDays;
+    document.getElementById('countBad').innerText = badDays;
+
+    // E. 🌟 動態設定長條圖的寬度（寬度會隨著百分比變化而填滿）
+    document.getElementById('barGood').style.width = `${goodPercent}%`;
+    document.getElementById('barNeutral').style.width = `${neutralPercent}%`;
+    document.getElementById('barBad').style.width = `${badPercent}%`;
+}
+
 
 //月曆---------------------------------------------------------
 let now = new Date();
@@ -117,90 +242,36 @@ function history() {
     }
 }
 
+document.querySelectorAll('.schedule-date').forEach(item => {
+    // console.log(item);
+    item.addEventListener('click', function () {
+        // console.log(this);
 
-// 快速紀錄打開按鈕
-
-// let KvBtn = document.getElementById('kv-btn');
-// let BtnInfo = document.getElementsByClassName('btn-info');
-// KvBtn.addEventListener('click', () => {
-//     if (KvBtn.value === 'open') {
-//         KvBtn.value = 'close';
-//         BtnInfo[0].classList.add('open');
-//         ShowMask[0].classList.add('show');
-//     }
-// }, false);
+        $(this).closest('.schedule-list').find('.schedule-item').slideToggle(600);
+        $(this).closest('.schedule-list').find('.schedule-date').toggleClass('_open');
+    });
+});
 
 
-// 顯示更多行程按鈕
+// == 今日任務完成樣式 =========================================
+let toDoCheck = document.querySelectorAll('.todo-check');
+toDoCheck.forEach(item => {
 
-let MoreBtn = document.getElementById('morebtn');
-let ViewMore = document.getElementById('more-sch');
+    item.addEventListener('click', function () {
+        const checked = this.closest('.list-style');
+        // const checkedIcon = checked.querySelector('')
+        let checkState = checked.getAttribute('data-check');
+        
+        checked.classList.toggle('_finish');
+        
 
-
-let totalSchedule = [
-    { schid: 1, schname: '施打疫苗', info: 'XXX寵物綜合醫院', date: '6/15', time: '上午 9:00' },
-    { schid: 2, schname: '寵物美容', info: 'XXX寵物美容旅館', date: '6/27', time: '下午 3:00' },
-    { schid: 3, schname: '健康檢查', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-    { schid: 4, schname: '事件4', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-    { schid: 5, schname: '事件5', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-    { schid: 6, schname: '事件6', info: 'OOO寵物綜合醫院', date: '7/1', time: '上午 10:00' },
-];
-const Close = `<button id = 'close' value="open">
-                    <div>
-                        <img src="./images/close.svg" alt="">
-                    </div>
-                </button>`;
-
-MoreBtn.addEventListener('click', () => {
-    if (MoreBtn.value === 'open') {
-        MoreBtn.value = 'close';
-        ViewMore.classList.add('open');
-        ShowMask[0].classList.add('show');
-    }
-}, false);
-
-
-function CloseMask(e) {
-    ShowMask[0].addEventListener('click', () => {
-        const OpenPanel = document.querySelector('.open');
-        const ClosePanel = document.querySelector('button[value="close"]')
-        if (OpenPanel) {
-            OpenPanel.classList.remove('open');
-            ShowMask[0].classList.remove('show');
-        }
-        if (ClosePanel) {
-            ClosePanel.value = 'open';
-        }
-    }, false);
-}
-
-function showScheduleInfo() {
-    let schHtml = '';
-    let moreHtml = '';
-
-    for (let i = 0; i < totalSchedule.length; i++) {
-        let sch = totalSchedule[i];
-        let schInfo = `<div class="schedule-txt">
-                                    <div class="txt-left">
-                                        <h4>${sch.schname}</h4>
-                                        <p>${sch.info}</p>
-                                    </div>
-                                    <div class="txt-date">
-                                        <p>${sch.date}</p>
-                                        <p>${sch.time}</p>
-                                    </div>
-                                </div>`;
-        if (i < 3) {
-            schHtml += schInfo;
+        if (checkState !== 'true') {
+            
+            checked.dataset.check = 'true';
         } else {
-            moreHtml += schInfo;
+            
+            checked.dataset.check = 'false';
         }
-    }
-    document.getElementById('info').innerHTML = schHtml;
-    document.getElementById('more-sch').innerHTML = Close + moreHtml;
-}
-
-
-showScheduleInfo();
-CloseMask();
-
+        // console.log(checkState);
+    });
+});
