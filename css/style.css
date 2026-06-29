@@ -37,6 +37,7 @@
 
 body {
     width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     /* 確保 body 至少跟視窗一樣高 */
     display: flex;
@@ -48,6 +49,7 @@ body {
     font-family: 'jf-openhuninn', 'Microsoft JhengHei', sans-serif;
     font-size: 16px;
     background-color: var(--bgColor);
+
 }
 
 
@@ -150,132 +152,12 @@ button:hover {
 
 /* 導覽列CSS ---------------------------------*/
 
-nav {
-    display: flex;
-    background-color: var(--bgColor);
-    justify-content: space-between;
-    padding: 2rem;
-    align-items: center;
-    height: 100%;
 
-    .logo {
-        div {
-            width: 80px;
-
-            img {
-                width: 100%;
-            }
-        }
-    }
-
-    .nav-a {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        z-index: 1;
-
-        .icon-size {
-            width: 1.4em;
-            height: 1.4em;
-            color: var(--primary-color);
-            transition: .3s;
-        }
-
-        ul {
-            display: flex;
-            gap: 20px;
-
-            li {
-                position: relative;
-            }
-
-            li:hover {
-                .sub-project {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-
-            .sub-project {
-                position: absolute;
-                display: block;
-                border-radius: 5px;
-                background-color: #fff;
-                width: 100%;
-                visibility: hidden;
-                opacity: 0;
-                transition: .3s;
-                padding-inline: 8px;
-                top: 100%;
-
-
-                li {
-                    border-bottom: 1px solid #666;
-
-                    a {
-                        display: inline-block;
-                        padding: 4px;
-                        width: 100%;
-                        text-align-last: justify;
-                        transition: .3s;
-                        border-radius: 5px;
-                        margin-block: 4px;
-                    }
-
-
-                    a:hover {
-                        background-color: var(--neutral-100);
-                        color: #fff;
-                        border-radius: 5px;
-                    }
-                }
-
-                li:last-child {
-                    border-bottom: none;
-                }
-            }
-
-
-
-            a {
-                display: flex;
-                position: relative;
-
-
-
-                .dark {
-                    display: flex;
-                    gap: 8px;
-                    padding: 4px;
-
-                    span {
-                        transition: .3s;
-                    }
-
-
-                }
-
-                .dark:hover {
-                    span {
-                        color: var(--secondary-color);
-                    }
-
-                    .icon-size {
-                        color: var(--secondary-color);
-                    }
-                }
-            }
-        }
-
-
-    }
-}
 
 
 
 /* 頁尾  CSS ---------------------------------*/
 footer {
-    
 
     >div {
         color: #fff;
@@ -283,11 +165,12 @@ footer {
         display: flex;
         flex-direction: column;
         top: 0;
-        
+
 
         .svg-style {
             svg {
                 display: block;
+                line-height: 0;
             }
         }
 
@@ -313,13 +196,15 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    h1{
+
+    h1 {
         font-size: 2rem;
     }
+
     ul {
         width: 100%;
         gap: 1.5rem;
-        margin-bottom: -1rem;
+        /* margin-bottom: -1rem; */
     }
 
 }
@@ -366,4 +251,411 @@ footer {
     height: 100%;
     opacity: 1;
     visibility: visible;
+}
+
+
+.--flex {
+    display: flex;
+    margin: auto;
+}
+
+#btn-hamburger {
+    padding: 4px;
+}
+
+nav {
+    display: flex;
+    background-color: var(--bgColor);
+    justify-content: space-between;
+    /* padding: 2rem; */
+    align-items: center;
+    /* position: relative; */
+    width: auto;
+
+    .logo {
+        width: 80px;
+
+        a {
+            img {
+                width: 100%;
+            }
+        }
+
+    }
+
+    .nav-a {
+        background-color: var(--bgColor);
+    }
+}
+
+/* ._mob-none {
+    display: none;
+} */
+
+
+/* ._desktop-none {
+    display: none;
+} */
+
+
+
+/* == 電腦 =============================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (width>1200px) {
+
+    ._desktop-none {
+        display: none;
+    }
+
+    /* ._mob-none {
+        display: inline-block;
+    } */
+
+    /* == main--nav =========================================*/
+    nav {
+        padding: 2rem;
+        min-width: 1200px;
+
+        .pet-selector {
+            display: none;
+        }
+
+
+
+        .logo {
+            div {
+                width: 80px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .nav-a {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            z-index: 1;
+
+            .icon-size {
+                width: 1.4em;
+                height: 1.4em;
+                color: var(--primary-color);
+                transition: .3s;
+            }
+
+            ul {
+                display: flex;
+                gap: 20px;
+
+                li {
+                    position: relative;
+                }
+
+                li:hover {
+                    .sub-project {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+
+                .sub-project {
+                    position: absolute;
+                    display: block !important;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    width: 100%;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: .3s;
+                    padding-inline: 8px;
+                    top: 100%;
+
+
+                    li {
+                        border-bottom: 1px solid #666;
+
+                        a {
+                            display: inline-block;
+                            padding: 4px;
+                            width: 100%;
+                            text-align-last: justify;
+                            transition: .3s;
+                            border-radius: 5px;
+                            margin-block: 4px;
+                        }
+
+
+                        a:hover {
+                            background-color: var(--neutral-100);
+                            color: #fff;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    li:last-child {
+                        border-bottom: none;
+                    }
+                }
+
+
+
+                a {
+                    display: flex;
+                    position: relative;
+
+
+
+                    .tabs {
+                        display: flex;
+                        gap: 8px;
+                        padding: 4px;
+
+                        span {
+                            transition: .3s;
+                        }
+
+
+                    }
+
+                    .tabs:hover {
+                        span {
+                            color: var(--secondary-color);
+                        }
+
+                        .icon-size {
+                            color: var(--secondary-color);
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+
+    /* == 手機隱藏 ================================= */
+    ._mob-none {
+        display: none;
+    }
+
+    /* == nav樣式 ============================== */
+    nav {
+        padding-inline: 1rem;
+        /* width: 100%; */
+        max-width: 100%;
+        position: relative;
+    }
+
+
+    .notify {
+        font-size: 1.5rem;
+    }
+
+
+    /* == 漢堡選單 ============================= */
+    #btn-hamburger {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+
+
+
+    .nav-a {
+        position: absolute;
+        height: 100dvh;
+
+
+        top: 100%;
+        /* background-color: orange; */
+        right: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding: 1rem 2rem;
+        /* text-align: center; */
+        z-index: 2;
+
+        ul {
+
+            width: 100%;
+            display: block;
+            /* background-color: #fff; */
+            /* padding: 0 5rem; */
+
+            li {
+
+                /* background-color: orange; */
+                a {
+                    padding: .5rem;
+                }
+
+                .sub-project {
+                    display: none;
+
+
+                    li {
+                        padding-block: 1rem;
+                        border-bottom: 1px solid var(--neutral-100);
+                        /* background-color: orange; */
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        a {
+                            text-align: center;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .notify {
+            display: none;
+        }
+    }
+
+
+    .nav-a._enter {
+        transform: translateX(0);
+    }
+
+    .ham-menu {
+        .notify {
+            color: var(--primary-color);
+        }
+    }
+
+
+    footer {
+        display: none;
+    }
+
+    .-desktop {
+        display: none;
+    }
+}
+
+/* == 手機 ================================*/
+@media screen and (width<768px) {
+
+    /* == 手機隱藏 ================================= */
+    ._mob-none {
+        display: none;
+    }
+
+    /* == nav樣式 ============================== */
+    nav {
+        padding-inline: 1rem;
+        /* width: 100%; */
+        max-width: 100%;
+        position: relative;
+    }
+
+
+    .notify {
+        font-size: 1.5rem;
+    }
+
+
+    /* == 漢堡選單 ============================= */
+    #btn-hamburger {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+
+
+
+    .nav-a {
+        position: absolute;
+        height: 100dvh;
+
+
+        top: 100%;
+        /* background-color: orange; */
+        right: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding: 1rem 2rem;
+        /* text-align: center; */
+        z-index: 2;
+
+        ul {
+
+            width: 100%;
+            display: block;
+            /* background-color: #fff; */
+            /* padding: 0 5rem; */
+
+            li {
+
+                /* background-color: orange; */
+                a {
+                    padding: .5rem;
+                }
+
+                .sub-project {
+                    display: none;
+
+
+                    li {
+                        padding-block: 1rem;
+                        border-bottom: 1px solid var(--neutral-100);
+                        /* background-color: orange; */
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        a {
+                            text-align: center;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .notify {
+            display: none;
+        }
+    }
+
+
+    .nav-a._enter {
+        transform: translateX(0);
+    }
+
+    .ham-menu {
+        .notify {
+            color: var(--primary-color);
+        }
+    }
+
+
+    footer {
+        display: none;
+    }
+
+    .-desktop {
+        display: none;
+    }
 }

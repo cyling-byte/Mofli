@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mofli | 狗狗診療室</title>
+    <link rel="icon" href="./images/logo.svg" type="image/svg">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/clinic-animal.css">
@@ -16,15 +17,16 @@
         <div class="logo">
             <a href="./index.html">
                 <div>
-                    <img src="./images/logo.svg" alt="">
+                    <img src="./images/logotxt.svg" alt="">
                 </div>
             </a>
         </div>
         <div class="nav-a">
+            <!-- 桌機版選單 ------------------------------------------------>
             <ul>
                 <li>
                     <a href="./index.html">
-                        <div class="dark">
+                        <div class="tabs">
                             <i class="fa-solid fa-house icon-size"></i>
                             <span>陪伴日常</span>
                         </div>
@@ -32,7 +34,7 @@
                 </li>
                 <li>
                     <a href="./reserve.html">
-                        <div class="dark">
+                        <div class="tabs">
                             <i class="fa-solid fa-file icon-size"></i>
                             <span>成長日誌</span>
                         </div>
@@ -40,9 +42,10 @@
                 </li>
                 <li>
                     <a href="#">
-                        <div class="dark">
+                        <div class="tabs">
                             <i class="fa-solid fa-house-medical icon-size"></i>
                             <span>照護小屋</span>
+                            <i class="fa-solid fa-caret-down _desktop-none"></i>
                         </div>
                     </a>
                     <ul class="sub-project">
@@ -62,18 +65,30 @@
                 </li>
                 <li>
                     <a href="#">
-                        <div class="dark">
+                        <div class="tabs">
                             <i class="fa-solid fa-user icon-size"></i>
                             <span>我的帳戶</span>
+                            <i class="fa-solid fa-caret-down _desktop-none"></i>
                         </div>
                     </a>
                     <ul class="sub-project">
                         <li><a href="./login.html">登出</a></li>
+                        <li><a href="./login.html">設定</a></li>
                     </ul>
                 </li>
             </ul>
+            <!-- 提醒按鈕 ------------------------------------------------------>
             <button class="notify">
                 <i class="fa-solid fa-bell icon-size"></i>
+            </button>
+        </div>
+        <!-- 漢堡選單 ------------------------------------------------->
+        <div class="ham-menu _desktop-none">
+            <button class="notify">
+                <i class="fa-solid fa-bell icon-size"></i>
+            </button>
+            <button id="btn-hamburger">
+                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </nav>
@@ -164,11 +179,44 @@
     </section>
 
     <footer>
-        <div class="index-footer">
-            <p>電子信箱 : <span>example@gmail.com</span></p>
-            <p>電話 : <span>0900-000-000</span></p>
+        <div>
+            <div class="svg-style">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 100" fill="none">
+                    <path
+                        d="M0 15.5353C180 102 360 -46.2252 540 15.5353C720 77.2958 900 -33.8731 1080 27.8874C1260 77.2958 1360 -21.521 1440 27.8874V102H0V15.5353Z"
+                        fill="#C6BAB1" />
+                </svg>
+            </div>
+            <div class="footer-inner">
+
+                <div class="footer-logo">
+                    <img src="./images/logoFooter.svg" alt="">
+                </div>
+                <div class="footer-info">
+
+                    <h1>Mofli</h1>
+                    <p>整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
+                    <ul class="--flex">
+                        <li class="footer-link">
+                            <a href="#">關於Mofli</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#">聯絡我們</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#">隱私權政策</a>
+                        </li>
+                        <li class="footer-link">
+                            <a href="#">使用條款</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </footer>
+    <script src="./vendors/jquery-4.0.0.min.js"></script>
+    <script src="./js/all.js"></script>
     <script>
         let hpBtns = document.querySelectorAll('.hp-btn');
         let sxBtns = document.querySelectorAll('.sx-btn');

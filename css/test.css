@@ -3,10 +3,6 @@ span {
     height: 100%;
 }
 
-.--flex {
-    display: flex;
-    margin: auto;
-}
 
 .container {
     width: 90%;
@@ -46,58 +42,7 @@ span {
 
 
 
-/* 寵物大頭照樣式 */
-.photo {
-    width: 100%;
 
-
-    .photo-bg,
-    .photo-front {
-        background-color: #fff;
-        border-radius: 5px;
-        border: 1px solid var(--secondary-txt);
-    }
-
-    .photo-bg {
-        position: relative;
-
-        .icon-tape {
-            width: 50%;
-            position: absolute;
-            top: -15%;
-            left: 20%;
-            z-index: 1;
-
-            img {
-                width: 100%;
-                transform: rotate(10deg);
-            }
-        }
-    }
-
-    .photo-front {
-        padding: 0.5rem;
-        transform: rotate(-5deg);
-
-        .headshot {
-            border-radius: 5px;
-            width: 100%;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            margin: auto;
-            height: 100%;
-
-            img {
-                width: 100%;
-                border-radius: 5px;
-            }
-        }
-
-        .icon-footprint {
-            padding-top: 0.5rem;
-        }
-    }
-}
 
 
 /* button樣式 */
@@ -161,23 +106,87 @@ button:hover {
 }
 
 
+/* == 寵物身分證樣式 =======================================*/
+.idcard-content {
+    background-color: var(--neutral-200);
+    border-radius: 20px;
+    padding: 1rem;
 
-/* 區塊標題 */
-.header {
-    align-items: center;
-    gap: .5rem;
-
-    h2 {
-        font-size: 2rem;
-        font-weight: 600;
-        padding-block: 2rem;
+    .idcard-wrap {
+        border: 1px solid var(--neutral-100);
+        border-radius: 20px;
+        width: 100%;
+        padding: 2rem;
+        align-items: flex-start;
     }
 }
 
 
+/* 寵物大頭照樣式 */
+.photo {
+    width: 100%;
 
+    .photo-front {
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid var(--secondary-txt);
+    }
 
+    .photo-bg {
+        position: relative;
+
+        .icon-tape {
+            width: 50%;
+            position: absolute;
+            top: -15%;
+            left: 20%;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                transform: rotate(10deg);
+            }
+        }
+    }
+
+    .photo-front {
+        padding: 0.5rem;
+        transform: rotate(-5deg);
+
+        .headshot {
+            border-radius: 5px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            margin: auto;
+            height: 100%;
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+            }
+        }
+
+        .icon-footprint {
+            padding-top: 0.5rem;
+        }
+    }
+}
+
+/* == 桌機 ================================================== */
 @media screen and (width>=1200px) {
+
+    /* == 區塊標題 ==============================================*/
+    .header {
+        align-items: center;
+        gap: .5rem;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            padding-block: 2rem;
+        }
+    }
 
 
     /* --- kv樣式 -------------------------------------- */
@@ -240,6 +249,7 @@ button:hover {
             margin-left: auto;
         }
     }
+
 
     .header-actions {
         display: flex;
@@ -358,6 +368,31 @@ button:hover {
         }
     }
 
+    /* == 寵物大頭照 ============================= */
+    .photo-bg {
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid var(--secondary-txt);
+        position: relative;
+
+        .icon-tape {
+            width: 50%;
+            position: absolute;
+            top: -15%;
+            left: 20%;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                transform: rotate(10deg);
+            }
+        }
+    }
+
+
+
+
+    /* == 寵物身分證資訊 =============================== */
     .idcard-info {
         padding-left: 3rem;
 
@@ -384,686 +419,709 @@ button:hover {
         }
 
     }
-}
 
-/* --- 今日任務樣式 ------------------------------- */
+    /* --- 今日任務樣式 ------------------------------- */
 
-.dashboard-schedule {
-    width: 50%;
-    padding-inline: 4rem;
-    flex: 1;
-
-    .header {
-        button {
-            width: 1.5rem;
-            aspect-ratio: 1/1;
-            color: #666;
-
-
-            .icon-panel {
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-}
-
-
-
-.list-style {
-    display: flex;
-    gap: 1rem;
-    margin-left: 0;
-    padding: 1.5rem 0.5rem;
-    border-bottom: 1px solid var(--neutral-100);
-    align-items: center;
-
-    label {
-        cursor: pointer;
-
-        input {
-            display: none;
-        }
-
-        span {
-            width: 1rem;
-            color: var(--accent);
-        }
-    }
-
-    .event {
-        .pet-name {
-            color: var(--secondary-color);
-        }
-    }
-
-    button {
-        margin-left: auto;
-        color: var(--secondary-txt);
-    }
-
-    button:hover {
-        color: #666;
-    }
-
-
-
-}
-
-
-
-/* == 任務完成樣式 ============================== */
-._finish {
-    label {
-        span {
-            color: var(--neutral-300);
-        }
-    }
-
-    .event {
-        span {
-            color: var(--secondary-txt) !important;
-
-        }
-    }
-}
-
-/* == 任務區頁碼 ===============================*/
-.schedule-footer {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    margin-top: auto;
-
-    button {
-        transform: rotate(90deg);
-        width: 1.5rem;
-        aspect-ratio: 1/1;
-    }
-}
-
-/* == 健康快覽 ============================ */
-
-.dashboard-healthCard {
-    width: 100%;
-
-}
-
-.healthCard-content {
-    .actions {
-        .icon-style {
-            width: 1.5rem;
-        }
-    }
-}
-
-.healthCard {
-    flex: 1;
-    gap: 3rem;
-    align-self: stretch;
-    justify-content: center;
-}
-
-.healthCard-info {
-    width: 25%;
-    border: 1px solid var(--neutral-100);
-    background-color: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-
-
-    >div {
-        padding: 1rem 1.5rem;
-    }
-
-    >div:last-child {
-        padding: 0;
-    }
-
-    .healthCard-txt {
-        padding-top: 0;
-
-        >p:nth-child(2) {
-            padding-block: 1rem;
-        }
-
-        .unit-newWeight {
-            font-size: 2rem;
-
-            span {
-                font-size: 1rem;
-            }
-        }
-
-        .unit-oldWeigth {
-            color: var(--semanticG);
-
-            >span {
-                width: 12px;
-            }
-        }
-
-    }
-}
-
-.healthCard-title {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-
-    .icon {
-        width: 2rem;
-
-        img {
-            width: 100%;
-        }
-    }
-}
-
-.healthCard-actions {
-    width: 100%;
-    margin-top: auto;
-
-    >button {
-        width: 100%;
-        height: 2rem;
-        padding: 0.5rem 1rem;
-        color: var(--neutral-100);
-
-        .icon-style {
-            margin-left: auto;
-            width: 2rem;
-        }
-    }
-
-    .btn-more:hover {
-        background-color: var(--neutral-200);
-    }
-}
-
-.icon-hint {
-    width: 1rem;
-
-    .icon-style {
-        width: 100%;
-        color: var(--secondary-txt);
-    }
-}
-
-.-null {
-    color: var(--secondary-txt);
-}
-
-/* == 行事曆 ====================================== */
-.schedule-txt {
-    border: 1px solid var(--neutral-300);
-    border-left: 4px solid var(--accent);
-    border-radius: 5px 0 0 5px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 8px 8px 0;
-    box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
-    transition: .3s;
-
-    h4,
-    p {
-        margin-bottom: 8px;
-    }
-}
-
-.schedule-txt:hover {
-    transform: translateX(2px) translateY(-2px);
-    cursor: pointer;
-    background-color: var(--bgColor);
-}
-
-
-.date-board {
-    width: 85%;
-    margin: auto;
-    display: flex;
-    gap: 20px;
-    border: 1px solid var(--neutral-100);
-    border-radius: 20px;
-    padding: 20px;
-    max-height: 450px;
-    overflow: hidden;
-
-    .calendar {
-        width: 70%;
-        border-right: 1px solid var(--neutral-100);
-        padding: 40px;
-        background: no-repeat url(../images/BGimages.png);
-        background-position: center;
-        background-size: 100% 100%;
-
-
-        >div:last-child {
-            display: flex;
-            justify-content: flex-end;
-
-            #back-today {
-                border: none;
-                background-color: transparent;
-                padding: 4px;
-                cursor: pointer;
-                font-size: 12px;
-                color: var(--secondary-txt);
-                display: none;
-            }
-        }
-
-
-        .header {
-            width: 100%;
-            margin-bottom: 8px;
-
-            >div {
-                display: flex;
-                width: 70%;
-                margin: auto;
-                justify-content: space-between;
-                align-content: center;
-                gap: 12px;
-
-                button {
-                    border: none;
-                    width: 1.5em;
-
-                    background-color: transparent;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-
-                button:hover {
-                    cursor: pointer;
-                }
-
-                #month {
-                    text-align: center;
-                    font-size: 16px;
-                    font-weight: 600;
-                }
-            }
-        }
-
-        .container {
-            .week {
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(7, 1fr);
-                text-align: center;
-                padding-block: 12px;
-                font-weight: 600;
-                height: 100%;
-            }
-
-
-            #days {
-                display: grid;
-                flex: 1;
-                grid-template-columns: repeat(7, 1fr);
-                grid-template-rows: 1fr;
-                text-align: center;
-                gap: 4px;
-                justify-content: space-between;
-                height: 100%;
-
-
-                >div {
-                    border-radius: 50%;
-                    text-align: center;
-                    padding-block: 8px;
-                    transition: .3s;
-                    aspect-ratio: 1 / 1;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                div:hover {
-                    background-color: var(--neutral-100);
-                    cursor: pointer;
-                }
-
-                .dateBgc {
-                    background-color: var(--primary-color);
-                    color: #fff;
-                }
-
-                .dateBgc:hover {
-                    background: var(--secondary-color);
-                }
-
-                .empty {
-                    cursor: default;
-                }
-
-                .empty:hover {
-                    background: transparent;
-                }
-            }
-
-        }
-    }
-
-    .schedule {
-        width: 100%;
-        position: relative;
-
-        >div {
-            width: 70%;
-            padding: 12px;
-            margin: auto;
-
-            .header {
-                padding-block: 1rem;
-
-                p {
-                    flex: 1;
-                }
-            }
-        }
-
-        #info {
-            .schedule-txt {
-                border: 1px solid var(--neutral-300);
-                border-left: 4px solid var(--accent);
-                border-radius: 5px 0 0 5px;
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                margin-bottom: 20px;
-                padding: 8px 8px 0;
-                box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
-                transition: .3s;
-
-                h4,
-                p {
-                    margin-bottom: 8px;
-                }
-            }
-
-            .schedule-txt:hover {
-                transform: translateX(2px) translateY(-2px);
-                cursor: pointer;
-                background-color: var(--bgColor);
-            }
-        }
-
-        .btn-info {
-            width: 80%;
-            background-color: #fff;
-            left: -80px;
-            top: 0;
-            transform-origin: right bottom;
-
-
-            #close {
-                width: 100%;
-                display: flex;
-                height: 100%;
-                justify-content: flex-end;
-                margin-bottom: 12px;
-
-                >div {
-                    width: 1.5em;
-                    padding: 4px;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-
-                >div:hover {
-                    cursor: pointer;
-                }
-
-            }
-
-            .schedule-txt {
-                width: 70%;
-                margin: auto auto 20px;
-            }
-
-        }
-    }
-}
-
-
-/* == 本周狀態 ======================================= */
-.dashboard-state {
-    width: 100%;
-    /* gap: 2rem; */
-    margin-top: 4rem;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 2rem;
-
-    .state-container {
+    .dashboard-schedule {
         width: 50%;
+        padding-inline: 4rem;
+        flex: 1;
 
         .header {
-            .btn-actions {
-                margin-left: auto;
+            button {
+                width: 1.5rem;
+                aspect-ratio: 1/1;
+                color: #666;
+
             }
         }
-
-    }
-}
-
-#stateTable {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 0.5rem;
-}
-
-
-.title-date {
-    text-align: center;
-    line-height: 1.5rem;
-}
-
-
-.state-txt {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.state-input {
-    text-align: center;
-    position: relative;
-
-    .btn-state-cell {
-        padding: 0.5rem;
-
-        span {
-            width: 100%;
-        }
-    }
-}
-
-.state-panel {
-    display: none;
-    cursor: pointer;
-    background-color: #fff;
-    padding: .5rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--neutral-100);
-    position: absolute;
-    gap: .5rem;
-    z-index: 1;
-}
-
-
-
-.state-summary {
-    width: 50%;
-    padding-inline: 4rem;
-}
-
-.summary-count {
-    background-color: var(--bgColor);
-    border: 1px solid var(--neutral-200);
-    border-radius: 20px;
-    padding: 0 2rem 2rem;
-}
-
-.chart-row {
-    gap: 1rem;
-
-    &:last-child {
-        padding-bottom: 0rem;
     }
 
-    padding-block: .5rem;
-}
 
-.longBar {
-    display: flex;
-    align-items: center;
-    position: relative;
-    flex: 1;
-
-}
-
-.summary-switcher {
-    padding-block: 4px;
-    width: 100%;
-}
-
-
-
-.longBar-nofill,
-.longBar-fill {
-    width: 100%;
-    background-color: #fff;
-    height: .5rem;
-    border-radius: 20px;
-    position: absolute;
-    left: 0;
-}
-
-/* 填滿顏色的那一條 */
-.longBar-fill {
-    /* height: 100%; */
-    width: 0%;
-    /* 預設 0%，由 JS 動態改寫 width */
-    position: absolute;
-    /* top: 0; */
-    left: 0;
-    border-radius: 20px;
-    /* 💡 加上這行，長條圖伸展時就會有非常漂亮的動畫效果 */
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-}
-
-.colorGood {
-    background-color: var(--semanticG);
-}
-
-.colorNeutral {
-    background-color: var(--semanticY);
-}
-
-.colorBad {
-    background-color: var(--accent);
-}
-
-#summaryName::after {
-    content: '狀態';
-}
-
-.summary-remind {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: var(--neutral-200);
-    border-radius: 20px;
-
-    .header {
-        padding-block: .5rem;
-    }
-}
-
-.remind-txt {
-    padding-inline: 1.5rem;
-}
-
-
-
-/* == 行事曆 ======================= */
-.schedule-info {
-    padding-block: 1rem;
-}
-
-.schedule-date {
-    background-color: var(--neutral-200);
-    padding: 1rem;
-    color: var(--neutral-100);
-    cursor: pointer;
-    transition: .3s;
-
-    p {
-        flex: 1;
-    }
-
-    button {
-        color: var(--neutral-100);
-    }
-}
-
-.schedule-item {
-    display: none;
 
     .list-style {
-        padding-inline: 1rem;
+        display: flex;
+        gap: 1rem;
+        margin-left: 0;
+        padding: 1.5rem 0.5rem;
+        border-bottom: 1px solid var(--neutral-100);
+        align-items: center;
 
-        span:nth-child(3) {
-            color: var(--neutral-100);
-            padding: 4px;
-            font-size: 14px;
-            background-color: var(--neutral-200);
-            border-radius: 5px;
+        label {
+            cursor: pointer;
+
+            input {
+                display: none;
+            }
+
+            span {
+                width: 1rem;
+                color: var(--accent);
+            }
         }
+
+        .event {
+            .pet-name {
+                color: var(--secondary-color);
+            }
+        }
+
+        button {
+            margin-left: auto;
+            color: var(--secondary-txt);
+        }
+
+        button:hover {
+            color: #666;
+        }
+
+
+
+    }
+
+
+
+    /* == 任務完成樣式 ============================== */
+    ._finish {
+        label {
+            span {
+                color: var(--neutral-300);
+            }
+        }
+
+        .event {
+            span {
+                color: var(--secondary-txt) !important;
+
+            }
+        }
+    }
+
+    /* == 任務區頁碼 ===============================*/
+    .schedule-footer {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        margin-top: auto;
+
+        button {
+            transform: rotate(90deg);
+            width: 1.5rem;
+            aspect-ratio: 1/1;
+        }
+    }
+
+    /* == 健康快覽 ============================ */
+
+    .dashboard-healthCard {
+        width: 100%;
+
+    }
+
+    .healthCard-content {
+        .actions {
+            .icon-style {
+                width: 1.5rem;
+            }
+        }
+    }
+
+    .healthCard {
+        flex: 1;
+        gap: 3rem;
+        align-self: stretch;
+        justify-content: center;
+    }
+
+    .healthCard-info {
+        width: 25%;
+        border: 1px solid var(--neutral-100);
+        background-color: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+
+        >div {
+            padding: 1rem 1.5rem;
+        }
+
+        >div:last-child {
+            padding: 0;
+        }
+
+        .healthCard-txt {
+            padding-top: 0;
+
+            >p:nth-child(2) {
+                padding-block: 1rem;
+            }
+
+            .unit-newWeight {
+                font-size: 2rem;
+
+                span {
+                    font-size: 1rem;
+                }
+            }
+
+            .unit-oldWeigth {
+                color: var(--semanticG);
+
+                >span {
+                    width: 12px;
+                }
+            }
+
+        }
+    }
+
+    .healthCard-title {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        .icon {
+            width: 2rem;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .healthCard-actions {
+        width: 100%;
+        margin-top: auto;
+
+        >button {
+            width: 100%;
+            height: 2rem;
+            padding: 0.5rem 1rem;
+            color: var(--neutral-100);
+
+            .icon-style {
+                margin-left: auto;
+                width: 2rem;
+            }
+        }
+
+        .btn-more:hover {
+            background-color: var(--neutral-200);
+        }
+    }
+
+    .icon-hint {
+        width: 1rem;
+
+        .icon-style {
+            width: 100%;
+            color: var(--secondary-txt);
+        }
+    }
+
+    .-null {
+        color: var(--secondary-txt);
+    }
+
+    /* == 行事曆 ====================================== */
+    .schedule-txt {
+        border: 1px solid var(--neutral-300);
+        border-left: 4px solid var(--accent);
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 8px 8px 0;
+        box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
+        transition: .3s;
+
+        h4,
+        p {
+            margin-bottom: 8px;
+        }
+    }
+
+    .schedule-txt:hover {
+        transform: translateX(2px) translateY(-2px);
+        cursor: pointer;
+        background-color: var(--bgColor);
+    }
+
+
+    .date-board {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        gap: 20px;
+        border: 1px solid var(--neutral-100);
+        border-radius: 20px;
+        padding: 20px;
+        max-height: 450px;
+        overflow: hidden;
+
+        .calendar {
+            width: 70%;
+            border-right: 1px solid var(--neutral-100);
+            padding: 40px;
+            background: no-repeat url(../images/BGimages.png);
+            background-position: center;
+            background-size: 100% 100%;
+
+
+            >div:last-child {
+                display: flex;
+                justify-content: flex-end;
+
+                #back-today {
+                    border: none;
+                    background-color: transparent;
+                    padding: 4px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    color: var(--secondary-txt);
+                    display: none;
+                }
+            }
+
+
+            .header {
+                width: 100%;
+                margin-bottom: 8px;
+
+                >div {
+                    display: flex;
+                    width: 70%;
+                    margin: auto;
+                    justify-content: space-between;
+                    align-content: center;
+                    gap: 12px;
+
+                    button {
+                        border: none;
+                        width: 1.5em;
+
+                        background-color: transparent;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    button:hover {
+                        cursor: pointer;
+                    }
+
+                    #month {
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .container {
+                .week {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    text-align: center;
+                    padding-block: 12px;
+                    font-weight: 600;
+                    height: 100%;
+                }
+
+
+                #days {
+                    display: grid;
+                    flex: 1;
+                    grid-template-columns: repeat(7, 1fr);
+                    grid-template-rows: 1fr;
+                    text-align: center;
+                    gap: 4px;
+                    justify-content: space-between;
+                    height: 100%;
+
+
+                    >div {
+                        border-radius: 50%;
+                        text-align: center;
+                        padding-block: 8px;
+                        transition: .3s;
+                        aspect-ratio: 1 / 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    div:hover {
+                        background-color: var(--neutral-100);
+                        cursor: pointer;
+                    }
+
+                    .dateBgc {
+                        background-color: var(--primary-color);
+                        color: #fff;
+                    }
+
+                    .dateBgc:hover {
+                        background: var(--secondary-color);
+                    }
+
+                    .empty {
+                        cursor: default;
+                    }
+
+                    .empty:hover {
+                        background: transparent;
+                    }
+                }
+
+            }
+        }
+
+        .schedule {
+            width: 100%;
+            position: relative;
+
+            >div {
+                width: 70%;
+                padding: 12px;
+                margin: auto;
+
+                .header {
+                    padding-block: 1rem;
+
+                    p {
+                        flex: 1;
+                    }
+                }
+            }
+
+            #info {
+                .schedule-txt {
+                    border: 1px solid var(--neutral-300);
+                    border-left: 4px solid var(--accent);
+                    border-radius: 5px 0 0 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    padding: 8px 8px 0;
+                    box-shadow: 0 4px 12px rgba(120, 106, 98, 0.08);
+                    transition: .3s;
+
+                    h4,
+                    p {
+                        margin-bottom: 8px;
+                    }
+                }
+
+                .schedule-txt:hover {
+                    transform: translateX(2px) translateY(-2px);
+                    cursor: pointer;
+                    background-color: var(--bgColor);
+                }
+            }
+
+            .btn-info {
+                width: 80%;
+                background-color: #fff;
+                left: -80px;
+                top: 0;
+                transform-origin: right bottom;
+
+
+                #close {
+                    width: 100%;
+                    display: flex;
+                    height: 100%;
+                    justify-content: flex-end;
+                    margin-bottom: 12px;
+
+                    >div {
+                        width: 1.5em;
+                        padding: 4px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    >div:hover {
+                        cursor: pointer;
+                    }
+
+                }
+
+                .schedule-txt {
+                    width: 70%;
+                    margin: auto auto 20px;
+                }
+
+            }
+        }
+    }
+
+
+    /* == 本周狀態 ======================================= */
+    .dashboard-state {
+        width: 100%;
+        /* gap: 2rem; */
+        margin-top: 4rem;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 2rem;
+
+        .state-container {
+            width: 50%;
+
+            .header {
+                .btn-actions {
+                    margin-left: auto;
+                }
+            }
+
+        }
+    }
+
+    #stateTable {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 0.5rem;
+    }
+
+
+    .title-date {
+        text-align: center;
+        line-height: 1.5rem;
+    }
+
+
+    .state-txt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .state-input {
+        text-align: center;
+        position: relative;
+
+        .btn-state-cell {
+            padding: 0.5rem;
+
+            span {
+                width: 100%;
+            }
+        }
+    }
+
+    .state-panel {
+        display: none;
+        cursor: pointer;
+        background-color: #fff;
+        padding: .5rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px var(--neutral-100);
+        position: absolute;
+        gap: .5rem;
+        z-index: 1;
+    }
+
+
+
+    .state-summary {
+        width: 50%;
+        padding-inline: 4rem;
+    }
+
+    .summary-count {
+        background-color: var(--bgColor);
+        border: 1px solid var(--neutral-200);
+        border-radius: 20px;
+        padding: 0 2rem 2rem;
+    }
+
+    .chart-row {
+        gap: 1rem;
 
         &:last-child {
-            border-bottom: none;
+            padding-bottom: 0rem;
+        }
+
+        padding-block: .5rem;
+    }
+
+    .longBar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        flex: 1;
+
+    }
+
+    .summary-switcher {
+        padding-block: 4px;
+        width: 100%;
+    }
+
+
+
+    .longBar-nofill,
+    .longBar-fill {
+        width: 100%;
+        background-color: #fff;
+        height: .5rem;
+        border-radius: 20px;
+        position: absolute;
+        left: 0;
+    }
+
+    /* 填滿顏色的那一條 */
+    .longBar-fill {
+        /* height: 100%; */
+        width: 0%;
+        /* 預設 0%，由 JS 動態改寫 width */
+        position: absolute;
+        /* top: 0; */
+        left: 0;
+        border-radius: 20px;
+        /* 💡 加上這行，長條圖伸展時就會有非常漂亮的動畫效果 */
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    }
+
+    .colorGood {
+        background-color: var(--semanticG);
+    }
+
+    .colorNeutral {
+        background-color: var(--semanticY);
+    }
+
+    .colorBad {
+        background-color: var(--accent);
+    }
+
+    #summaryName::after {
+        content: '狀態';
+    }
+
+    .summary-remind {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: var(--neutral-200);
+        border-radius: 20px;
+
+        .header {
+            padding-block: .5rem;
+        }
+    }
+
+    .remind-txt {
+        padding-inline: 1.5rem;
+    }
+
+
+
+    /* == 行事曆 ======================= */
+    .schedule-info {
+        padding-block: 1rem;
+    }
+
+    .schedule-date {
+        background-color: var(--neutral-200);
+        padding: 1rem;
+        color: var(--neutral-100);
+        cursor: pointer;
+        transition: .3s;
+
+        p {
+            flex: 1;
+        }
+
+        button {
+            color: var(--neutral-100);
+        }
+    }
+
+    .schedule-item {
+        display: none;
+
+        .list-style {
+            padding-inline: 1rem;
+
+            span:nth-child(3) {
+                color: var(--neutral-100);
+                padding: 4px;
+                font-size: 14px;
+                background-color: var(--neutral-200);
+                border-radius: 5px;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+    }
+
+    .schedule-list {
+        margin-bottom: 1.5rem;
+        background-color: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    ._onPanel {
+        opacity: 1;
+        display: flex;
+    }
+
+    ._open {
+        background-color: var(--neutral-100);
+        color: #fff;
+
+        button {
+            color: #fff;
         }
     }
 
 }
 
-.schedule-list {
-    margin-bottom: 1.5rem;
-    background-color: #fff;
-    border-radius: 20px;
-    overflow: hidden;
+.fa-caret-down._rotate {
+    transform: rotate(180deg);
 }
 
-._onPanel {
-    opacity: 1;
-    display: flex;
-}
-
-._open {
-    background-color: var(--neutral-100);
-    color: #fff;
-
-    button {
-        color: #fff;
+/* == 手機 ======================================================== */
+@media screen and (768px>=width) {
+    .--hide {
+        display: none;
     }
+
+    /* == 標題 =============================================== */
+    .header {
+        display: none;
+    }
+
+    /* == 寵物大頭照 ===================================== */
+    .dashboard-idcard {
+        padding-inline: .5rem;
+    }
+
+    .idcard-content {
+        width: 80%;
+        margin: auto;
+    }
+
+    .photo-front {
+        /* width: 80%; */
+    }
+
 }
-
-
-

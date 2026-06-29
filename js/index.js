@@ -33,12 +33,12 @@ function renderTable() {
     let htmlContent = '';
     htmlContent += `<div></div>`;
 
-    // == 渲染日期標題 ====================================================================
+    // == 渲染日期標題 =========================================
     weekDates.forEach(date => {
         htmlContent += `<div class = "title-date">${date.dateStr}<br>${date.dayName}</div>`;
     });
 
-    // == 選染狀態列 =================================================================
+    // == 選染狀態列 =============================================
     stateName.forEach(state => {
         htmlContent += `<div class="state-txt">${state}</div>`;
         for (let i = 0; i < 7; i++) {
@@ -89,14 +89,14 @@ stateCellBtns.forEach(function (Btns) {
     });
 });
 
-// // == 點擊空白處讓panel關閉 ==============================================
+// // == 點擊空白處讓panel關閉 ===============================
 document.addEventListener('click', function () {
     document.querySelectorAll('.state-panel').forEach(item => {
         item.classList.remove('_onPanel');
     });
 });
 
-// == 渲染狀態 =============================================================
+// == 渲染狀態 ========================================================
 let btnMoods = document.querySelectorAll('.btn-mood');
 
 btnMoods.forEach(function (mood) {
@@ -181,7 +181,7 @@ function updateSummaryChart() {
 }
 
 
-//月曆---------------------------------------------------------
+// == 月曆 ===========================================================
 let now = new Date();
 const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const Year = now.getFullYear();
@@ -246,32 +246,34 @@ document.querySelectorAll('.schedule-date').forEach(item => {
     // console.log(item);
     item.addEventListener('click', function () {
         // console.log(this);
-
-        $(this).closest('.schedule-list').find('.schedule-item').slideToggle(600);
-        $(this).closest('.schedule-list').find('.schedule-date').toggleClass('_open');
+        const listItem = $(this).closest('.schedule-list');
+        let iconItem = listItem.find('.fa-caret-down');
+        // listItem.find('.schedule-item').slideToggle(600);
+        activeSmoothEntry(listItem, '.schedule-item');
+        listItem.find('.schedule-date').toggleClass('_open');
+        activeRotate(iconItem);
     });
 });
 
 
 // == 今日任務完成樣式 =========================================
 let toDoCheck = document.querySelectorAll('.todo-check');
+
 toDoCheck.forEach(item => {
 
     item.addEventListener('click', function () {
         const checked = this.closest('.list-style');
-        // const checkedIcon = checked.querySelector('')
-        let checkState = checked.getAttribute('data-check');
-        
+        let iconChange = checked.querySelector('.fa-circle');
         checked.classList.toggle('_finish');
-        
 
-        if (checkState !== 'true') {
-            
-            checked.dataset.check = 'true';
+        if (iconChange.title !== 'true') {
+            iconChange.innerHTML = `<i class="fa-solid fa-circle-check icon-style" ></i>`;
+            iconChange.title = 'true';
         } else {
-            
-            checked.dataset.check = 'false';
+            iconChange.innerHTML = `<i class="fa-regular fa-circle icon-style"></i>`;
+            iconChange.title = 'false';
         }
         // console.log(checkState);
     });
 });
+

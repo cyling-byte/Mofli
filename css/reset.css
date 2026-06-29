@@ -97,6 +97,10 @@ video {
 }
 
 /* HTML5 display-role reset for older browsers */
+
+html,body{
+	overflow-x: hidden;
+}
 article,
 aside,
 details,

@@ -1,12 +1,7 @@
-body {
-    background-color: var(--bgColor);
-}
-
 .wrapper {
     position: relative;
     width: 90%;
     margin: 80px auto;
-
 
     .title {
         width: 100%;
@@ -19,13 +14,14 @@ body {
     .content {
         width: 100%;
         display: flex;
-        justify-content: center;
-        padding: 20px;
+        flex-direction: column;
+        gap: 30px;
+
 
         .card {
-            transition: .3s;
-            transform: scale(.9);
             position: relative;
+            width: 100%;
+            transition: .3s;
 
             .card-title {
                 position: absolute;
@@ -45,20 +41,18 @@ body {
 
                     img {
                         pointer-events: none;
-                        height: 100%;
+                        width: 100%;
+                        height: auto;
+
                     }
                 }
             }
         }
-
-        .card:hover {
-            transform: scale(1);
-        }
-
     }
 
     .more {
         width: 100%;
+        margin-top: 40px;
 
         #morebtn {
             margin: auto;
@@ -72,6 +66,53 @@ body {
                 transform: translateX(-50%);
                 background-color: var(--neutral-100);
             }
+        }
+    }
+}
+
+/* == 平板 ===========================================*/
+@media screen and (min-width: 768px) {
+    .wrapper {
+        .content {
+            flex-direction: row;
+
+            flex-wrap: wrap;
+
+            justify-content: flex-start;
+
+            gap: 40px 4%;
+
+
+            .card {
+
+                width: 48%;
+
+
+
+                .img-container button img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+
+
+        }
+    }
+}
+
+/* == 桌機 ======================================== */
+@media screen and (min-width: 1200px) {
+    .wrapper {
+        .content {
+            justify-content: center;
+            gap: 0;
+            transform: scale(.9);
+
+        }
+
+        .card:hover {
+            transform: scale(1);
+
         }
     }
 }

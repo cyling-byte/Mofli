@@ -8,7 +8,7 @@
     <link rel="icon" href="./images/logo.svg" type="image/svg">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/test.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://kit.fontawesome.com/865a269d64.js" crossorigin="anonymous"></script>
 </head>
@@ -19,17 +19,14 @@
     <nav>
         <div class="logo">
             <a href="./index.html">
-                <div>
-                    <img src="./images/logotxt.svg" alt="">
-                </div>
+                <img src="./images/logotxt.svg" alt="">
             </a>
         </div>
         <div class="nav-a">
-            <!-- 桌機版選單 ------------------------------------------------>
             <ul>
                 <li>
                     <a href="./index.html">
-                        <div class="tabs">
+                        <div class="dark">
                             <i class="fa-solid fa-house icon-size"></i>
                             <span>陪伴日常</span>
                         </div>
@@ -37,18 +34,17 @@
                 </li>
                 <li>
                     <a href="./reserve.html">
-                        <div class="tabs">
+                        <div class="dark">
                             <i class="fa-solid fa-file icon-size"></i>
                             <span>成長日誌</span>
                         </div>
                     </a>
                 </li>
-                <li class="desktop-menu">
+                <li>
                     <a href="#">
-                        <div class="tabs">
+                        <div class="dark">
                             <i class="fa-solid fa-house-medical icon-size"></i>
                             <span>照護小屋</span>
-                            <i class="fa-solid fa-caret-down  _desktop-none"></i>
                         </div>
                     </a>
                     <ul class="sub-project">
@@ -66,39 +62,39 @@
                         </li>
                     </ul>
                 </li>
-                <li class="desktop-menu">
+                <li>
                     <a href="#">
-                        <div class="tabs">
+                        <div class="dark">
                             <i class="fa-solid fa-user icon-size"></i>
                             <span>我的帳戶</span>
-                            <i class="fa-solid fa-caret-down _desktop-none"></i>
                         </div>
                     </a>
                     <ul class="sub-project">
                         <li><a href="./login.html">登出</a></li>
-                        <li><a href="./login.html">設定</a></li>
                     </ul>
                 </li>
             </ul>
-            <!-- 提醒按鈕 ------------------------------------------------------>
-            <button class="notify">
-                <i class="fa-solid fa-bell icon-size"></i>
-            </button>
-        </div>
-        <!-- 漢堡選單 ------------------------------------------------->
-        <div class="ham-menu _desktop-none ">
-            <button class="notify">
-                <i class="fa-solid fa-bell icon-size"></i>
-            </button>
-            <button id="btn-hamburger">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
 
+            <div class="pet-selector --flex">
+                <button class="_dropdown">
+                    Mofli
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <ul class="pet-dropdown">
+                    <li>Nuna</li>
+                    <li>Bobi</li>
+                </ul>
+
+            </div>
+
+            <button class="notify">
+                <i class="fa-solid fa-bell icon-size"></i>
+            </button>
+        </div>
     </nav>
 
     <!-- 首頁kv區 ------------------------------------------------->
-    <section class="main-kv _mob-none">
+    <section class="main-kv --hide">
         <div class="--flex">
             <div class="wrap">
                 <div class="kv-txt">
@@ -119,7 +115,7 @@
     </section>
 
     <!-- 寵物選擇區 ------------------------------------------------->
-    <section class="pet-select _mob-none">
+    <section class="pet-select --hide">
         <div class="container">
             <div class="header">
                 <h2>我的毛孩</h2>
@@ -211,7 +207,7 @@
     </section>
 
     <!-- 健康資訊區 ------------------------------------------------->
-    <section class="pet-dashboard _mob-none">
+    <section class="pet-dashboard ">
         <div class="container --flex">
 
             <!-- 毛孩身分證 ------------------------------------------>
@@ -223,7 +219,7 @@
                     <div class="idcard-wrap --flex">
                         <div class="idcard photo">
                             <div class="photo-bg">
-                                <div class="icon-tape">
+                                <div class="icon-tape --hide">
                                     <img src="./images/adhesive-tape.svg" alt="">
                                 </div>
                                 <div class="photo-front">
@@ -238,11 +234,11 @@
                         </div>
                         <div class="idcard-info">
                             <div class="txt">
-                                <p>基本資料</p>
+                                <p class="--hide">基本資料</p>
                                 <p>Mofli</p>
-                                <p>性別:公</p>
+                                <p class="--hide">性別:公</p>
                                 <p>生日:2024/05/26</p>
-                                <p>年齡:2歲3個月</p>
+                                <p class="--hide">年齡:2歲3個月</p>
                             </div>
                             <button class="btn-actions">
                                 查看完整資料
@@ -254,7 +250,7 @@
             </div>
 
             <!-- 今日任務區-------------------------------------------->
-            <div class="dashboard-schedule">
+            <div class="dashboard-schedule --hide">
                 <div class="header --flex">
                     <h2>今日任務</h2>
                     <button>
@@ -349,7 +345,7 @@
             </div>
 
             <!-- 健康快覽 ----------------------------------------->
-            <div class="dashboard-healthCard">
+            <div class="dashboard-healthCard --hide">
                 <div class="header">
                     <h2>健康快覽</h2>
                 </div>
@@ -448,7 +444,7 @@
             </div>
 
             <!-- 本周狀態 ----------------------------------------->
-            <div class="dashboard-state --flex">
+            <div class="dashboard-state --flex --hide">
                 <div class="state-container">
                     <div class="header --flex">
                         <h2>本周狀態</h2>
@@ -516,7 +512,7 @@
 
 
     <!-- 行事曆------------------------------------------>
-    <section class="_mob-none">
+    <section class="--hide">
         <div class="date-board">
             <div class="calendar">
                 <div class="header">
@@ -682,11 +678,8 @@
         </div>
     </section>
 
-
-
-
     <!-- main-footer ------------------------------------------>
-    <footer class="_mob-none">
+    <footer class="--hide">
         <div>
             <div class="svg-style">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 100" fill="none">
@@ -727,8 +720,8 @@
 
     <div class="mask"></div>
     <script src="./vendors/jquery-4.0.0.min.js"></script>
-    <script src="./js/all.js"></script>
     <script src="./js/index.js"></script>
+    
     <script>
 
         // 顯示更多行程按鈕
