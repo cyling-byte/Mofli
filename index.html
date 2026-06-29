@@ -119,13 +119,13 @@
     </section>
 
     <!-- 寵物選擇區 ------------------------------------------------->
-    <section class="pet-select _mob-none">
+    <section class="pet-select">
         <div class="container">
             <div class="header">
                 <h2>我的毛孩</h2>
             </div>
             <div class="content --flex">
-                <button class="actions _back">
+                <button class="actions _back _mob-none">
                     <i class="fa-solid fa-angle-left icon-style"></i>
                 </button>
                 <div class="pet-card-list --flex">
@@ -142,7 +142,7 @@
                             <p>Mofil</p>
                             <p>
                                 <span>布偶貓</span>
-                                <span>公</span>
+                                <span class="_mob-none">公</span>
                             </p>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                             <p>Mofil</p>
                             <p>
                                 <span>柯基犬</span>
-                                <span>公</span>
+                                <span class="_mob-none">公</span>
                             </p>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <p>Mofil</p>
                             <p>
                                 <span>英國短毛貓</span>
-                                <span>母</span>
+                                <span class="_mob-none">母</span>
                             </p>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                             <p>Mofil</p>
                             <p>
                                 <span>薩摩耶</span>
-                                <span>母</span>
+                                <span class="_mob-none">母</span>
                             </p>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                     </button>
 
                 </div>
-                <button class="actions _next">
+                <button class="actions _next _mob-none">
                     <i class="fa-solid fa-angle-right icon-style"></i>
                 </button>
             </div>
@@ -211,7 +211,7 @@
     </section>
 
     <!-- 健康資訊區 ------------------------------------------------->
-    <section class="pet-dashboard _mob-none">
+    <section class="pet-dashboard ">
         <div class="container --flex">
 
             <!-- 毛孩身分證 ------------------------------------------>
@@ -219,11 +219,12 @@
                 <div class="header">
                     <h2>毛孩身份證</h2>
                 </div>
-                <div class="idcard-content ">
-                    <div class="idcard-wrap --flex">
+                <div class="idcard-content --flex">
+                    <div class="idcard-wrap">
+                        <!-- 寵物大頭貼 ---------------------------->
                         <div class="idcard photo">
                             <div class="photo-bg">
-                                <div class="icon-tape">
+                                <div class="icon-tape _mob-none">
                                     <img src="./images/adhesive-tape.svg" alt="">
                                 </div>
                                 <div class="photo-front">
@@ -238,11 +239,11 @@
                         </div>
                         <div class="idcard-info">
                             <div class="txt">
-                                <p>基本資料</p>
+                                <p class="_mob-none">基本資料</p>
                                 <p>Mofli</p>
-                                <p>性別:公</p>
-                                <p>生日:2024/05/26</p>
-                                <p>年齡:2歲3個月</p>
+                                <p class="_mob-none">性別:公</p>
+                                <p class="_mob-none">生日:2024/05/26</p>
+                                <p class="_mob-none">年齡:2歲3個月</p>
                             </div>
                             <button class="btn-actions">
                                 查看完整資料
@@ -354,7 +355,7 @@
                     <h2>健康快覽</h2>
                 </div>
                 <div class="healthCard-content --flex">
-                    <button class="actions _back">
+                    <button class="actions _back _mob-none">
                         <i class="fa-solid fa-angle-left icon-style"></i>
                     </button>
                     <div class="healthCard --flex">
@@ -441,7 +442,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="actions _next">
+                    <button class="actions _next _mob-none">
                         <i class="fa-solid fa-angle-right icon-style"></i>
                     </button>
                 </div>
@@ -457,7 +458,19 @@
                             <i class="fa-solid fa-angle-right"></i>
                         </button>
                     </div>
-                    <div class="state-table" id="stateTable"></div>
+                    <div class="status-board-mobile --flex">
+
+                        <button id="prevBtn" class="nav-btn">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </button>
+
+                        <div id="stateTable"></div>
+
+                        <button id="nextBtn" class="nav-btn">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+
+                    </div>
                 </div>
                 <div class="state-summary">
                     <div class="summary-count">

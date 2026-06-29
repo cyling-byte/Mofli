@@ -3,71 +3,95 @@
 function getWeekDates() {
     const WeekDates = [];
     const dayNames = ['(日)', '(一)', '(二)', '(三)', '(四)', '(五)', '(六)'];
-    const today = new Date(); // 取得今天日期
-    const currentDay = today.getDay(); // 取得今天星期幾
+    const today = new Date();
+    const currentDay = today.getDay();
     const getSunday = new Date(today);
-    // console.log(getSunday);
-    getSunday.setDate(today.getDate() - currentDay); // 取得這周星期日的日期
+
+    getSunday.setDate(today.getDate() - currentDay);
     for (let i = 0; i < 7; i++) {
         const nextDay = new Date(getSunday);
-        nextDay.setDate(getSunday.getDate() + i); // 取得這周所有日期
-        // console.log(nextDay);
+        nextDay.setDate(getSunday.getDate() + i);
 
         WeekDates.push({
-            dateStr: `${nextDay.getMonth() + 1}/${nextDay.getDate()}`, // 取得日期
+            dateStr: `${nextDay.getMonth() + 1}/${nextDay.getDate()}`,
             dayName: `${dayNames[i]}`
         });
     }
-    // console.log(getSunday);
     return WeekDates;
 }
 
-// console.log(getWeekDates());
-
 let stateTable = document.getElementById('stateTable');
 const stateName = ['精神', '食慾', '活動', '排便'];
-const summaryName = document.getElementById('summaryName');
 
 function renderTable() {
     let weekDates = getWeekDates();
     let htmlContent = '';
     htmlContent += `<div></div>`;
 
-    // == 渲染日期標題 =========================================
-    weekDates.forEach(date => {
-        htmlContent += `<div class = "title-date">${date.dateStr}<br>${date.dayName}</div>`;
+    // == 渲染日期標題（🌟 幫每一天加上 data-day 索引） ==========================
+    weekDates.forEach((date, index) => {
+        htmlContent += `<div class="title-date" data-day="${index}">${date.dateStr}<br>${date.dayName}</div>`;
     });
 
-    // == 選染狀態列 =============================================
+    // == 渲染狀態列（🌟 幫每個儲存格加上 data-day 與 data-type） ==================
     stateName.forEach(state => {
         htmlContent += `<div class="state-txt">${state}</div>`;
         for (let i = 0; i < 7; i++) {
             const storageKey = `${state}-${i}`;
             let saveImgSrc = localStorage.getItem(storageKey);
-            let nullImgSrc = './images/mood-plus.svg"';
+            let nullImgSrc = './images/mood-plus.svg'; // 💡 幫你修正了原本多出來的雙引號
             if (saveImgSrc) {
                 nullImgSrc = saveImgSrc;
             }
             htmlContent += `
-                        <div class="state-input ">
-                                <button class="btn-state-cell" data-type = "${state}" data-day="${i}">
-                                    <span class"moodPlus">
-                                        <img src="${nullImgSrc}" alt="" >
-                                    </span>
-                                </button>
-                                <div class="state-panel" >
-                                    <img src="./images/mood-smile.svg" alt="" class="btn-mood">
-                                    <img src="./images/mood-empty.svg" alt="" class="btn-mood">
-                                    <img src="./images/mood-sad.svg" alt="" class="btn-mood">
-                                </div>
-                        </div>
-                    `;
+                <div class="state-input" data-day="${i}" data-type="${state}">
+                    <button class="btn-state-cell" data-type="${state}" data-day="${i}">
+                        <span class="moodPlus">
+                            <img src="${nullImgSrc}" alt="">
+                        </span>
+                    </button>
+                    <div class="state-panel">
+                        <img src="./images/mood-smile.svg" alt="" class="btn-mood">
+                        <img src="./images/mood-empty.svg" alt="" class="btn-mood">
+                        <img src="./images/mood-sad.svg" alt="" class="btn-mood">
+                    </div>
+                </div>
+            `;
         }
     });
     stateTable.innerHTML = htmlContent;
 }
 
 renderTable();
+
+// == 🌟 手機版左右按鈕切換邏輯（直接複製貼上） ===================================
+let currentActiveDay = 4; // 預設顯示 6/4 (四) 這一天（索引值為 4）
+
+function switchMobileDay() {
+    // 1. 先把所有人身上的當前顯示類別拔掉
+    $('#stateTable > div').removeClass('current');
+
+    // 2. 只把當天符合 data-day 的 5 個元素（1個日期 + 4個狀態儲存格）集體加上 .current
+    $(`#stateTable > div[data-day="${currentActiveDay}"]`).addClass('current');
+}
+
+// 網頁載入時先執行一次
+switchMobileDay();
+
+// 綁定你的左右切換按鈕（請確保你 HTML 上的按鈕 id 叫 nextBtn 和 prevBtn）
+$('#nextBtn').on('click', function () {
+    if (currentActiveDay < 6) {
+        currentActiveDay++;
+        switchMobileDay();
+    }
+});
+
+$('#prevBtn').on('click', function () {
+    if (currentActiveDay > 0) {
+        currentActiveDay--;
+        switchMobileDay();
+    }
+});
 updateSummaryChart(); //  剛開網頁先統計並填滿長條圖
 
 // == 點擊按鈕出現狀態列 =======================================================
@@ -277,3 +301,15 @@ toDoCheck.forEach(item => {
     });
 });
 
+
+// == 寵物選擇點擊事件 =================================
+$('div.item').on('click', function () {
+    const HasClass = $(this).hasClass('_click');
+    if (HasClass) {
+        return;
+    }
+    $('div.item').removeClass('_click');
+    $(document).find('.pet-card-indi').find('img').attr('src', './images/fp-nofill.svg');
+    $(this).addClass('_click');
+    $(this).find('.pet-card-indi').find('img').attr('src', './images/footprint-dark.svg');
+});

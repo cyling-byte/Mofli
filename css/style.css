@@ -150,10 +150,9 @@ button:hover {
     }
 }
 
-/* 導覽列CSS ---------------------------------*/
-
-
-
+.fa-caret-down._rotate {
+    transform: rotate(180deg);
+}
 
 
 /* 頁尾  CSS ---------------------------------*/
@@ -215,22 +214,6 @@ footer {
     }
 }
 
-
-/* .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    flex-shrink: 0;
-}*/
-
-
-/*
-.footer-info span {
-    opacity: 1;
-} */
-
 /* 遮罩 ---------------------------------*/
 .mask {
     background: rgba(120, 106, 98, 0.12);
@@ -288,30 +271,8 @@ nav {
     }
 }
 
-/* ._mob-none {
-    display: none;
-} */
-
-
-/* ._desktop-none {
-    display: none;
-} */
-
-
 
 /* == 電腦 =============================================*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (width>1200px) {
 
@@ -449,6 +410,7 @@ nav {
 
 }
 
+/* == 平板 ==================================================== */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
 
     /* == 手機隱藏 ================================= */
@@ -475,8 +437,6 @@ nav {
         color: var(--primary-color);
         font-size: 1.5rem;
     }
-
-
 
     .nav-a {
         position: absolute;
@@ -545,11 +505,11 @@ nav {
     }
 
 
-    footer {
-        display: none;
-    }
+    
 
-    .-desktop {
+
+    /* == 頁尾 ====================================== */
+    footer {
         display: none;
     }
 }

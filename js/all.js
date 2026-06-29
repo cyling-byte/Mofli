@@ -11,7 +11,7 @@ $('#btn-hamburger').on('click', function () {
 
 // == 手機版--子選單 ============================================
 $('div.tabs').closest('a').on('click', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     const target = $(this).closest('li');
     activeSmoothEntry(target, 'ul.sub-project');
