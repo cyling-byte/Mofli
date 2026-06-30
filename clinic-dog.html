@@ -16,13 +16,11 @@
     <nav>
         <div class="logo">
             <a href="./index.html">
-                <div>
-                    <img src="./images/logotxt.svg" alt="">
-                </div>
+                <img src="./images/logotxt.svg" alt="Mofli Logo">
             </a>
         </div>
+
         <div class="nav-a">
-            <!-- 桌機版選單 ------------------------------------------------>
             <ul>
                 <li>
                     <a href="./index.html">
@@ -40,30 +38,22 @@
                         </div>
                     </a>
                 </li>
-                <li class="desktop-menu">
+                <li>
                     <a href="#">
                         <div class="tabs">
                             <i class="fa-solid fa-house-medical icon-size"></i>
                             <span>照護小屋</span>
-                            <i class="fa-solid fa-caret-down  _desktop-none"></i>
+                            <i class="fa-solid fa-caret-down _desktop-none"></i>
                         </div>
                     </a>
                     <ul class="sub-project">
-                        <li>
-                            <a href="./guide.html">新手指南</a>
-                        </li>
-                        <li>
-                            <a href="./clinic.html">診療室</a>
-                        </li>
-                        <li>
-                            <a href="#">找個醫生</a>
-                        </li>
-                        <li>
-                            <a href="#">交流所</a>
-                        </li>
+                        <li><a href="./guide.html">新手指南</a></li>
+                        <li><a href="./clinic.html">診療室</a></li>
+                        <li><a href="#">找個醫生</a></li>
+                        <li><a href="#">交流所</a></li>
                     </ul>
                 </li>
-                <li class="desktop-menu">
+                <li>
                     <a href="#">
                         <div class="tabs">
                             <i class="fa-solid fa-user icon-size"></i>
@@ -72,26 +62,24 @@
                         </div>
                     </a>
                     <ul class="sub-project">
+                        <li><a href="#">設定</a></li>
                         <li><a href="./login.html">登出</a></li>
-                        <li><a href="./login.html">設定</a></li>
                     </ul>
                 </li>
             </ul>
-            <!-- 提醒按鈕 ------------------------------------------------------>
-            <button class="notify">
+            <button class="notify" aria-label="通知">
                 <i class="fa-solid fa-bell icon-size"></i>
-            </button>
-        </div>
-        <!-- 漢堡選單 ------------------------------------------------->
-        <div class="ham-menu _desktop-none ">
-            <button class="notify">
-                <i class="fa-solid fa-bell icon-size"></i>
-            </button>
-            <button id="btn-hamburger">
-                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
+        <div class="ham-menu _desktop-none">
+            <button class="notify" aria-label="通知">
+                <i class="fa-solid fa-bell icon-size"></i>
+            </button>
+            <button id="btn-hamburger" aria-label="開啟選單" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
     <section>
