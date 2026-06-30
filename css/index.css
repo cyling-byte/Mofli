@@ -153,105 +153,6 @@ button:hover {
 }
 
 
-/* --- 寵物選擇區樣式 ------------------------------- */
-
-/* .pet-select {
-    .actions {
-        width: 60%;
-    }
-
-    ._next {
-        margin-left: auto;
-    }
-}
-
-.header-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-left: auto;
-
-    button {
-        display: flex;
-        gap: 8px;
-
-
-        span {
-            display: inline-block;
-            width: 1rem;
-            aspect-ratio: 1 / 1;
-
-        }
-    }
-
-    button:last-child {
-        gap: 4px;
-    }
-
-    button:hover {
-        color: var(--secondary-color);
-    }
-}
-
-.pet-card-list {
-    padding-inline: 1.5rem;
-    gap: 1.5rem;
-    align-items: stretch;
-    overflow: hidden;
-
-    .item {
-        width: 16.666666%;
-        min-width: 145px;
-        border-radius: 10px;
-        cursor: pointer;
-        /* flex: 1; */
-        /* transition: .3s; */
-
-        /* .pet-card-indi {
-            flex-direction: row-reverse;
-        }
-
-        >div {
-            padding: 0.5rem 1rem;
-            text-align: center;
-
-        }
-
-        .pet-card-img {
-            width: 100%;
-
-            div {
-                width: 100%;
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-                overflow: hidden;
-                margin: auto;
-
-                img {
-                    width: 100%;
-                    bottom: 100%;
-                    transform: translateY(-1%);
-                }
-            }
-        }
-
-        .pet-card-info {
-
-            >p {
-                padding-block: 4px;
-                font-size: 20px;
-
-                >span {
-                    font-size: 12px;
-                }
-            }
-        }
-    }
-
-    .item:hover {
-        background-color: var(--neutral-200);
-    } */
-/* }  */
 
 
 
@@ -763,7 +664,6 @@ button:hover {
 /* == 本周狀態 ======================================= */
 .dashboard-state {
     width: 100%;
-    /* gap: 2rem; */
     margin-top: 4rem;
     background-color: #fff;
     border-radius: 10px;
@@ -874,16 +774,11 @@ button:hover {
     left: 0;
 }
 
-/* 填滿顏色的那一條 */
 .longBar-fill {
-    /* height: 100%; */
     width: 0%;
-    /* 預設 0%，由 JS 動態改寫 width */
     position: absolute;
-    /* top: 0; */
     left: 0;
     border-radius: 20px;
-    /* 💡 加上這行，長條圖伸展時就會有非常漂亮的動畫效果 */
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 }
@@ -986,15 +881,28 @@ button:hover {
 
 
 ._show {
-    /* display: block !important; */
     transform: translateY(0) !important;
     opacity: 1 !important;
     transition: .4s !important;
 }
 
+
+#btn-close {
+    display: none;
+}
+
+#addEvent {
+    display: none;
+}
+
 /* == 手機 ======================================================== */
 @media screen and (width<768px) {
-
+    #btn-close {
+        display: block;
+    }
+    #addEvent{
+    display: block;
+}
 
     /* == 標題 =============================================== */
     .header {
@@ -1003,39 +911,6 @@ button:hover {
         }
     }
 
-    /* == 寵物選擇區 ==================================== */
-    /* .pet-select {
-        display: block;
-        margin: 0;
-        
-    }
-
-    .pet-card-list {
-        overflow-x: auto;
-
-
-        &::-webkit-scrollbar {
-            /* 隱藏卷軸 */
-            /* display: none;
-        }
-
-        .item {
-            display: flex;
-            min-width: 200px;
-            justify-content: center;
-            align-items: center;
-
-            .pet-card-indi {
-                display: none;
-            }
-
-            .pet-card-info {
-                flex: 1;
-                width: 100%;
-                flex-wrap: nowrap;
-            }
-        } */
-    /* } */ 
 
     /* == 毛孩身分證 =================================== */
     .pet-dashboard {
@@ -1047,7 +922,7 @@ button:hover {
             .dashboard-idcard {
                 width: 100%;
                 margin: auto;
-                /* padding-inline: 2rem; */
+
 
                 .header {
                     padding: 1rem;
@@ -1162,16 +1037,6 @@ button:hover {
                         display: block;
                     }
 
-
-                    /* >div.current {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                    } */
-
-
-
                     .title-date.current {
                         align-items: flex-start;
                         font-weight: bold;
@@ -1188,8 +1053,6 @@ button:hover {
                     }
 
                 }
-
-
 
             }
 
@@ -1236,8 +1099,12 @@ button:hover {
     .date-board {
         border: transparent;
         width: 100%;
-        overflow: visible;
+        /* overflow: visible; */
         position: relative;
+
+        .drawer {
+            display: block !important;
+        }
 
         button {
             font-size: 1rem;
@@ -1305,6 +1172,10 @@ button:hover {
         display: block;
     }
 
+    #btn-close {
+        display: none;
+    }
+
     .container {
         width: 100%;
 
@@ -1323,16 +1194,6 @@ button:hover {
         }
     }
 
-    /* == 寵物選擇區 ==================================== */
-/* 
-    .pet-card-list {
-        overflow-x: auto;
-
-        &::-webkit-scrollbar {
-            /* 隱藏卷軸 */
-            /* display: none; */
-        /* } */
-    /* } */ 
 
     /* == 毛孩身分證 =================================== */
     .pet-dashboard {

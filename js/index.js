@@ -275,9 +275,10 @@ document.querySelectorAll('.schedule-date').forEach(item => {
         const listItem = $(this).closest('.schedule-list');
         let iconItem = listItem.find('.fa-caret-down');
 
-        activeSmoothEntry(listItem, '.schedule-item',600);
+        activeSmoothEntry(listItem, '.schedule-item', 600);
         listItem.find('.schedule-date').toggleClass('_open');
         activeRotate(iconItem);
+
     });
 });
 
@@ -314,6 +315,8 @@ $('#addEvent').on('click', function () {
     setTimeout(function () {
         target.addClass('_show');
     }, 20);
+
+
 });
 
 // == 手機版-點擊關閉按鈕 ===================================
@@ -323,4 +326,11 @@ $('#btn-close').on('click', function () {
     setTimeout(function () {
         target.css('display', 'none');
     }, 400);
+    $(window).on('resize', function () {
+        let windowWidth = $(window).width();
+        if (windowWidth >= 768) {
+            $('.calendar').removeAttr('style');
+        }
+    });
+
 });
