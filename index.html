@@ -529,17 +529,22 @@
 
 
     <!-- 行事曆------------------------------------------>
-    <section class="_mob-none">
+    <section class="calendar-container">
         <div class="date-board">
-            <div class="calendar">
+            <div class="calendar drawer">
+                <div id="btn-close">
+                    <button>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
                 <div class="header">
                     <div>
                         <button id="back">
-                            <img src="./images/arrow-left.svg" alt="">
+                            <i class="fa-solid fa-angle-left"></i>
                         </button>
                         <div id="month"></div>
                         <button id="next">
-                            <img src="./images/arrow-right.svg" alt="">
+                            <i class="fa-solid fa-angle-right"></i>
                         </button>
                     </div>
                 </div>
@@ -565,7 +570,7 @@
                 <div>
                     <div class="header --flex">
                         <p>近期行程</p>
-                        <button class="">
+                        <button id="addEvent">
                             新增事件+
                         </button>
                     </div>
@@ -699,7 +704,7 @@
 
 
     <!-- main-footer ------------------------------------------>
-    <footer class="_mob-none">
+    <footer>
         <div>
             <div class="svg-style">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 100" fill="none">
@@ -710,13 +715,13 @@
             </div>
             <div class="footer-inner">
 
-                <div class="footer-logo">
+                <div class="footer-logo -desktop">
                     <img src="./images/logoFooter.svg" alt="">
                 </div>
                 <div class="footer-info">
 
                     <h1>Mofli</h1>
-                    <p>整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
+                    <p class="-desktop">整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
                     <ul class="--flex">
                         <li class="footer-link">
                             <a href="#">關於Mofli</a>

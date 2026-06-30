@@ -6,7 +6,7 @@
     font-display: swap;
 }
 
-* {
+:root {
     --primary-color: #786A62;
     /* 主色 */
     --secondary-color: #BAA087;
@@ -70,6 +70,7 @@ section {
     width: 100%;
     margin: 0 auto 60px;
     flex: 1;
+
 }
 
 button {
@@ -272,6 +273,174 @@ nav {
 }
 
 
+/* == 區塊標題 =========================================== */
+.header {
+    align-items: center;
+    gap: .5rem;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        padding-block: 2rem;
+    }
+}
+
+
+
+/* 寵物大頭照樣式 */
+.photo {
+    width: 100%;
+
+
+    .photo-bg,
+    .photo-front {
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid var(--secondary-txt);
+    }
+
+    .photo-bg {
+        position: relative;
+
+        .icon-tape {
+            width: 50%;
+            position: absolute;
+            top: -15%;
+            left: 20%;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                transform: rotate(10deg);
+            }
+        }
+    }
+
+    .photo-front {
+        padding: 0.5rem;
+        transform: rotate(-5deg);
+
+        .headshot {
+            border-radius: 5px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            margin: auto;
+            height: 100%;
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+            }
+        }
+
+        .icon-footprint {
+            padding-top: 0.5rem;
+        }
+    }
+}
+
+
+/* == 寵物選擇區樣式 =============================== */
+
+.pet-select {
+    .actions {
+        width: 60%;
+    }
+
+    ._next {
+        margin-left: auto;
+    }
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-left: auto;
+
+    button {
+        display: flex;
+        gap: 8px;
+
+
+        span {
+            display: inline-block;
+            width: 1rem;
+            aspect-ratio: 1 / 1;
+
+        }
+    }
+
+    button:last-child {
+        gap: 4px;
+    }
+
+    button:hover {
+        color: var(--secondary-color);
+    }
+}
+
+.pet-card-list {
+    padding-inline: 1.5rem;
+    gap: 1.5rem;
+    align-items: stretch;
+    overflow: hidden;
+
+    .item {
+        width: 16.666666%;
+        min-width: 145px;
+        border-radius: 10px;
+        cursor: pointer;
+        /* flex: 1; */
+        transition: .3s;
+
+        .pet-card-indi {
+            flex-direction: row-reverse;
+        }
+
+        >div {
+            padding: 0.5rem 1rem;
+            text-align: center;
+
+        }
+
+        .pet-card-img {
+            width: 100%;
+
+            div {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: auto;
+
+                img {
+                    width: 100%;
+                    bottom: 100%;
+                    transform: translateY(-1%);
+                }
+            }
+        }
+
+        .pet-card-info {
+
+            >p {
+                padding-block: 4px;
+                font-size: 20px;
+
+                >span {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .item:hover {
+        background-color: var(--neutral-200);
+    }
+}
+
 /* == 電腦 =============================================*/
 
 @media screen and (width>1200px) {
@@ -279,10 +448,6 @@ nav {
     ._desktop-none {
         display: none;
     }
-
-    /* ._mob-none {
-        display: inline-block;
-    } */
 
     /* == main--nav =========================================*/
     nav {
@@ -372,13 +537,9 @@ nav {
                     }
                 }
 
-
-
                 a {
                     display: flex;
                     position: relative;
-
-
 
                     .tabs {
                         display: flex;
@@ -410,7 +571,7 @@ nav {
 
 }
 
-/* == 平板 ==================================================== */
+/* == 平板 ================================================ */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
 
     /* == 手機隱藏 ================================= */
@@ -449,19 +610,16 @@ nav {
         transform: translateX(100%);
         transition: transform 0.3s ease;
         padding: 1rem 2rem;
-        /* text-align: center; */
+
         z-index: 2;
 
         ul {
 
             width: 100%;
             display: block;
-            /* background-color: #fff; */
-            /* padding: 0 5rem; */
 
             li {
 
-                /* background-color: orange; */
                 a {
                     padding: .5rem;
                 }
@@ -473,7 +631,7 @@ nav {
                     li {
                         padding-block: 1rem;
                         border-bottom: 1px solid var(--neutral-100);
-                        /* background-color: orange; */
+
 
                         &:last-child {
                             border-bottom: none;
@@ -505,12 +663,14 @@ nav {
     }
 
 
-    
 
+    .pet-card-list {
+        overflow-x: auto;
 
-    /* == 頁尾 ====================================== */
-    footer {
-        display: none;
+        &::-webkit-scrollbar {
+            /* 隱藏卷軸 */
+            display: none;
+        }
     }
 }
 
@@ -525,7 +685,6 @@ nav {
     /* == nav樣式 ============================== */
     nav {
         padding-inline: 1rem;
-        /* width: 100%; */
         max-width: 100%;
         position: relative;
     }
@@ -550,24 +709,18 @@ nav {
 
 
         top: 100%;
-        /* background-color: orange; */
         right: 0;
         transform: translateX(100%);
         transition: transform 0.3s ease;
         padding: 1rem 2rem;
-        /* text-align: center; */
         z-index: 2;
 
         ul {
 
             width: 100%;
             display: block;
-            /* background-color: #fff; */
-            /* padding: 0 5rem; */
 
             li {
-
-                /* background-color: orange; */
                 a {
                     padding: .5rem;
                 }
@@ -579,7 +732,6 @@ nav {
                     li {
                         padding-block: 1rem;
                         border-bottom: 1px solid var(--neutral-100);
-                        /* background-color: orange; */
 
                         &:last-child {
                             border-bottom: none;
@@ -610,9 +762,62 @@ nav {
         }
     }
 
+    /* == 寵物選擇區 ==================================== */
+    .pet-select {
+        display: block;
+        margin: 0;
+        /* padding-block: 2rem; */
+        /* .cotent{
+            
+        } */
+    }
 
+    .pet-card-list {
+        overflow-x: auto;
+        /* padding-bottom: 1rem; */
+
+        &::-webkit-scrollbar {
+            /* 隱藏卷軸 */
+            display: none;
+        }
+
+        .item {
+            display: flex;
+            min-width: 200px;
+            justify-content: center;
+            align-items: center;
+
+            .pet-card-indi {
+                display: none;
+            }
+
+            .pet-card-info {
+                flex: 1;
+                width: 100%;
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+    /* == 頁尾 ============================================ */
     footer {
-        display: none;
+        .svg-style {
+            display: none;
+        }
+
+        .footer-inner {
+            padding-block: 2rem;
+            font-size: 14px;
+
+            h1 {
+                font-size: 1.5rem;
+                display: none;
+            }
+
+            ul {
+                gap: .5rem;
+            }
+        }
     }
 
     .-desktop {

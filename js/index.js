@@ -266,14 +266,16 @@ function history() {
     }
 }
 
+
+//== 展開近期行程 =============================================
 document.querySelectorAll('.schedule-date').forEach(item => {
-    // console.log(item);
+
     item.addEventListener('click', function () {
-        // console.log(this);
+
         const listItem = $(this).closest('.schedule-list');
         let iconItem = listItem.find('.fa-caret-down');
-        // listItem.find('.schedule-item').slideToggle(600);
-        activeSmoothEntry(listItem, '.schedule-item');
+
+        activeSmoothEntry(listItem, '.schedule-item',600);
         listItem.find('.schedule-date').toggleClass('_open');
         activeRotate(iconItem);
     });
@@ -302,14 +304,23 @@ toDoCheck.forEach(item => {
 });
 
 
-// == 寵物選擇點擊事件 =================================
-$('div.item').on('click', function () {
-    const HasClass = $(this).hasClass('_click');
-    if (HasClass) {
-        return;
-    }
-    $('div.item').removeClass('_click');
-    $(document).find('.pet-card-indi').find('img').attr('src', './images/fp-nofill.svg');
-    $(this).addClass('_click');
-    $(this).find('.pet-card-indi').find('img').attr('src', './images/footprint-dark.svg');
+
+
+
+// == 手機板-新增事件 ========================================
+$('#addEvent').on('click', function () {
+    const target = $(this).closest('div.date-board').find('div.drawer');
+    target.css('display', 'block');
+    setTimeout(function () {
+        target.addClass('_show');
+    }, 20);
+});
+
+// == 手機版-點擊關閉按鈕 ===================================
+$('#btn-close').on('click', function () {
+    const target = $(this).closest('div.date-board').find('div.drawer');
+    target.removeClass('_show');
+    setTimeout(function () {
+        target.css('display', 'none');
+    }, 400);
 });

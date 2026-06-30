@@ -133,7 +133,52 @@ section {
     }
 }
 
+
+/* == 狗狗診療室常見症狀按鈕 ============================ */
 .dog {
+    .hp-btn {
+        z-index: 1;
+    }
+
+    .hp-btn:nth-child(1),
+    .breathing-light:nth-child(7) {
+        top: 26%;
+        left: 25%;
+    }
+
+    .hp-btn:nth-child(2),
+    .breathing-light:nth-child(8) {
+        top: 28%;
+        left: 3%;
+    }
+
+    .hp-btn:nth-child(3),
+    .breathing-light:nth-child(9) {
+        top: 62%;
+        left: 33%;
+    }
+
+    .hp-btn:nth-child(4),
+    .breathing-light:nth-child(10) {
+        top: 64%;
+        left: 67%;
+    }
+
+    .hp-btn:nth-child(5),
+    .breathing-light:nth-child(11) {
+        top: 50%;
+        left: 48%;
+    }
+
+    .hp-btn:nth-child(6),
+    .breathing-light:nth-child(12) {
+        top: 45%;
+        left: 75%;
+    }
+}
+
+/* == 貓貓診療室常見症狀按鈕 ============================ */
+.cat {
     .hp-btn {
         z-index: 1;
     }

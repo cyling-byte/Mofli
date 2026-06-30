@@ -28,6 +28,7 @@ section {
     height: 100vh;
     padding: 40px;
     display: flex;
+    
 }
 
 .bottomimg {
@@ -54,6 +55,7 @@ section {
     isolation: isolate;
     min-width: 300px;
     font-size: 12px;
+    background-color: #fff;
 
     a {
         color: var(--secondary-color);
@@ -272,6 +274,13 @@ section {
     }
 }
 
+.img-playcat{
+    position: absolute;
+    bottom: 0;
+    right: -90%;
+    width: 100%;
+}
+
 .login::before {
     background-color: #fff;
     z-index: -1;
@@ -289,4 +298,20 @@ section {
     position: absolute;
     inset: 0;
     border-radius: 10px;
+    width: 100%;
+}
+
+/* == 手機版 ============================================*/
+
+@media screen and (width<768px) {
+    .img-playcat{
+        display: none;
+        
+    }
+    body,html{
+        overflow: hidden;
+    }
+    .login{
+        /* width: 80%; */
+    }
 }

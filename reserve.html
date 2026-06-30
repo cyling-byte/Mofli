@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mofli | 成長紀錄</title>
-    <link rel="icon" href="./images/logo.svg" type="image/svg">
+    <link rel="icon" href="./images/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/reserve.css">
@@ -13,16 +13,15 @@
 </head>
 
 <body>
-     <nav>
+    <!-- nav -------------------------------------->
+    <nav>
         <div class="logo">
             <a href="./index.html">
-                <div>
-                    <img src="./images/logotxt.svg" alt="">
-                </div>
+                <img src="./images/logotxt.svg" alt="Mofli Logo">
             </a>
         </div>
+
         <div class="nav-a">
-            <!-- 桌機版選單 ------------------------------------------------>
             <ul>
                 <li>
                     <a href="./index.html">
@@ -40,30 +39,22 @@
                         </div>
                     </a>
                 </li>
-                <li class="desktop-menu">
+                <li>
                     <a href="#">
                         <div class="tabs">
                             <i class="fa-solid fa-house-medical icon-size"></i>
                             <span>照護小屋</span>
-                            <i class="fa-solid fa-caret-down  _desktop-none"></i>
+                            <i class="fa-solid fa-caret-down _desktop-none"></i>
                         </div>
                     </a>
                     <ul class="sub-project">
-                        <li>
-                            <a href="./guide.html">新手指南</a>
-                        </li>
-                        <li>
-                            <a href="./clinic.html">診療室</a>
-                        </li>
-                        <li>
-                            <a href="#">找個醫生</a>
-                        </li>
-                        <li>
-                            <a href="#">交流所</a>
-                        </li>
+                        <li><a href="./guide.html">新手指南</a></li>
+                        <li><a href="./clinic.html">診療室</a></li>
+                        <li><a href="#">找個醫生</a></li>
+                        <li><a href="#">交流所</a></li>
                     </ul>
                 </li>
-                <li class="desktop-menu">
+                <li>
                     <a href="#">
                         <div class="tabs">
                             <i class="fa-solid fa-user icon-size"></i>
@@ -72,32 +63,31 @@
                         </div>
                     </a>
                     <ul class="sub-project">
-                        <li><a href="./login.html">登出</a></li>
                         <li><a href="./login.html">設定</a></li>
+                        <li><a href="./login.html">登出</a></li>
                     </ul>
                 </li>
             </ul>
-            <!-- 提醒按鈕 ------------------------------------------------------>
-            <button class="notify">
+            <button class="notify" aria-label="通知">
                 <i class="fa-solid fa-bell icon-size"></i>
             </button>
         </div>
-        <!-- 漢堡選單 ------------------------------------------------->
-        <div class="ham-menu _desktop-none ">
-            <button class="notify">
+
+        <div class="ham-menu _desktop-none">
+            <button class="notify" aria-label="通知">
                 <i class="fa-solid fa-bell icon-size"></i>
             </button>
-            <button id="btn-hamburger">
+            <button id="btn-hamburger" aria-label="開啟選單" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-
     </nav>
 
+    <!-- 檔案管理室 -------------------------------------->
     <section>
         <div class="wrapper">
             <div class="header">
-                <div class="left-content">
+                <div class="filelog-title">
                     <div class="rs-title">
                         <h1>檔案管理室</h1>
                         <div>
@@ -135,35 +125,120 @@
                         <li>
                             <button>
                                 <img src="./images/PDF.svg" alt="">
-                                <span>匯出PDF</span>
+                                <span>匯出 PDF</span>
                             </button>
                         </li>
                     </ul>
                 </div>
             </div>
+
             <div class="container">
                 <div class="file-name">
-                    <button class="shadowstyle">
-                        <span>Mofli的檔案</span>
-                    </button>
-                    <button class="shadowstyle hidden">
-                        <span>Luna的檔案</span>
-                    </button>
-                    <button class="shadowstyle hidden">
-                        <span>Bobi的檔案</span>
-                    </button>
+                    <ul>
+                        <li id="pet-name">
+                            <span>Mofli 的檔案</span>
+                            <i class="fa-solid fa-caret-down"></i>
+                            <ul class="pets">
+                                <li><a href="#" class="file-item" data-name="mofli">Mofli 的檔案</a></li>
+                                <li><a href="#" class="file-item" data-name="luna">Luna 的檔案</a></li>
+                                <li><a href="#" class="file-item" data-name="bobi">Bobi 的檔案</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
                 </div>
-                <div class="file-content shadowstyle">
+
+                <!-- Mofli 檔案內容 -->
+                <div class="file-content shadowstyle" data-file="mofli">
                     <div>
+                        <!-- 左側：照片 + 備註 -->
                         <div class="file-left">
-                            <div>
-                                <div class="bgstyle shadowstyle">
-                                    <div class="file-img shadowstyle">
-                                        <img src="./images/adhesive-tape.svg" alt="" width="100px">
-                                        <div class="mid-img">
+                            <div class="photo">
+                                <div class="photo-bg">
+                                    <div class="icon-tape _mob-none">
+                                        <img src="./images/adhesive-tape.svg" alt="">
+                                    </div>
+                                    <div class="photo-front">
+                                        <div class="headshot">
                                             <img src="./images/cat.jpg" alt="">
                                         </div>
-                                        <div class="bottom-img rotate">
+                                        <div class="icon-footprint icon--rotate">
+                                            <img src="./images/fp-nofill.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="remark shadowstyle">
+                                <div class="title rotate">
+                                    <div>
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                    <p>備註</p>
+                                    <button>
+                                        修改
+                                    </button>
+                                </div>
+                                <div class="remark-txt">
+                                    <p>下次回診需抽血</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 右側：基本資料 + 健康資訊 -->
+                        <div class="file-right">
+                            <div class="info shadowstyle">
+                                <div class="title">
+                                    <div class="rotate">
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                    <p>基本資料</p>
+                                </div>
+                                <div class="content">
+                                    <div class="file-info">
+                                        <div><span>姓名</span><span>Mofli</span></div>
+                                        <div><span>生日</span><span>2024/05/26</span></div>
+                                        <div><span>品種</span><span>布偶貓</span></div>
+                                        <div><span>年齡</span><span>2 歲 3 月</span></div>
+                                        <div><span>性別</span><span>公</span></div>
+                                        <div><span>體重</span><span>4.3 公斤</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="health shadowstyle">
+                                <div class="title">
+                                    <div class="rotate">
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                    <p>健康資訊</p>
+                                </div>
+                                <div class="content">
+                                    <div class="file-info">
+                                        <div><span>結紮狀況</span><span>已完成</span></div>
+                                        <div><span>疫苗狀態</span><span>已完成</span></div>
+                                        <div><span>過敏史</span><span>無</span></div>
+                                        <div><span>慢性病</span><span>無</span></div>
+                                        <div><span>晶片號碼</span><span>202606091232231</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luna 檔案內容 -->
+                <div class="file-content shadowstyle hidden" data-file="luna">
+                    <div>
+                        <div class="file-left">
+                            <div class="photo">
+                                <div class="photo-bg">
+                                    <div class="icon-tape _mob-none">
+                                        <img src="./images/adhesive-tape.svg" alt="">
+                                    </div>
+                                    <div class="photo-front">
+                                        <div class="headshot">
+                                            <img src="./images/dog1.jpg" alt="">
+                                        </div>
+                                        <div class="icon-footprint icon--rotate">
                                             <img src="./images/fp-nofill.svg" alt="">
                                         </div>
                                     </div>
@@ -177,9 +252,7 @@
                                     <p>備註</p>
                                 </div>
                                 <div class="remark-txt">
-                                    <p>
-                                        下次回診需抽血
-                                    </p>
+                                    <p>每月需定期除蚤</p>
                                 </div>
                             </div>
                         </div>
@@ -193,24 +266,12 @@
                                 </div>
                                 <div class="content">
                                     <div class="file-info">
-                                        <div>
-                                            <span>姓名</span><span>Mofli</span>
-                                        </div>
-                                        <div>
-                                            <span>生日</span><span>2024/05/26</span>
-                                        </div>
-                                        <div>
-                                            <span>品種</span><span>布偶貓</span>
-                                        </div>
-                                        <div>
-                                            <span>年齡</span><span>2歲3月</span>
-                                        </div>
-                                        <div>
-                                            <span>性別</span><span>公</span>
-                                        </div>
-                                        <div>
-                                            <span>體重</span><span>4.3公斤</span>
-                                        </div>
+                                        <div><span>姓名</span><span>Luna</span></div>
+                                        <div><span>生日</span><span>2023/11/02</span></div>
+                                        <div><span>品種</span><span>柯基犬</span></div>
+                                        <div><span>年齡</span><span>2 歲 7 月</span></div>
+                                        <div><span>性別</span><span>母</span></div>
+                                        <div><span>體重</span><span>11.3 公斤</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -223,31 +284,94 @@
                                 </div>
                                 <div class="content">
                                     <div class="file-info">
-                                        <div>
-                                            <span>結紮狀況</span><span>已完成</span>
-                                        </div>
-                                        <div>
-                                            <span>疫苗狀態</span><span>已完成</span>
-                                        </div>
-                                        <div>
-                                            <span>晶片號碼</span><span>202606091232231</span>
-                                        </div>
-                                        <div>
-                                            <span>過敏史</span><span>無</span>
-                                        </div>
-                                        <div>
-                                            <span>慢性病</span><span>無</span>
-                                        </div>
+                                        <div><span>結紮狀況</span><span>已完成</span></div>
+                                        <div><span>疫苗狀態</span><span>已完成</span></div>
+                                        <div><span>過敏史</span><span>雞肉</span></div>
+                                        <div><span>慢性病</span><span>無</span></div>
+                                        <div><span>晶片號碼</span><span>202405171123456</span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Bobi 檔案內容 -->
+                <div class="file-content shadowstyle hidden" data-file="bobi">
+                    <div>
+                        <div class="file-left">
+                            <div class="photo">
+                                <div class="photo-bg">
+                                    <div class="icon-tape _mob-none">
+                                        <img src="./images/adhesive-tape.svg" alt="">
+                                    </div>
+                                    <div class="photo-front">
+                                        <div class="headshot">
+                                            <img src="./images/dog3.jpg" alt="">
+                                        </div>
+                                        <div class="icon-footprint icon--rotate">
+                                            <img src="./images/fp-nofill.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="remark shadowstyle">
+                                <div class="title rotate">
+                                    <div>
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                    <p>備註</p>
+                                </div>
+                                <div class="remark-txt">
+                                    <p>對特定花粉有輕微過敏反應</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="file-right">
+                            <div class="info shadowstyle">
+                                <div class="title">
+                                    <div class="rotate">
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                    <p>基本資料</p>
+                                </div>
+                                <div class="content">
+                                    <div class="file-info">
+                                        <div><span>姓名</span><span>Bobi</span></div>
+                                        <div><span>生日</span><span>2022/03/14</span></div>
+                                        <div><span>品種</span><span>薩摩耶</span></div>
+                                        <div><span>年齡</span><span>4 歲 3 月</span></div>
+                                        <div><span>性別</span><span>母</span></div>
+                                        <div><span>體重</span><span>18.6 公斤</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="health shadowstyle">
+                                <div class="title">
+                                    <div class="rotate">
+                                        <img src="./images/fp-nofill.svg" alt="">
+                                    </div>
+                                    <p>健康資訊</p>
+                                </div>
+                                <div class="content">
+                                    <div class="file-info">
+                                        <div><span>結紮狀況</span><span>已完成</span></div>
+                                        <div><span>疫苗狀態</span><span>已完成</span></div>
+                                        <div><span>過敏史</span><span>花粉</span></div>
+                                        <div><span>慢性病</span><span>輕度關節炎</span></div>
+                                        <div><span>晶片號碼</span><span>202203140098712</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- footer -------------------------------------->
     <footer>
         <div>
             <div class="svg-style">
@@ -259,13 +383,13 @@
             </div>
             <div class="footer-inner">
 
-                <div class="footer-logo">
+                <div class="footer-logo -desktop">
                     <img src="./images/logoFooter.svg" alt="">
                 </div>
                 <div class="footer-info">
 
                     <h1>Mofli</h1>
-                    <p>整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
+                    <p class="-desktop">整合雲端病例及健康紀錄管理，讓飼主與獸醫都能輕鬆掌握毛孩的健康狀況。</p>
                     <ul class="--flex">
                         <li class="footer-link">
                             <a href="#">關於Mofli</a>
@@ -285,8 +409,35 @@
             </div>
         </div>
     </footer>
+
+    <div class="mask" id="mask" aria-hidden="true"></div>
+
     <script src="./vendors/jquery-4.0.0.min.js"></script>
     <script src="./js/all.js"></script>
+    <script>
+        const filetabs = document.querySelectorAll('.pets a[data-name]');
+        const filecontent = document.querySelectorAll('.file-content[data-file]');
+        filetabs.forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = tab.dataset.name;
+
+                filetabs.forEach(t => {
+                    t.classList.remove('active');
+                });
+
+                tab.classList.add('active');
+
+                filecontent.forEach(content => {
+                    if (content.dataset.file === target) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
